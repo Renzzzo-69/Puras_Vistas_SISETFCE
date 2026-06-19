@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Perfil - SISET-FCE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#72f8df",
+                        "on-secondary-fixed": "#00201b",
+                        "surface-tint": "#4b5c94",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-primary-fixed-variant": "#33447b",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "on-tertiary-container": "#eac46e",
+                        "outline-variant": "#c5c6d1",
+                        "inverse-on-surface": "#f0f0f6",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#6ff5dc",
+                        "primary-container": "#405189",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "primary-fixed": "#dce1ff",
+                        "on-secondary-container": "#007060",
+                        "surface": "#f9f9ff",
+                        "secondary": "#006b5c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e2e2e8",
+                        "background": "#f3f3f9", /* Level 0 base */
+                        "outline": "#757681",
+                        "tertiary": "#4e3a00",
+                        "surface-container": "#ededf3",
+                        "on-secondary-fixed-variant": "#005045",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c20",
+                        "on-primary-container": "#b7c6ff",
+                        "surface-container-highest": "#e2e2e8",
+                        "on-primary-fixed": "#00164d",
+                        "primary": "#283a70",
+                        "tertiary-fixed": "#ffdf9b",
+                        "surface-container-high": "#e7e8ee",
+                        "inverse-surface": "#2e3035",
+                        "inverse-primary": "#b5c4ff",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#45464f",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#6b5000",
+                        "on-surface": "#191c20",
+                        "surface-dim": "#d9d9df",
+                        "surface-container-low": "#f3f3f9",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-margin": "1.5rem",
+                        "card-padding": "1.5rem",
+                        "sidebar-width": "250px",
+                        "gutter": "1.25rem",
+                        "header-height": "70px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ambient shadow for level 1 surfaces */
+        .card-shadow {
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Focus styles for inputs */
+        .form-input:focus {
+            border-color: #283a70;
+            /* primary */
+            box-shadow: 0 0 0 3px rgba(181, 196, 255, 0.5);
+            /* primary-fixed-dim */
+            outline: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+    <!-- SideNavBar -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary dark:bg-primary-container z-40">
+        <div class="flex flex-col h-full pt-[20px] pb-[20px]">
+            <!-- Header section of sidebar -->
+            <div class="px-6 mb-8 flex flex-col items-center text-center">
+                <div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center mb-3">
+                    <span class="material-symbols-outlined text-primary text-3xl"
+                        style="font-variation-settings: 'FILL' 1;">person</span>
+                </div>
+                <h2 class="font-headline-md text-headline-md font-bold text-on-primary">SISET-FCE</h2>
+                <p class="font-label-md text-label-md text-on-primary opacity-80 mt-1">Facultad de Ciencias Económicas
+                </p>
+            </div>
+            <!-- Navigation Tabs -->
+            <nav class="flex-1 overflow-y-auto py-2">
+                <ul class="space-y-1">
+                    <!-- Inactive Tabs -->
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">dashboard</span>
+                            Principal
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">analytics</span>
+                            Mi Panel
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">app_registration</span>
+                            Registrar Expediente
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">folder_shared</span>
+                            Mi Expediente
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">edit_note</span>
+                            Observaciones y Subsanaciones
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">school</span>
+                            Tesis Final
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">description</span>
+                            Documentos y Resoluciones
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">format_list_bulleted</span>
+                            Formatos Oficiales
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">groups</span>
+                            Asesor y Jurados
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">calendar_month</span>
+                            Agenda Académica
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]">notifications</span>
+                            Notificaciones
+                        </a>
+                    </li>
+                    <!-- Active Tab -->
+                    <li>
+                        <a class="flex items-center px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 opacity-80 transition-all duration-200 font-label-md text-label-md"
+                            href="#">
+                            <span class="material-symbols-outlined mr-3 text-[20px]"
+                                style="font-variation-settings: 'FILL' 1;">person</span>
+                            Perfil
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Footer Tab -->
+            <div class="mt-auto pt-4 border-t border-primary-container mx-4">
+                <a class="flex items-center px-4 py-3 text-on-primary hover:bg-primary-container transition-colors rounded-lg font-label-md text-label-md"
+                    href="#">
+                    <span class="material-symbols-outlined mr-3 text-[20px]">settings</span>
+                    Configuración
+                </a>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Content Wrapper -->
+    <div class="flex-1 ml-[250px] flex flex-col min-h-screen">
+        <!-- TopNavBar -->
+        <header
+            class="fixed top-0 right-0 left-0 md:left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-white border-b border-outline-variant">
+            <div class="flex items-center gap-6">
+                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+                <nav class="hidden md:flex gap-4 h-full">
+                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                        href="#">Tesista</a>
+                </nav>
+            </div>
+            <div class="flex-1 max-w-md mx-8">
+                <div class="relative">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                    <input
+                        class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-md focus:ring-2 focus:ring-primary/20"
+                        placeholder="Buscar..." type="text">
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="h-8 w-px bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <div class="flex flex-col text-right">
+                        <span class="font-label-md text-label-md text-primary">Perfil</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    </div>
+                    <img alt="Avatar de Tesista"
+                        class="w-10 h-10 rounded-full object-cover border border-outline-variant group-hover:scale-105 transition-transform"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuArprXUNrxjWfizF5iS3Li4usu3_XTRucMii7p2hAA6GiTFpK02p8RpZh6Al2sKIOzol1ocX1XufiVBsY5akgFJeWEUgcCDrJumSaztlGv-oFX1ISLHakfV1Hm5Oz7i7xgbv1qJMkv6sCWfKypMcTNVVyztOTB-qYLGwfW-xAXLzB_iArl1XZLJ237srxcT7_VpI01MYSn_H5hKAOuaOJ-zJCjLXpUrWYZk3lRpbSZNlIk0LWRKfctFJsTWqFzQy5u8PkJtweZvQG4">
+                </div>
+            </div>
+        </header>
+        <!-- Main Canvas -->
+        <main class="flex-1 mt-[70px] p-container-margin">
+            <div class="mb-6">
+                <h2 class="font-headline-lg text-headline-lg text-on-background">Configuración de Usuario</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1">Gestiona tus datos personales,
+                    información de contacto y preferencias visuales.</p>
+            </div>
+            <!-- Bento Grid Layout for Profile Sections -->
+            <div class="grid grid-cols-12 gap-gutter">
+                <!-- Left Column (4 columns) -->
+                <div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+                    <!-- Profile Summary Card -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl card-shadow p-card-padding flex flex-col items-center text-center">
+                        <div class="relative mb-4">
+                            <img alt="Avatar"
+                                class="w-24 h-24 rounded-full object-cover border-4 border-surface-bright shadow-sm"
+                                data-alt="A professional headshot of a male university student or young professional against a clean, light grey studio background. The lighting is soft and corporate, highlighting a modern, authoritative yet approachable look suitable for an academic platform."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ0SElm1_5SeYJvrGrgx6TGhcsMcuO1w_4StBYXCixQaGFJk8T5Ni3s_Tz0DhU7Uy4UQ4NbVv3c7svv3MCnjXFjLuwf-m1ncr6M2i0wUTs11C-1AmUw3ZjVvHGIvMNjOkkvXsdruvshjF3mv-UxH9ZVHq0-xA847TWg9M7wJWB8aniJB0KLjY3lvXAGn7IpmSs_mseSlexvOPHDd2cABpuAH4iJZ9qIZey1xV2X4scletMK2xiQwbKgEypPNy9XMPeXmnqT0WS_3Q">
+                            <button
+                                class="absolute bottom-0 right-0 bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm">
+                                <span class="material-symbols-outlined text-[16px]">edit</span>
+                            </button>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface mb-1">Carlos Mendoza Vega</h3>
+                        <span
+                            class="inline-block bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm px-3 py-1 rounded-full mb-4">Tesista
+                            Activo</span>
+                        <div class="w-full border-t border-outline-variant pt-4 flex justify-between text-left">
+                            <div>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+                                    Expediente</p>
+                                <p class="font-body-md text-body-md text-on-surface font-medium">EXP-2024-0892</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+                                    Estado</p>
+                                <p
+                                    class="font-body-md text-body-md text-secondary font-medium flex items-center justify-end gap-1">
+                                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                                    En curso
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Visual Configuration Card -->
+                    <div class="bg-surface-container-lowest rounded-xl card-shadow p-card-padding">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-primary">palette</span>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface">Configuración Visual</h3>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Ajusta la apariencia de la
+                            plataforma según tu preferencia.</p>
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center justify-between p-3 border border-primary bg-primary-fixed-dim bg-opacity-20 rounded-lg cursor-pointer">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary">light_mode</span>
+                                    <span class="font-body-md text-body-md text-on-surface font-medium">Modo
+                                        Claro</span>
+                                </div>
+                                <input checked=""
+                                    class="form-radio text-primary focus:ring-primary h-4 w-4 border-outline"
+                                    name="theme" type="radio" value="light">
+                            </label>
+                            <label
+                                class="flex items-center justify-between p-3 border border-outline-variant hover:bg-surface-container rounded-lg cursor-pointer transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-on-surface-variant">dark_mode</span>
+                                    <span class="font-body-md text-body-md text-on-surface font-medium">Modo
+                                        Oscuro</span>
+                                </div>
+                                <input class="form-radio text-primary focus:ring-primary h-4 w-4 border-outline"
+                                    name="theme" type="radio" value="dark">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column (8 columns) -->
+                <div class="col-span-12 lg:col-span-8 flex flex-col gap-gutter">
+                    <!-- Validation/Success Message (Contextual) -->
+                    <div class="bg-[#d1fae5] border border-[#10b981] rounded-lg p-4 flex items-start gap-3">
+                        <span class="material-symbols-outlined text-[#047857]">check_circle</span>
+                        <div>
+                            <h4 class="font-headline-sm text-headline-sm text-[#065f46]">Perfil Actualizado</h4>
+                            <p class="font-body-md text-body-md text-[#064e3b] mt-1">Los datos de contacto se han
+                                guardado exitosamente.</p>
+                        </div>
+                    </div>
+                    <!-- Personal Data (Read-Only) -->
+                    <div class="bg-surface-container-lowest rounded-xl card-shadow p-card-padding">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">badge</span>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Datos Personales</h3>
+                            </div>
+                            <span
+                                class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-1 rounded">Solo
+                                lectura</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label
+                                    class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Nombres
+                                    Completos</label>
+                                <div
+                                    class="w-full p-3 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface">
+                                    Carlos Eduardo Mendoza Vega
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Documento
+                                    de Identidad (DNI)</label>
+                                <div
+                                    class="w-full p-3 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface">
+                                    74839201
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Facultad</label>
+                                <div
+                                    class="w-full p-3 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface">
+                                    Ciencias Económicas
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Programa
+                                    Académico</label>
+                                <div
+                                    class="w-full p-3 bg-surface border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface">
+                                    Economía Internacional
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Data (Editable) -->
+                    <div class="bg-surface-container-lowest rounded-xl card-shadow p-card-padding">
+                        <div class="flex items-center gap-2 mb-5">
+                            <span class="material-symbols-outlined text-primary">contact_mail</span>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface">Datos de Contacto</h3>
+                        </div>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Email Field -->
+                                <div>
+                                    <label class="block font-label-md text-label-md text-on-surface mb-1"
+                                        for="email">Correo Electrónico Institucional <span
+                                            class="text-error">*</span></label>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <span class="material-symbols-outlined text-outline text-[18px]">mail</span>
+                                        </div>
+                                        <input
+                                            class="form-input block w-full pl-10 pr-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface placeholder-outline focus:border-primary focus:ring-1 focus:ring-primary"
+                                            id="email" required="" type="email" value="cmendoza@fce.edu.pe">
+                                    </div>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Este correo se
+                                        usará para notificaciones oficiales.</p>
+                                </div>
+                                <!-- Phone Field -->
+                                <div>
+                                    <label class="block font-label-md text-label-md text-on-surface mb-1"
+                                        for="phone">Celular Personal <span class="text-error">*</span></label>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <span
+                                                class="material-symbols-outlined text-outline text-[18px]">smartphone</span>
+                                        </div>
+                                        <input
+                                            class="form-input block w-full pl-10 pr-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface placeholder-outline focus:border-primary focus:ring-1 focus:ring-primary"
+                                            id="phone" required="" type="tel" value="987654321">
+                                    </div>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Solo para
+                                        contacto urgente por parte de coordinación.</p>
+                                </div>
+                            </div>
+                            <!-- Actions -->
+                            <div class="flex justify-end gap-3 pt-4 border-t border-outline-variant">
+                                <button
+                                    class="px-4 py-2 bg-surface hover:bg-surface-container border border-outline-variant text-on-surface rounded-lg font-label-md text-label-md transition-colors"
+                                    type="button">
+                                    Descartar Cambios
+                                </button>
+                                <button
+                                    class="px-4 py-2 bg-[#405189] hover:bg-[#283a70] text-white rounded-lg font-label-md text-label-md transition-colors shadow-sm flex items-center gap-2"
+                                    type="submit">
+                                    <span class="material-symbols-outlined text-[18px]">save</span>
+                                    Guardar Cambios
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="ml-0 w-full bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant flex justify-between items-center p-4 mt-auto z-30">
+            <div class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-background">
+                © 2024 Facultad de Ciencias Económicas - SISET. Todos los derechos reservados. OS: Web Cloud
+            </div>
+            <div class="flex gap-4">
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                    href="#">Términos y Condiciones</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                    href="#">Soporte Técnico</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                    href="#">Privacidad</a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
