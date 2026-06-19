@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mi Expediente - SISET-FCE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#33447b",
+                        "tertiary": "#4e3a00",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-container": "#eac46e",
+                        "surface-container-low": "#f3f3f9",
+                        "surface-container-highest": "#e2e2e8",
+                        "on-surface": "#191c20",
+                        "surface": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "primary": "#283a70",
+                        "inverse-surface": "#2e3035",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#ededf3",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-secondary-fixed-variant": "#005045",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#6ff5dc",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c5c6d1",
+                        "inverse-on-surface": "#f0f0f6",
+                        "on-secondary-fixed": "#00201b",
+                        "primary-container": "#405189",
+                        "surface-container-high": "#e7e8ee",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b5c4ff",
+                        "outline": "#757681",
+                        "tertiary-fixed": "#ffdf9b",
+                        "background": "#f9f9ff",
+                        "surface-tint": "#4b5c94",
+                        "secondary-fixed": "#72f8df",
+                        "secondary": "#006b5c",
+                        "on-primary-container": "#b7c6ff",
+                        "on-background": "#191c20",
+                        "tertiary-container": "#6b5000",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d9d9df",
+                        "on-surface-variant": "#45464f",
+                        "on-primary-fixed": "#00164d",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-secondary-container": "#007060",
+                        "surface-variant": "#e2e2e8",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "primary-fixed": "#dce1ff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "header-height": "70px",
+                        "gutter": "1.25rem",
+                        "sidebar-width": "250px",
+                        "container-margin": "1.5rem",
+                        "card-padding": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .shadow-soft {
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: 0;
+            width: 2px;
+            background-color: #c5c6d1;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen">
+    <!-- TopNavBar -->
+    <header
+        class="fixed top-0 right-0 left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface border-b border-outline-variant">
+        <div class="flex items-center gap-6">
+            <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+            <nav class="hidden md:flex gap-4 h-full">
+                <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                    href="#">Tesista</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 text-on-surface-variant">
+                <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                    <span class="material-symbols-outlined">help_outline</span>
+                </button>
+            </div>
+            <div class="h-8 w-px bg-outline-variant mx-2"></div>
+            <div class="flex items-center gap-3 cursor-pointer">
+                <div
+                    class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
+                    U
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-label-md text-label-md text-primary">Perfil</span>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- SideNavBar -->
+    <aside
+        class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40 flat no shadows border-r border-transparent">
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6 border-b border-white/10">
+            <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md font-bold text-on-primary">SISET-FCE</span>
+                <span class="font-label-sm text-label-sm text-on-primary/70">Facultad de Ciencias Económicas</span>
+            </div>
+        </div>
+        <nav class="flex-1 overflow-y-auto mt-6 px-2 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                <span class="">Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">analytics</span>
+                <span class="">Mi Panel</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">app_registration</span>
+                <span class="">Registrar Expediente</span>
+            </a>
+            <!-- Active State -->
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-on-primary-fixed-variant text-primary-fixed-dim mx-2 opacity-100 transition-all duration-200 shadow-sm border border-white/5"
+                href="#">
+                <span
+                    class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'-1">folder_shared</span>
+                <span class="font-medium">Mi Expediente</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                <span class="">Observaciones y Subsanaciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">school</span>
+                <span class="">Tesis Final</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">description</span>
+                <span class="">Documentos y Resoluciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">format_list_bulleted</span>
+                <span class="">Formatos Oficiales</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">groups</span>
+                <span class="">Asesor y Jurados</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+                <span class="">Agenda Académica</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">notifications</span>
+                <span class="">Notificaciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">person</span>
+                <span class="">Perfil</span>
+            </a>
+        </nav>
+        <div class="mt-auto px-2 pb-4 border-t border-white/10 pt-4">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary hover:bg-primary-container transition-colors mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">settings</span>
+                <span class="">Configuración</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content -->
+    <main
+        class="ml-[250px] mt-[70px] min-h-[calc(100vh-70px)] p-container-margin bg-surface-container-low flex flex-col gap-container-margin">
+        <!-- Header Card -->
+        <div
+            class="bg-surface-container-lowest rounded-xl p-card-padding shadow-soft border border-outline-variant/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-3 mb-1">
+                    <span
+                        class="font-label-md text-label-md text-on-surface-variant tracking-wider uppercase">Expediente
+                        Central</span>
+                    <span
+                        class="px-2.5 py-1 rounded-md font-label-md text-label-md bg-surface-variant text-on-surface">EXP-2026-0042</span>
+                    <span
+                        class="px-2.5 py-1 rounded-md font-label-md text-label-md bg-tertiary-fixed text-on-tertiary-fixed font-semibold flex items-center gap-1 border border-tertiary/20">
+                        <span class="material-symbols-outlined text-[14px]">warning</span>
+                        Observado
+                    </span>
+                </div>
+                <h1 class="font-headline-lg text-headline-lg text-primary max-w-3xl">Modelo de gestión digital para la
+                    optimización de procesos académicos en instituciones de educación superior</h1>
+                <div class="flex flex-wrap items-center gap-4 text-on-surface-variant mt-1">
+                    <div class="flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[18px]">person</span>
+                        <span class="font-body-md text-body-md font-medium">Carlos Mendoza R.</span>
+                    </div>
+                    <span class="w-1 h-1 rounded-full bg-outline"></span>
+                    <div class="flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[18px]">account_balance</span>
+                        <span class="font-body-md text-body-md">Escuela de Economía</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col items-end gap-4 min-w-[200px]">
+                <div class="bg-error-container/30 border border-error/20 px-4 py-3 rounded-lg flex flex-col items-end">
+                    <span class="font-label-sm text-label-sm text-error uppercase tracking-wide">Plazo para
+                        subsanar</span>
+                    <span class="font-headline-md text-headline-md font-bold text-error">3 días restantes</span>
+                </div>
+                <div class="flex gap-2 w-full justify-end">
+                    <button
+                        class="px-4 py-2 bg-surface text-primary border border-primary/30 rounded-lg hover:bg-surface-variant transition-colors font-label-md text-label-md flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">visibility</span>
+                        Ver documento
+                    </button>
+                    <button
+                        class="px-4 py-2 bg-primary text-on-primary rounded-lg hover:bg-primary-container transition-colors font-label-md text-label-md flex items-center gap-2 shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">edit_note</span>
+                        Ir a observaciones
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-container-margin items-start">
+            <!-- Left Column: Info Cards (Span 8) -->
+            <div class="xl:col-span-8 flex flex-col gap-container-margin">
+                <!-- Row 1: People -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-container-margin">
+                    <!-- Autor & Asesor -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl p-card-padding shadow-soft border border-outline-variant/30 flex flex-col gap-4">
+                        <h2 class="font-headline-sm text-headline-sm text-primary border-b border-surface-variant pb-2">
+                            Equipo de Investigación</h2>
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-label-sm text-label-sm text-on-surface-variant">Tesista
+                                    Principal</span>
+                                <span class="font-body-md text-body-md font-medium text-on-surface">Carlos Mendoza
+                                    Ramírez</span>
+                                <span class="font-label-sm text-label-sm text-outline mt-0.5">cmendoza@fce.edu.pe</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 mt-2">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">school</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-label-sm text-label-sm text-on-surface-variant">Asesor Asignado</span>
+                                <span class="font-body-md text-body-md font-medium text-on-surface">Dr. Ricardo
+                                    Villalobos M.</span>
+                                <span class="font-label-sm text-label-sm text-outline mt-0.5">Departamento de
+                                    Finanzas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Jurados -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl p-card-padding shadow-soft border border-outline-variant/30 flex flex-col gap-4">
+                        <h2
+                            class="font-headline-sm text-headline-sm text-primary border-b border-surface-variant pb-2 flex justify-between items-center">
+                            Jurados Asignados
+                            <span
+                                class="px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-sm text-label-sm">3
+                                Miembros</span>
+                        </h2>
+                        <ul class="flex flex-col gap-3">
+                            <li class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant text-[12px] font-bold">
+                                        1</div>
+                                    <div class="flex flex-col">
+                                        <span class="font-body-md text-body-md font-medium text-on-surface">Dra. Elena
+                                            Vargas (Presidente)</span>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-outline text-[18px]">verified</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant text-[12px] font-bold">
+                                        2</div>
+                                    <div class="flex flex-col">
+                                        <span class="font-body-md text-body-md font-medium text-on-surface">Mg. Luis
+                                            Aguilar (Secretario)</span>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-outline text-[18px]">verified</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant text-[12px] font-bold">
+                                        3</div>
+                                    <div class="flex flex-col">
+                                        <span class="font-body-md text-body-md font-medium text-on-surface">Dr. Martín
+                                            Paredes (Vocal)</span>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-tertiary text-[18px]"
+                                    title="Pendiente de revisión">pending_actions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Row 2: Metrics & Docs -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-container-margin">
+                    <!-- Similitud -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl p-card-padding shadow-soft border border-outline-variant/30 flex flex-col justify-center items-center gap-3 text-center">
+                        <h3
+                            class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide w-full text-left">
+                            Índice de Similitud</h3>
+                        <div class="relative w-24 h-24 flex items-center justify-center mt-2">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                <path class="text-surface-variant"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="3">
+                                </path>
+                                <path class="text-secondary"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    fill="none" stroke="currentColor" stroke-dasharray="18, 100" stroke-linecap="round"
+                                    stroke-width="3"></path>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span class="font-headline-lg text-headline-lg font-bold text-on-surface">18%</span>
+                            </div>
+                        </div>
+                        <span
+                            class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-1 rounded mt-2">Nivel
+                            Aceptable (&lt; 20%)</span>
+                    </div>
+                    <!-- Documentos & Resoluciones -->
+                    <div
+                        class="md:col-span-2 bg-surface-container-lowest rounded-xl p-card-padding shadow-soft border border-outline-variant/30 flex flex-col gap-4">
+                        <div class="flex justify-between items-center border-b border-surface-variant pb-2">
+                            <h2 class="font-headline-sm text-headline-sm text-primary">Archivos del Expediente</h2>
+                            <button
+                                class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">
+                                Ver todos <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Doc 1 -->
+                            <div
+                                class="flex items-start gap-3 p-3 rounded-lg border border-outline-variant/50 hover:bg-surface-variant/30 transition-colors group cursor-pointer">
+                                <div
+                                    class="w-10 h-10 rounded bg-error/10 text-error flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">picture_as_pdf</span>
+                                </div>
+                                <div class="flex flex-col min-w-0">
+                                    <span class="font-label-md text-label-md font-medium text-on-surface truncate"
+                                        title="Borrador_Tesis_v2.pdf">Borrador_Tesis_v2.pdf</span>
+                                    <span class="font-label-sm text-label-sm text-outline">Subido: 12/05/2026</span>
+                                </div>
+                                <button class="ml-auto text-outline group-hover:text-primary mt-1">
+                                    <span class="material-symbols-outlined text-[18px]">download</span>
+                                </button>
+                            </div>
+                            <!-- Res 1 -->
+                            <div
+                                class="flex items-start gap-3 p-3 rounded-lg border border-outline-variant/50 hover:bg-surface-variant/30 transition-colors group cursor-pointer">
+                                <div
+                                    class="w-10 h-10 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined">description</span>
+                                </div>
+                                <div class="flex flex-col min-w-0">
+                                    <span class="font-label-md text-label-md font-medium text-on-surface truncate"
+                                        title="RES-2026-089-FCE.pdf">RES-2026-089-FCE.pdf</span>
+                                    <span class="font-label-sm text-label-sm text-outline">Designación Asesor</span>
+                                </div>
+                                <button class="ml-auto text-outline group-hover:text-primary mt-1">
+                                    <span class="material-symbols-outlined text-[18px]">download</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Timeline (Span 4) -->
+            <div
+                class="xl:col-span-4 bg-surface-container-lowest rounded-xl p-card-padding shadow-soft border border-outline-variant/30 flex flex-col h-full">
+                <div class="flex justify-between items-center border-b border-surface-variant pb-3 mb-4">
+                    <h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+                        <span class="material-symbols-outlined">history</span>
+                        Trazabilidad
+                    </h2>
+                    <button class="p-1 rounded hover:bg-surface-variant text-on-surface-variant transition-colors"
+                        title="Ver historial completo">
+                        <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+                    </button>
+                </div>
+                <div class="relative timeline-line flex-1 overflow-hidden pr-2">
+                    <ul class="space-y-6 relative z-10">
+                        <!-- Current Step (Observado) -->
+                        <li class="relative pl-10">
+                            <div
+                                class="absolute left-0 top-0.5 w-6 h-6 rounded-full bg-tertiary-fixed border-2 border-surface-container-lowest flex items-center justify-center text-on-tertiary-fixed shadow-sm z-10">
+                                <span class="material-symbols-outlined text-[12px] font-bold">priority_high</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-label-sm text-label-sm text-outline">Hoy, 10:30 AM</span>
+                                <h4 class="font-label-md text-label-md font-bold text-on-surface mt-0.5">Revisión de
+                                    Jurado Observada</h4>
+                                <p
+                                    class="font-body-md text-body-md text-on-surface-variant mt-1 text-sm bg-tertiary-fixed/10 p-2 rounded border border-tertiary/10">
+                                    El Dr. Martín Paredes ha registrado 3 observaciones de formato que deben subsanarse.
+                                </p>
+                            </div>
+                        </li>
+                        <!-- Previous Steps -->
+                        <li class="relative pl-10 opacity-70">
+                            <div
+                                class="absolute left-[3px] top-1.5 w-4 h-4 rounded-full bg-primary border-2 border-surface-container-lowest shadow-sm z-10">
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-label-sm text-label-sm text-outline">12 May 2026, 15:45</span>
+                                <h4 class="font-label-md text-label-md font-medium text-on-surface mt-0.5">Proyecto
+                                    Enviado a Jurado</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant mt-0.5 text-sm">Se notificó
+                                    a los 3 miembros del jurado para la revisión inicial.</p>
+                            </div>
+                        </li>
+                        <li class="relative pl-10 opacity-70">
+                            <div
+                                class="absolute left-[3px] top-1.5 w-4 h-4 rounded-full bg-primary border-2 border-surface-container-lowest shadow-sm z-10">
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-label-sm text-label-sm text-outline">08 May 2026, 09:15</span>
+                                <h4 class="font-label-md text-label-md font-medium text-on-surface mt-0.5">Aprobación de
+                                    Asesor</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant mt-0.5 text-sm">El Dr.
+                                    Ricardo Villalobos dio conformidad al borrador final.</p>
+                            </div>
+                        </li>
+                        <li class="relative pl-10 opacity-70">
+                            <div
+                                class="absolute left-[3px] top-1.5 w-4 h-4 rounded-full bg-primary border-2 border-surface-container-lowest shadow-sm z-10">
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-label-sm text-label-sm text-outline">15 Abr 2026, 11:00</span>
+                                <h4 class="font-label-md text-label-md font-medium text-on-surface mt-0.5">Expediente
+                                    Registrado</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant mt-0.5 text-sm">Apertura del
+                                    expediente y asignación de código EXP-2026-0042.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-4 pt-3 border-t border-surface-variant">
+                    <button
+                        class="w-full py-2 bg-surface text-primary border border-primary/30 rounded-lg hover:bg-surface-variant transition-colors font-label-md text-label-md flex justify-center items-center gap-2">
+                        Ver historial completo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="ml-[250px] flex justify-between items-center p-4 w-[calc(100%-250px)] bg-surface-container-low border-t border-outline-variant flat no shadows">
+        <span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Facultad de Ciencias Económicas -
+            SISET. Todos los derechos reservados. OS: Web Cloud</span>
+        <div class="flex items-center gap-4">
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200"
+                href="#">Términos y Condiciones</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200"
+                href="#">Soporte Técnico</a>
+            <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200"
+                href="#">Privacidad</a>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
