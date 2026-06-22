@@ -1,0 +1,377 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mira - Proyectos en Revisión</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                        "primary-fixed": "#dce1ff",
+                        "on-secondary-container": "#007060",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "primary-container": "#405189",
+                        "primary": "#283a70",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9d9df",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#eac46e",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c20",
+                        "on-secondary-fixed-variant": "#005045",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "inverse-on-surface": "#f0f0f6",
+                        "inverse-surface": "#2e3035",
+                        "on-secondary-fixed": "#00201b",
+                        "secondary-container": "#6ff5dc",
+                        "tertiary-container": "#6b5000",
+                        "surface-container-highest": "#e2e2e8",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "tertiary": "#4e3a00",
+                        "outline-variant": "#c5c6d1",
+                        "on-primary-fixed-variant": "#33447b",
+                        "surface-container-low": "#f3f3f9",
+                        "secondary-fixed": "#72f8df",
+                        "outline": "#757681",
+                        "on-surface": "#191c20",
+                        "on-primary-container": "#b7c6ff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#4b5c94",
+                        "surface": "#f9f9ff",
+                        "surface-container-high": "#e7e8ee",
+                        "on-primary-fixed": "#00164d",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "background": "#f9f9ff",
+                        "secondary": "#006b5c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#45464f",
+                        "tertiary-fixed": "#ffdf9b",
+                        "surface-container": "#ededf3",
+                        "inverse-primary": "#b5c4ff",
+                        "surface-bright": "#f9f9ff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e8",
+                        "on-tertiary": "#ffffff"
+                },
+                "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                },
+                "spacing": {
+                        "sidebar-width": "250px",
+                        "gutter": "1.25rem",
+                        "header-height": "70px",
+                        "card-padding": "1rem",
+                        "container-margin": "1.5rem"
+                },
+                "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"]
+                },
+                "fontSize": {
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                }
+              },
+            },
+          }
+        </script>
+    <style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            body {
+                background-color: #f3f3f9;
+            }
+        </style>
+    </head>
+    <body class="flex min-h-screen text-on-surface">
+    <!-- SideNavBar Component -->
+    <aside class="hidden lg:flex flex-col h-full w-[250px] py-6 space-y-2 fixed left-0 top-0 bg-primary dark:bg-on-primary-fixed-variant z-50">
+    <div class="px-6 mb-8">
+    <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden">
+    <img alt="Institutional Logo" class="w-full h-full object-contain p-1" src="https://lh3.googleusercontent.com/aida/ADBb0ugNA3MZcI-5IoN1VZGgyIZjzCrqMdzxkUR5cr3_jvyhWXYL-CUB8Uqo2dQSPO6VK2fuBmG0G_sPxnDVSpiYiIKXM_4DmmCW5lO0zGCJz4hiyHWjTu3DPXqf9zW8PuDD7M3oJHeJ_BasoPp9i7OQ3esMzXYU8pXjekMFl7s7v2A8VtJ11V_Rw_9gHRN0cPjj8DvIH9n6AggZUaE7RJxaD3VRbtgiekHpdJNnaazT21GghUTfuxcYsWOwGlQHEw1eMwc0a4MKdR-jAyM">
+    </div>
+    <div>
+    <h1 class="font-headline-lg text-headline-lg font-bold text-on-primary">SISET-FCE</h1>
+    <p class="text-label-sm text-on-primary/70">Sistema de Seguimiento</p>
+    </div>
+    </div>
+    </div>
+    <nav class="flex-1 space-y-1 overflow-y-auto">
+    <div class="px-4 py-4 space-y-4">
+    <div class="space-y-1">
+    <p class="text-[10px] font-bold text-on-primary/50 uppercase tracking-widest px-2">Principal</p>
+    <a class="px-2 py-2 flex items-center gap-2 text-on-primary hover:bg-primary-container/50 rounded-lg" href="#">
+    <span class="material-symbols-outlined text-[18px]" data-icon="home">home</span>
+    <span class="text-label-sm font-bold uppercase tracking-tight">Principal</span>
+    </a>
+    </div>
+    <p class="text-[10px] font-bold text-on-primary/50 uppercase tracking-widest px-2 pt-2">Módulo Docente</p>
+    <div class="space-y-1">
+    <div class="px-2 py-1 flex items-center gap-2 text-on-primary bg-primary-container rounded-lg">
+    <span class="material-symbols-outlined text-[18px]" data-icon="gavel">gavel</span>
+    <span class="text-label-sm font-bold uppercase tracking-tight">Jurado</span>
+    </div>
+    <div class="ml-4 space-y-1 border-l border-on-primary/20">
+    <div class="pl-4 py-1">
+    <p class="text-label-sm text-on-primary font-medium mb-1">Tesis</p>
+    <div class="space-y-1 ml-2">
+    <a class="block text-[12px] text-on-primary font-bold py-1" href="#">Tesis en revisión</a>
+    <a class="block text-[12px] text-on-primary/70 hover:text-on-primary py-1" href="#">Tesis Aprobadas</a>
+    </div>
+    </div>
+    <div class="pl-4 py-1">
+    <p class="text-label-sm text-on-primary font-medium mb-1">Proyectos</p>
+    <div class="space-y-1 ml-2">
+    <a class="block text-[12px] text-on-primary/70 hover:text-on-primary py-1" href="#">Proyectos en revisión</a>
+    <a class="block text-[12px] text-on-primary/70 hover:text-on-primary py-1" href="#">Proyectos aprobados</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="space-y-1">
+    <div class="px-2 py-1 flex items-center gap-2 text-on-primary/80">
+    <span class="material-symbols-outlined text-[18px]" data-icon="school">school</span>
+    <span class="text-label-sm font-bold uppercase tracking-tight">Asesor</span>
+    </div>
+    <div class="ml-4 space-y-1 border-l border-on-primary/20">
+    <div class="pl-4 py-1">
+    <p class="text-label-sm text-on-primary font-medium mb-1">Asesor de Proyectos</p>
+    <div class="space-y-1 ml-2">
+    <a class="block text-[12px] text-on-primary/70 hover:text-on-primary py-1" href="#">Proyectos en revisión</a>
+    <a class="block text-[12px] text-on-primary/70 hover:text-on-primary py-1" href="#">Proyectos aprobados</a>
+    </div>
+    </div>
+    <div class="pl-4 py-1">
+    <p class="text-label-sm text-on-primary font-medium mb-1">Asesor de Tesis</p>
+    <div class="space-y-1 ml-2">
+    <a class="block text-[12px] text-on-primary/70 hover:text-on-primary py-1" href="#">Tesis en revisión</a>
+    <a class="block text-[12px] text-on-primary/70 hover:text-on-primary py-1" href="#">Tesis aprobadas</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="px-4 py-4 mt-auto border-t border-on-primary/10">
+    <p class="text-[10px] font-bold text-on-primary/50 uppercase tracking-widest px-2 mb-2">General</p>
+    <a class="hover:bg-primary-container/50 text-on-primary rounded-xl font-bold px-4 py-2.5 flex items-center gap-3 active:scale-[0.98] transition-all duration-150" href="#">
+    <span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+    <span class="font-label-md text-label-md">Configuración</span>
+    </a>
+    </div>
+    </nav>
+    <div class="px-4 mt-auto">
+    <button class="w-full bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+    <span class="material-symbols-outlined" data-icon="logout">logout</span>
+    <span class="font-label-md text-label-md">Cerrar Sesión</span>
+    </button>
+    </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="flex-1 lg:ml-[250px] min-h-screen flex flex-col">
+    <!-- TopNavBar Component -->
+    <header class="flex justify-between items-center h-[70px] px-gutter w-full sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+    <div class="flex items-center gap-4">
+    <button class="lg:hidden p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+    <span class="material-symbols-outlined" data-icon="menu">menu</span>
+    </button>
+    <h2 class="font-headline-sm text-headline-sm text-primary">Docente</h2>
+    </div>
+    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
+    <div class="text-right hidden sm:block">
+    <p class="font-headline-sm text-headline-sm text-primary">
+    <span class="font-medium">Bienvenido</span> Ing. Mg. Segundo Roger Ramírez Shupingahua
+                            </p>
+    <p class="text-label-md text-on-surface-variant">
+                                segundoroger@gmail.com 944 929 63
+                            </p>
+    </div>
+    </div>
+    </div>
+    </header>
+    <!-- Dashboard Content -->
+    <div class="p-gutter lg:p-10 space-y-8 max-w-7xl mx-auto w-full">
+    <!-- Search Bar -->
+    <div class="flex flex-col md:flex-row items-center gap-6">
+    <div class="flex items-center bg-surface-container-lowest px-6 py-4 rounded-full border border-outline-variant shadow-sm transition-shadow focus-within:shadow-md flex-1 md:max-w-[50%]">
+    <span class="material-symbols-outlined text-primary mr-3" data-icon="search">search</span>
+    <input class="bg-transparent border-none focus:ring-0 text-body-md w-full placeholder:text-on-surface-variant/50" placeholder="Buscar" type="text">
+    </div>
+    <div class="flex items-center gap-6 px-4">
+    <label class="flex items-center gap-2 cursor-pointer group">
+    <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 transition-all cursor-pointer" type="checkbox">
+    <span class="text-body-md font-medium text-on-surface-variant group-hover:text-primary transition-colors">Autor</span>
+    </label>
+    <label class="flex items-center gap-2 cursor-pointer group">
+    <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 transition-all cursor-pointer" type="checkbox">
+    <span class="text-body-md font-medium text-on-surface-variant group-hover:text-primary transition-colors">Escuela</span>
+    </label>
+    </div>
+    </div>
+    <!-- Header Title -->
+    <div class="flex items-end justify-between px-2">
+    <div>
+    <h3 class="font-headline-lg text-headline-lg text-primary">Proyectos Aprobados</h3>
+    <p class="text-body-md text-on-surface-variant">Gestión de expedientes en revisión de asesor</p>
+    </div>
+    </div>
+    <!-- List Section -->
+    <div class="space-y-4 pb-12">
+    <!-- Card Item 1: Urgent -->
+    <div class="group bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-error/30 transition-all duration-200">
+    <div class="flex flex-col lg:flex-row gap-6">
+    <div class="flex-1 space-y-4">
+    <h4 class="font-headline-md text-headline-sm text-on-surface leading-snug group-hover:text-primary transition-colors">
+                                    "AGENTE CONVERSACIONAL PARA LA SATISFACCIÓN DE USUARIOS EN LA FACULTAD DE EDUCACIÓN Y HUMANIDADES, UNIVERSIDAD NACIONAL DE SAN MARTÍN"
+                                </h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="flex items-center gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-primary/70 text-[20px]" data-icon="person">person</span>
+    <div>
+    <p class="text-label-sm font-bold text-on-surface">JEISER FABIAN ROJAS DIAZ - jfrojasd@alumno.unsm.edu.pe - 912345678</p>
+    </div>
+    </div>
+    </div>
+    <div class="flex items-center gap-2 pt-2 border-t border-outline-variant/30">
+    <span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span>
+    <span class="text-[12px] font-medium text-on-surface-variant">Resolución de Jurado:</span>
+    <a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">Resolución N°023-2026-unsm/fisi/cft</a>
+    </div><div class="flex items-center gap-2 pt-1.5"><span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span><span class="text-[12px] font-medium text-on-surface-variant">Resolución de Proyecto Aprobado:</span><a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">Resolución Nº 045-2026-UNSM/FISI/CFT</a></div>
+    </div>
+    <!-- Status Column -->
+    <div class="lg:w-72 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/50 pt-4 lg:pt-0 lg:pl-6"><div class="flex flex-col gap-3 w-full">
+    <a class="flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-200" href="#">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    <span class="text-label-md">Ver Detalle</span>
+    </a>
+    </div></div>
+    </div>
+    </div>
+    <!-- Card Item 2 -->
+    <div class="group bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-200">
+    <div class="flex flex-col lg:flex-row gap-6">
+    <div class="flex-1 space-y-4">
+    <h4 class="font-headline-md text-headline-sm text-on-surface leading-snug group-hover:text-primary transition-colors">
+                                    "SISTEMA DE VISIÓN ARTIFICIAL BASADO EN YOLOV8 PARA LA SUPERVISIÓN AUTOMATIZADA DE GALLINAS EN GRANJAS RURALES DEL DISTRITO DE SORITOR"
+                                </h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="flex items-center gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-primary/70 text-[20px]" data-icon="person">person</span>
+    <div>
+    <p class="text-label-sm font-bold text-on-surface">JEISER FABIAN ROJAS DIAZ - jfrojasd@alumno.unsm.edu.pe - 912345678</p>
+    </div>
+    </div>
+    </div>
+    <div class="flex items-center gap-2 pt-2 border-t border-outline-variant/30">
+    <span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span>
+    <span class="text-[12px] font-medium text-on-surface-variant">Resolución de Jurado:</span>
+    <a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">N° 006-2026-UNSM/FISI/CFT</a>
+    </div><div class="flex items-center gap-2 pt-1.5"><span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span><span class="text-[12px] font-medium text-on-surface-variant">Resolución de Proyecto Aprobado:</span><a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">Resolución Nº 046-2026-UNSM/FISI/CFT</a></div>
+    </div>
+    <div class="lg:w-72 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/50 pt-4 lg:pt-0 lg:pl-6"><div class="flex flex-col gap-3 w-full">
+    <a class="flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-200" href="#">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    <span class="text-label-md">Ver Detalle</span>
+    </a>
+    </div></div>
+    </div>
+    </div>
+    <!-- Card Item 3 -->
+    <div class="group bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-200">
+    <div class="flex flex-col lg:flex-row gap-6">
+    <div class="flex-1 space-y-4">
+    <h4 class="font-headline-md text-headline-sm text-on-surface leading-snug group-hover:text-primary transition-colors">
+                                    "AGENTE INTELIGENTE PARA LA GESTIÓN DE CONSULTAS TRIBUTARIAS EN LA MUNICIPALIDAD PROVINCIAL DE SAN MARTÍN – TARAPOTO"
+                                </h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="flex items-center gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-primary/70 text-[20px]" data-icon="person">person</span>
+    <div>
+    <p class="text-label-sm font-bold text-on-surface">SHANDE ANDRES ALVAN RIOS - saalvanr@alumno.unsm.edu.pe - 998765432</p>
+    </div>
+    </div>
+    </div>
+    <div class="flex items-center gap-2 pt-2 border-t border-outline-variant/30">
+    <span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span>
+    <span class="text-[12px] font-medium text-on-surface-variant">Resolución de Jurado:</span>
+    <a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">RESOLUCION N 114-2025-UNSM/FISI/CFT</a>
+    </div><div class="flex items-center gap-2 pt-1.5"><span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span><span class="text-[12px] font-medium text-on-surface-variant">Resolución de Proyecto Aprobado:</span><a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">Resolución Nº 047-2026-UNSM/FISI/CFT</a></div>
+    </div>
+    <div class="lg:w-72 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/50 pt-4 lg:pt-0 lg:pl-6"><div class="flex flex-col gap-3 w-full">
+    <a class="flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-200" href="#">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    <span class="text-label-md">Ver Detalle</span>
+    </a>
+    </div></div>
+    </div>
+    </div>
+    <!-- Card Item 4 -->
+    <div class="group bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-200">
+    <div class="flex flex-col lg:flex-row gap-6">
+    <div class="flex-1 space-y-4">
+    <h4 class="font-headline-md text-headline-sm text-on-surface leading-snug group-hover:text-primary transition-colors">
+                                    "MODELOS HÍBRIDOS BASADOS EN LSTM Y ALGORITMOS DE CLASIFICACIÓN PARA PREDECIR LA DESERCIÓN ESTUDIANTIL UTILIZANDO INDICADORES ACADÉMICOS Y SOCIOECONÓMICOS"
+                                </h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="flex items-center gap-3 text-on-surface-variant">
+    <span class="material-symbols-outlined text-primary/70 text-[20px]" data-icon="person">person</span>
+    <div>
+    <p class="text-label-sm font-bold text-on-surface">PAUL ANDER PERDOMO MACEDO - paperdomom@alumno.unsm.edu.pe - 955443322</p>
+    </div>
+    </div>
+    </div>
+    <div class="flex items-center gap-2 pt-2 border-t border-outline-variant/30">
+    <span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span>
+    <span class="text-[12px] font-medium text-on-surface-variant">Resolución de Jurado:</span>
+    <a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">RESOLUCION N 119-2025-UNSM/FISI/CFT</a>
+    </div><div class="flex items-center gap-2 pt-1.5"><span class="material-symbols-outlined text-primary/70 text-[18px]" data-icon="description">description</span><span class="text-[12px] font-medium text-on-surface-variant">Resolución de Proyecto Aprobado:</span><a class="text-[12px] font-bold text-primary hover:underline decoration-2 underline-offset-4" href="#">Resolución Nº 048-2026-UNSM/FISI/CFT</a></div>
+    </div>
+    <div class="lg:w-72 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-outline-variant/50 pt-4 lg:pt-0 lg:pl-6"><div class="flex flex-col gap-3 w-full">
+    <a class="flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-200" href="#">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    <span class="text-label-md">Ver Detalle</span>
+    </a>
+    </div></div>
+    </div>
+    </div>
+    </div>
+    <!-- Footer -->
+    <footer class="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-outline-variant text-on-surface-variant gap-4">
+    <div class="flex items-center gap-6">
+    <p class="text-label-sm">© 2024 Facultad de Ciencias Económicas</p>
+    <a class="text-label-sm hover:text-primary transition-colors" href="#">Términos y Condiciones</a>
+    <a class="text-label-sm hover:text-primary transition-colors" href="#">Soporte Técnico</a>
+    </div>
+    <div class="flex items-center gap-2">
+    <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+    <p class="text-[10px] font-bold uppercase tracking-widest">Sistema Operativo</p>
+    </div>
+    </footer>
+    </div>
+    </main>
+    
+    
+    
+    
+    </body></html>

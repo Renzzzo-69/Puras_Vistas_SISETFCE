@@ -1,0 +1,384 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Formatos Oficiales - Mira Academic Tracking</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .filled-icon {
+                font-variation-settings: 'FILL' 1;
+            }
+        </style>
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary-container": "#283a70",
+                            "primary": "#0f2359",
+                            "error-container": "#ffdad6",
+                            "on-primary-fixed": "#00174d",
+                            "surface-container-lowest": "#ffffff",
+                            "tertiary-fixed-dim": "#f7bb7c",
+                            "inverse-surface": "#2e3035",
+                            "tertiary-fixed": "#ffdcbd",
+                            "tertiary-container": "#5b3400",
+                            "status-error": "#ba1a1a",
+                            "on-error-container": "#93000a",
+                            "surface-bright": "#f9f9ff",
+                            "on-secondary-fixed": "#00201b",
+                            "on-secondary": "#ffffff",
+                            "active-highlight": "#405189",
+                            "surface": "#f9f9ff",
+                            "surface-variant": "#e2e2e8",
+                            "surface-dim": "#d9d9df",
+                            "surface-container": "#f3f3f9",
+                            "on-tertiary-fixed-variant": "#663d08",
+                            "outline-variant": "#c5c6d1",
+                            "surface-container-high": "#e7e8ee",
+                            "error": "#ba1a1a",
+                            "primary-fixed-dim": "#b5c4ff",
+                            "on-tertiary": "#ffffff",
+                            "surface-container-highest": "#e2e2e8",
+                            "status-success": "#006b5c",
+                            "on-primary": "#ffffff",
+                            "secondary-fixed-dim": "#83d6c3",
+                            "on-secondary-fixed-variant": "#005045",
+                            "on-primary-container": "#94a6e3",
+                            "on-error": "#ffffff",
+                            "secondary": "#006b5c",
+                            "on-surface": "#191c20",
+                            "on-surface-variant": "#45464f",
+                            "secondary-fixed": "#9ff2df",
+                            "background": "#f9f9ff",
+                            "outline": "#757681",
+                            "inverse-primary": "#b5c4ff",
+                            "surface-tint": "#4b5c94",
+                            "on-secondary-container": "#0b6f60",
+                            "inverse-on-surface": "#f0f0f6",
+                            "secondary-container": "#9cefdc",
+                            "surface-container-low": "#f3f3f9",
+                            "on-tertiary-container": "#d69d61",
+                            "on-tertiary-fixed": "#2c1600",
+                            "on-background": "#191c20",
+                            "on-primary-fixed-variant": "#32447b",
+                            "primary-fixed": "#dbe1ff",
+                            "tertiary": "#3d2100",
+                            "sidebar-bg": "#283a70"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                        },
+                        "spacing": {
+                            "gutter": "1.25rem",
+                            "container-max-width": "896px",
+                            "sidebar-width": "250px",
+                            "header-height": "70px",
+                            "card-padding": "1.5rem"
+                        },
+                        "fontFamily": {
+                            "headline-lg": ["Hanken Grotesk"],
+                            "label-md": ["Inter"],
+                            "body-md": ["Inter"],
+                            "body-lg": ["Inter"],
+                            "nav-caps": ["Inter"],
+                            "label-sm": ["Inter"],
+                            "headline-md": ["Hanken Grotesk"],
+                            "headline-sm": ["Hanken Grotesk"]
+                        },
+                        "fontSize": {
+                            "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "nav-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                            "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                            "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+                            "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}]
+                        }
+                    },
+                },
+            }
+        </script>
+    </head>
+    <body class="bg-background font-body-md text-on-background min-h-screen">
+    <!-- SideNavBar (Authority: JSON) -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-sidebar-bg flex flex-col py-gutter px-4 z-50">
+    <div class="mb-10 px-2 flex items-center gap-3">
+    <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+    <span class="material-symbols-outlined text-white text-2xl">school</span>
+    </div>
+    <div>
+    <h1 class="text-headline-md font-headline-lg text-surface-bright uppercase tracking-wider">MIRA</h1>
+    <p class="text-[10px] text-on-primary-container font-medium tracking-widest uppercase">Academic Tracking</p>
+    </div>
+    </div>
+    <nav class="flex-1 space-y-1">
+    <!-- Active Tab: Formatos Oficiales -->
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">dashboard</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Principal</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 bg-active-highlight text-on-primary font-bold rounded-lg transition-all active:scale-95 duration-200 ease-in-out" href="#">
+    <span class="material-symbols-outlined filled-icon" style="font-variation-settings: &quot;FILL&quot; 1;">description</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Formatos Oficiales</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">group_add</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Asignación de Jurados</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">gavel</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Resoluciones</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">settings</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Configuración</span>
+    </a>
+    </nav>
+    <div class="mt-auto border-t border-white/10 pt-4">
+    <a class="flex items-center gap-3 px-3 py-2.5 text-secondary-container hover:bg-active-highlight/50 text-white transition-all rounded-lg" href="#">
+    <span class="material-symbols-outlined">logout</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Cerrar Sesión</span>
+    </a>
+    </div>
+    </aside>
+    <!-- Main Shell -->
+    <div class="ml-[250px] flex flex-col min-h-screen">
+    <!-- TopNavBar (Authority: JSON) -->
+    <header class="sticky top-0 z-40 bg-surface border-b border-outline-variant/30 flex justify-between items-center w-full px-gutter h-[70px]">
+    <div class="flex items-center gap-6">
+    
+    
+    
+    </div><div class="flex items-center gap-3">
+    <div class="text-right">
+    <p class="font-headline-sm text-label-md font-bold text-primary">Decanatura</p>
+    <p class="text-[11px] text-on-surface-variant">sroger.ramirez@unsm.edu.pe</p>
+    </div>
+    <div class="w-10 h-10 rounded-full border-2 border-primary/10 overflow-hidden bg-surface-container-highest">
+    <img alt="Profile Image" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBylsZ0uYCY1FTgy9ZN3rdH4o-wBuz6_XThDkNGiM63gK0vuaamoDvkNtXii8c9OcduPAt4gZzgnuJkQ34UF7CHm0mKbmNy8C0CLfZqHnl6J8zffHyQyTCdX6pezniewgdGNyVcou9DweTAcup8HDzAuBhrXuLKD4LIkFezV0KCjGqVR64Yr5-S6nZrOMri3gxDIFh0v78tHcT9S5C3iEwRuPpKUBc7XENgKkBQaK4Y4JIgRpgaW3OJTq3xjMq3jt25Jy8HAPYRxmoi">
+    </div>
+    </div>
+    </header>
+    <!-- Page Content Area -->
+    <main class="flex-1 p-gutter overflow-y-auto">
+    <div class="max-w-[1200px] mx-auto">
+    <!-- Welcome & Header Section -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+    <div>
+    <div class="flex items-center gap-2 mb-2">
+    <span class="w-4 h-px bg-outline-variant"></span>
+    </div>
+    <h2 class="font-headline-lg text-headline-lg text-primary mb-1">Gestión de Formatos Oficiales</h2>
+    <p class="font-body-md text-body-md text-on-surface-variant">Bienvenido, <span class="font-semibold text-on-surface">Ing. Mg. Segundo Roger Ramírez Shupingahua</span>. Administre los documentos y plantillas oficiales de la facultad.</p>
+    </div>
+    </div>
+    <!-- Stats/Quick Filters (Bento Style) -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+    <div class="bg-surface border border-outline-variant/30 rounded-xl p-4 flex items-center gap-4 hover:shadow-sm transition-shadow">
+    <div class="w-12 h-12 rounded-lg bg-primary-fixed/30 flex items-center justify-center text-primary">
+    <span class="material-symbols-outlined">folder_open</span>
+    </div>
+    <div>
+    <p class="text-label-sm text-on-surface-variant uppercase font-bold tracking-tight">Total Archivos</p>
+    <p class="text-headline-md font-bold text-primary">42</p>
+    </div>
+    </div>
+    <div class="bg-surface border border-outline-variant/30 rounded-xl p-4 flex items-center gap-4 hover:shadow-sm transition-shadow">
+    <div class="w-12 h-12 rounded-lg bg-secondary-container/50 flex items-center justify-center text-secondary">
+    <span class="material-symbols-outlined">check_circle</span>
+    </div>
+    <div>
+    <p class="text-label-sm text-on-surface-variant uppercase font-bold tracking-tight">Activos</p>
+    <p class="text-headline-md font-bold text-primary">38</p>
+    </div>
+    </div>
+    
+    <div class="bg-surface border border-outline-variant/30 rounded-xl p-4 flex items-center gap-4 hover:shadow-sm transition-shadow">
+    <div class="w-12 h-12 rounded-lg bg-error-container/50 flex items-center justify-center text-error">
+    <span class="material-symbols-outlined">history</span>
+    </div>
+    <div>
+    <p class="text-label-sm text-on-surface-variant uppercase font-bold tracking-tight">Depreciados</p>
+    <p class="text-headline-md font-bold text-primary">1</p>
+    </div>
+    </div>
+    </div>
+    <!-- Table Card Container -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6"><div class="relative w-full md:w-80"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span><input class="pl-10 pr-4 py-2 bg-surface-container rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 text-body-md w-full transition-all" placeholder="Buscar formatos..." type="text"></div><button class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-bold text-body-md hover:brightness-110 active:scale-95 transition-all shadow-sm"><span class="material-symbols-outlined">add</span><span class="">Agregar Formato</span></button></div><div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+    <div class="px-6 py-4 bg-surface-container/50 border-b border-outline-variant/30 flex justify-between items-center">
+    <h3 class="font-headline-sm text-headline-sm text-primary">Listado de Documentos Oficiales</h3>
+    <div class="flex items-center gap-2">
+    <button class="p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg transition-colors">
+    <span class="material-symbols-outlined">filter_list</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg transition-colors">
+    <span class="material-symbols-outlined">download</span>
+    </button>
+    </div>
+    </div>
+    <div class="overflow-x-auto">
+    <table class="w-full text-left border-collapse">
+    <thead>
+    <tr class="bg-surface-container-lowest">
+    <th class="px-6 py-4 text-nav-caps font-bold text-on-surface-variant uppercase tracking-widest border-b border-outline-variant/20">Nombre del Documento</th>
+    <th class="px-6 py-4 text-nav-caps font-bold text-on-surface-variant uppercase tracking-widest border-b border-outline-variant/20">Tipo de Formato</th>
+    <th class="px-6 py-4 text-nav-caps font-bold text-on-surface-variant uppercase tracking-widest border-b border-outline-variant/20">Estado</th>
+    <th class="px-6 py-4 text-nav-caps font-bold text-on-surface-variant uppercase tracking-widest border-b border-outline-variant/20 text-right">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="divide-y divide-outline-variant/10">
+    <!-- Row 1 -->
+    <tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+    <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded bg-blue-50 flex items-center justify-center text-blue-700">
+    <span class="material-symbols-outlined text-xl">description</span>
+    </div>
+    <div>
+    <p class="font-semibold text-primary">Plantilla de Dictamen de Tesis</p>
+    <p class="text-label-sm text-on-surface-variant">v2.4 - Actualizado hace 2 días</p>
+    </div>
+    </div>
+    </td>
+    <td class="px-6 py-5">
+    <div class="flex items-center gap-2 text-on-surface-variant">
+    <span class="material-symbols-outlined text-blue-600">article</span>
+    <span class="text-body-md">Word .docx</span>
+    </div>
+    </td>
+    <td class="px-6 py-5">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-secondary-container text-on-secondary-container">
+    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                                Activo
+                                            </span>
+    </td>
+    <td class="px-6 py-5 text-right">
+    <div class="flex items-center justify-end gap-2 transition-opacity"><button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed/20 rounded-lg transition-all" title="Visualizar"><span class="material-symbols-outlined text-[20px]">visibility</span></button><button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary-container/50 rounded-lg transition-all" title="Descargar"><span class="material-symbols-outlined text-[20px]">download</span></button><button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed/20 rounded-lg transition-all" title="Editar"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/50 rounded-lg transition-all" title="Eliminar"><span class="material-symbols-outlined text-[20px]">delete</span></button></div>
+    </td>
+    </tr>
+    <!-- Row 2 -->
+    <tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+    <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center text-red-700">
+    <span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+    </div>
+    <div>
+    <p class="font-semibold text-primary">Guía de Estilo APA</p>
+    <p class="text-label-sm text-on-surface-variant">v7.0 - Manual oficial UNM</p>
+    </div>
+    </div>
+    </td>
+    <td class="px-6 py-5">
+    <div class="flex items-center gap-2 text-on-surface-variant">
+    <span class="material-symbols-outlined text-red-600">picture_as_pdf</span>
+    <span class="text-body-md">PDF .pdf</span>
+    </div>
+    </td>
+    <td class="px-6 py-5">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-secondary-container text-on-secondary-container">
+    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                                Activo
+                                            </span>
+    </td>
+    <td class="px-6 py-5 text-right">
+    <div class="flex items-center justify-end gap-2 transition-opacity"><button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed/20 rounded-lg transition-all" title="Visualizar"><span class="material-symbols-outlined text-[20px]">visibility</span></button><button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary-container/50 rounded-lg transition-all" title="Descargar"><span class="material-symbols-outlined text-[20px]">download</span></button><button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed/20 rounded-lg transition-all" title="Editar"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/50 rounded-lg transition-all" title="Eliminar"><span class="material-symbols-outlined text-[20px]">delete</span></button></div>
+    </td>
+    </tr>
+    <!-- Row 3 -->
+    <tr class="hover:bg-surface-container-low transition-colors group">
+    
+    
+    
+    
+    </tr>
+    <!-- Row 4 -->
+    <tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-5">
+    <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded bg-gray-100 flex items-center justify-center text-gray-500">
+    <span class="material-symbols-outlined text-xl">history</span>
+    </div>
+    <div>
+    <p class="font-semibold text-primary">Reglamento de Grados 2022</p>
+    <p class="text-label-sm text-on-surface-variant">Reemplazado por versión 2024</p>
+    </div>
+    </div>
+    </td>
+    <td class="px-6 py-5">
+    <div class="flex items-center gap-2 text-on-surface-variant">
+    <span class="material-symbols-outlined text-red-600">picture_as_pdf</span>
+    <span class="text-body-md">PDF .pdf</span>
+    </div>
+    </td>
+    <td class="px-6 py-5">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-error-container text-on-error-container">
+    <span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                                Depreciado
+                                            </span>
+    </td>
+    <td class="px-6 py-5 text-right">
+    <div class="flex items-center justify-end gap-2 transition-opacity"><button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed/20 rounded-lg transition-all" title="Visualizar"><span class="material-symbols-outlined text-[20px]">visibility</span></button><button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary-container/50 rounded-lg transition-all" title="Descargar"><span class="material-symbols-outlined text-[20px]">download</span></button><button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed/20 rounded-lg transition-all" title="Editar"><span class="material-symbols-outlined text-[20px]">edit</span></button><button class="p-2 text-on-surface-variant hover:text-error hover:bg-error-container/50 rounded-lg transition-all" title="Eliminar"><span class="material-symbols-outlined text-[20px]">delete</span></button></div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="px-6 py-4 bg-surface-container-lowest border-t border-outline-variant/30 flex items-center justify-between">
+    <p class="text-label-sm text-on-surface-variant">Mostrando 1-4 de 42 formatos registrados</p>
+    <div class="flex items-center gap-1">
+    <button class="p-2 rounded-lg hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">
+    <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <button class="w-8 h-8 rounded-lg bg-primary text-white font-bold text-label-sm">1</button>
+    <button class="w-8 h-8 rounded-lg hover:bg-surface-variant transition-colors text-label-sm">2</button>
+    <button class="w-8 h-8 rounded-lg hover:bg-surface-variant transition-colors text-label-sm">3</button>
+    <button class="p-2 rounded-lg hover:bg-surface-variant transition-colors">
+    <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+    </div>
+    </div>
+    </div>
+    <!-- Guidance/Info Section (Asymmetric/Modern Layout) -->
+    </div>
+    </main>
+    </div>
+    <!-- Micro-interaction JS -->
+    <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Hover effect on stats cards
+                const cards = document.querySelectorAll('.hover\\:shadow-sm');
+                cards.forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        card.classList.add('border-primary/30');
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.classList.remove('border-primary/30');
+                    });
+                });
+                
+                // Notification toggle simulation
+                const notifyBtn = document.querySelector('button .material-symbols-outlined:contains("notifications")')?.parentElement;
+                if (notifyBtn) {
+                    notifyBtn.addEventListener('click', () => {
+                        alert('Panel de notificaciones - Próximamente');
+                    });
+                }
+            });
+        </script>
+    
+    
+    </body></html>
