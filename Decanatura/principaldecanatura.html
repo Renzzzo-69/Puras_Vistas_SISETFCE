@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="es" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mira - Decanatura</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                        "on-surface-variant": "#45464f",
+                        "on-secondary-fixed-variant": "#005045",
+                        "active-highlight": "#405189",
+                        "surface-tint": "#4b5c94",
+                        "surface-dim": "#d9d9df",
+                        "on-error": "#ffffff",
+                        "status-error": "#ba1a1a",
+                        "primary-container": "#283a70",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c20",
+                        "tertiary": "#3d2100",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f0f6",
+                        "tertiary-fixed": "#ffdcbd",
+                        "outline": "#757681",
+                        "primary": "#0f2359",
+                        "outline-variant": "#c5c6d1",
+                        "on-background": "#191c20",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#f7bb7c",
+                        "secondary-fixed-dim": "#83d6c3",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "secondary": "#006b5c",
+                        "surface-container": "#f3f3f9",
+                        "on-tertiary-fixed": "#2c1600",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#2e3035",
+                        "secondary-container": "#9cefdc",
+                        "surface-container-high": "#e7e8ee",
+                        "on-primary-fixed": "#00174d",
+                        "tertiary-container": "#5b3400",
+                        "inverse-primary": "#b5c4ff",
+                        "sidebar-bg": "#283a70",
+                        "on-primary-fixed-variant": "#32447b",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-container": "#0b6f60",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9ff",
+                        "surface-container-highest": "#e2e2e8",
+                        "on-primary": "#ffffff",
+                        "status-success": "#006b5c",
+                        "surface-variant": "#e2e2e8",
+                        "on-tertiary-container": "#d69d61",
+                        "on-tertiary-fixed-variant": "#663d08",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#00201b",
+                        "surface-container-low": "#f3f3f9",
+                        "secondary-fixed": "#9ff2df",
+                        "on-primary-container": "#94a6e3",
+                        "surface": "#f9f9ff"
+                },
+                "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                },
+                "spacing": {
+                        "sidebar-width": "250px",
+                        "header-height": "70px",
+                        "card-padding": "1.5rem",
+                        "gutter": "1.25rem",
+                        "container-max-width": "896px"
+                },
+                "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "nav-caps": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                },
+                "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "nav-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                }
+              },
+            },
+          }
+        </script>
+    <style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            body {
+                background-color: #f9f9ff;
+            }
+            .bento-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, auto);
+                gap: 1.25rem;
+            }
+        </style>
+    </head>
+    <body class="font-body-md text-on-background antialiased">
+    <!-- SideNavBar (Shared Component) -->
+    <aside class="fixed left-0 top-0 h-screen w-sidebar-width bg-sidebar-bg flex flex-col p-gutter border-r border-outline-variant/20 z-50">
+    <div class="flex items-center gap-3 mb-10">
+    <img alt="Mira Logo" class="w-10 h-10 object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvsUsFA4onb_wKPIR11nV6iZH2vRQ3wbVclzK1hQh3wuTYaUGDAt5nTEflbRvyhb5QNIrziMu7lNwm4sIvRw4qKrpCuoNX1O9sWwA3Q3fvU5-JnVAEByp7-BXCv7OgfwAK-FdrT_qj3uh4SqKjE44JmY7EqzWv118GTEJWpJV109PL7U_eQtIjU5WswR5NFIUEwc2Urf9L9san9ZbfK0ZmPoZp-lWMziO9vzDw4KCZjJR4zFCF37ly5Q3KftmxVGmXgd28lCzOUIzQ">
+    <div class="flex flex-col">
+    <span class="font-headline-lg text-headline-lg font-bold text-on-primary">SISET-FCE</span>
+    <span class="font-label-md text-label-md text-on-primary-container">Sistema de de seguiiento de Tesis</span>
+    </div>
+    </div>
+    <nav class="flex-grow space-y-1">
+    <div class="font-nav-caps text-nav-caps text-on-primary-container mb-2 uppercase">Menú Principal</div>
+    <a class="bg-primary-container text-on-primary-fixed rounded-xl flex items-center gap-3 px-4 py-3 transition-colors active:scale-95 duration-200" href="#">
+    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+    <span class="font-label-md text-label-md">Principal</span>
+    </a>
+    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="#">
+    <span class="material-symbols-outlined" data-icon="description">description</span>
+    <span class="font-label-md text-label-md">Formatos Oficiales</span>
+    </a>
+    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="#">
+    <span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+    <span class="font-label-md text-label-md">Asignación de Jurados</span>
+    </a>
+    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="#">
+    <span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+    <span class="font-label-md text-label-md">Resoluciones</span>
+    </a>
+    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="#">
+    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+    <span class="font-label-md text-label-md">Configuración</span>
+    </a>
+    </nav>
+    <div class="mt-auto pt-6 space-y-1">
+    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="#">
+    
+    <span class="font-label-md text-label-md"><br></span>
+    </a>
+    <button class="w-full mt-4 bg-secondary-container text-on-secondary-container font-label-md text-label-md py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+    <span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Cerrar Sesión
+                </button>
+    </div>
+    </aside>
+    <!-- TopAppBar (Shared Component) -->
+    <header class="fixed top-0 right-0 w-[calc(100%-250px)] h-header-height bg-surface border-b border-outline-variant/30 flex justify-between items-center px-gutter z-40">
+    <div class="flex flex-col">
+    <h1 class="font-headline-sm text-headline-sm font-bold text-primary">Decanatura</h1>
+    </div>
+    <div class="flex items-center gap-6">
+    <div class="text-right hidden md:block">
+    <div class="font-headline-sm text-headline-sm text-primary">Bienvenido Ing. Mg. Segundo Roger Ramírez Shupingahua</div>
+    <div class="flex items-center justify-end gap-3 text-on-surface-variant font-label-sm text-label-sm">
+    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">mail</span> sramirez@mira.edu.pe</span>
+    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">call</span> +51 987 654 321</span>
+    </div>
+    </div>
+    <div class="flex items-center gap-3 border-l border-outline-variant/30 pl-6">
+    <button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+    <span class="material-symbols-outlined">notifications</span>
+    </button>
+    <img class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional portrait of a senior academic dean in a formal suit, with a background featuring a modern library and soft architectural lighting. The image conveys authority, experience, and academic prestige with a clean, light-mode aesthetic using professional blues and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu7Z1xhOLlzMP7kSZ6xw6QFF9CyhYu1Vs4LYIlEBCp-Rjd7gpfC9CeACrmXkORZh64GkVamqEGBShPhnxibcJIT-fLGzQ0WJILY5AYT4hvkNYgmDdWrKXbfuELIPgCkg33LhG10sLxUmUZ_iekYJgbjC1PX-VV-NfcffxYnWbCl89Ad58CSzCi-B7TjNrm0bsTehhI06-fDlEf3fNHIIqR0AlnEzKVafVQrnp2KV9SBscyVRWJcSktjy7ZPv6L0p-J16e67E9w6-Yl">
+    </div>
+    </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="pt-[calc(70px+2rem)] ml-sidebar-width min-h-screen pb-12 px-gutter">
+    <div class="max-w-container-max-width mx-auto">
+    <!-- Welcome Section -->
+    <section class="mb-10">
+    
+    </section>
+    <!-- Bento Dashboard Grid -->
+    <div class="grid grid-cols-12 gap-5">
+    <!-- Metric Card: Expedientes -->
+    <div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow" style="transition: 0.3s; transform: translateY(0px);">
+    <div class="flex justify-between items-start mb-4">
+    <div class="p-2 bg-secondary-container/30 rounded-lg text-secondary">
+    <span class="material-symbols-outlined">folder_open</span>
+    </div>
+    <span class="text-status-success font-label-md bg-status-success/10 px-2 py-1 rounded">+12%</span>
+    </div>
+    <div class="font-label-md text-on-surface-variant uppercase tracking-wider">Expedientes Totales</div>
+    <div class="font-headline-lg text-headline-lg text-primary mt-1">1,248</div>
+    <div class="mt-4 h-1 bg-surface-variant rounded-full overflow-hidden">
+    <div class="h-full bg-secondary w-3/4"></div>
+    </div>
+    <div class="font-label-sm text-on-surface-variant mt-2">75% Procesados satisfactoriamente</div>
+    </div>
+    <!-- Metric Card: Jurados -->
+    <div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow" style="transition: 0.3s; transform: translateY(0px);">
+    <div class="flex justify-between items-start mb-4">
+    <div class="p-2 bg-primary-container/10 rounded-lg text-primary">
+    <span class="material-symbols-outlined">group</span>
+    </div>
+    <span class="text-on-surface-variant font-label-md bg-surface-variant px-2 py-1 rounded">Hoy</span>
+    </div>
+    <div class="font-label-md text-on-surface-variant uppercase tracking-wider">Jurados Asignados</div>
+    <div class="font-headline-lg text-headline-lg text-primary mt-1">84</div>
+    <div class="flex -space-x-2 mt-5">
+    <img class="w-8 h-8 rounded-full border-2 border-white" data-alt="Close-up portrait of a professional female professor with glasses, smiling warmly. Professional setting with soft natural light and office background. Modern academic institutional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCsc_QKPGpbn2wVJhTjWHtgvca7JFbRNSVx7eEj-z40NHqVBu1-8j468ruTDYealvz1e0138x8er3mhE0SN8Nqj1uRrZmUpmmPu2gdH0PJeIaM7DWz4LAC6q1YZHR-os4S0a7JN36_9dZU30fY2qguMjOillXeG97U9U-FbSXz4hfwY-TWMwlag0rHpV8q7C3amk6ehgbUlfLQ5SBEfrRfXCv_n9Bagt8aQbxNjDCGctDUMkmziT-rgUVd-BSezCUXgWlmnAE2gwnI">
+    <img class="w-8 h-8 rounded-full border-2 border-white" data-alt="Portrait of a senior male academic in a formal setting. Neutral tones, soft focus background, lighting emphasizes professional confidence and institutional reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsT_9eFQMUY96tbUllm0BHAYjrmcx_a4igPpm9TmfrRc_IawIJXCjQaKiGiIDKemtc5Fz4m7pclGYGDS8Io_dhvDxJ-TvmxDQbTZ56yccMs6YH9pa4ljeo63BUMReGNMcscE8mk8g7gpZ8gtXZF6uZkpwzLhoHLaQvOF0qPtid6M8yR9UwvGmsdmokZrlLmOYvdrTpFZs82Agr9tIbdLaQNyDjGZ8wTcyt8PpvsJzObRv6ztlgxikWdbzIkkKg_KZi9c2yF1xf2oTP">
+    <div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed-dim flex items-center justify-center text-[10px] font-bold text-primary">+81</div>
+    </div>
+    </div>
+    <!-- Metric Card: Resoluciones -->
+    <div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow" style="transition: 0.3s; transform: translateY(0px);">
+    <div class="flex justify-between items-start mb-4">
+    <div class="p-2 bg-error-container/30 rounded-lg text-status-error">
+    <span class="material-symbols-outlined">pending_actions</span>
+    </div>
+    <span class="text-status-error font-label-md bg-status-error/10 px-2 py-1 rounded">Urgente</span>
+    </div>
+    <div class="font-label-md text-on-surface-variant uppercase tracking-wider">Resoluciones Pendientes</div>
+    <div class="font-headline-lg text-headline-lg text-status-error mt-1">16</div>
+    <button class="mt-4 w-full border border-status-error text-status-error font-label-md py-2 rounded-xl hover:bg-status-error/5 transition-colors">
+                            Revisar Ahora
+                        </button>
+    </div>
+    <!-- Main Activity Chart Placeholder -->
+    
+    <!-- Quick Actions / Sidebar in Content -->
+    <div class="col-span-12 md:col-span-4 space-y-5">
+    <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm">
+    
+    <div class="space-y-3">
+    
+    
+    </div>
+    </div>
+    
+    </div>
+    <!-- Recent Transactions / List -->
+    <div class="col-span-12 bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+    <div class="px-card-padding py-4 border-b border-outline-variant/30 bg-surface-container-low flex justify-between items-center">
+    <h3 class="font-headline-sm text-headline-sm text-primary">Actividad Reciente</h3>
+    <button class="text-primary font-label-md hover:underline">Ver todo</button>
+    </div>
+    <div class="overflow-x-auto">
+    <table class="w-full text-left">
+    <thead class="bg-surface-variant/30 text-on-surface-variant font-label-sm uppercase">
+    <tr>
+    <th class="px-6 py-3">Expediente</th>
+    <th class="px-6 py-3">Interesado</th>
+    <th class="px-6 py-3">Tipo de Trámite</th>
+    <th class="px-6 py-3">Fecha</th>
+    <th class="px-6 py-3">Estado</th>
+    <th class="px-6 py-3"></th>
+    </tr>
+    </thead>
+    <tbody class="divide-y divide-outline-variant/20">
+    <tr class="hover:bg-surface-container transition-colors">
+    <td class="px-6 py-4 font-label-md">#EXP-2023-0891</td>
+    <td class="px-6 py-4">García Mendoza, Carlos</td>
+    <td class="px-6 py-4 text-on-surface-variant">Grado de Bachiller</td>
+    <td class="px-6 py-4 text-on-surface-variant">hace 2 horas</td>
+    <td class="px-6 py-4">
+    <span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-full text-[10px] font-bold">PROCESADO</span>
+    </td>
+    <td class="px-6 py-4 text-right">
+    <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+    </td>
+    </tr>
+    <tr class="hover:bg-surface-container transition-colors">
+    <td class="px-6 py-4 font-label-md">#EXP-2023-0902</td>
+    <td class="px-6 py-4">Luna Rojas, Sofia</td>
+    <td class="px-6 py-4 text-on-surface-variant">Título Profesional</td>
+    <td class="px-6 py-4 text-on-surface-variant">hace 5 horas</td>
+    <td class="px-6 py-4">
+    <span class="bg-primary-fixed-dim text-primary px-2 py-1 rounded-full text-[10px] font-bold uppercase">En Revisión</span>
+    </td>
+    <td class="px-6 py-4 text-right">
+    <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+    </td>
+    </tr>
+    <tr class="hover:bg-surface-container transition-colors">
+    <td class="px-6 py-4 font-label-md">#EXP-2023-0915</td>
+    <td class="px-6 py-4">Perez Soto, Juan</td>
+    <td class="px-6 py-4 text-on-surface-variant">Cambio de Facultad</td>
+    <td class="px-6 py-4 text-on-surface-variant">Ayer</td>
+    <td class="px-6 py-4">
+    <span class="bg-error-container text-on-error-container px-2 py-1 rounded-full text-[10px] font-bold uppercase">Observado</span>
+    </td>
+    <td class="px-6 py-4 text-right">
+    <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </main>
+    <!-- Floating Action Button (FAB) - Suppressed as per instructions for Dean Dashboard context if not specifically requested, but adding for 'New Resolution' since it's a common Dean task -->
+    <button class="fixed bottom-10 right-10 w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+    <span class="material-symbols-outlined text-[30px]" data-weight="fill">add</span>
+    </button>
+    <script>
+            // Micro-interactions and subtle effects
+            document.querySelectorAll('.hover\\:shadow-md').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-2px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0px)';
+                });
+                card.style.transition = 'all 0.3s ease';
+            });
+    
+            // Search Bar Focus Effect (though hidden in config, keeping logic if enabled)
+            const topBar = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    topBar.classList.add('shadow-sm');
+                    topBar.style.backgroundColor = 'rgba(249, 249, 255, 0.95)';
+                    topBar.style.backdropFilter = 'blur(8px)';
+                } else {
+                    topBar.classList.remove('shadow-sm');
+                    topBar.style.backgroundColor = '#f9f9ff';
+                    topBar.style.backdropFilter = 'none';
+                }
+            });
+        </script>
+    
+    
+    </body></html>
