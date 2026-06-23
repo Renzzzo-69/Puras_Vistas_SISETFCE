@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Dashboard Principal - SISET-FCE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#33447b",
+                        "tertiary": "#4e3a00",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-container": "#eac46e",
+                        "surface-container-low": "#f3f3f9",
+                        "surface-container-highest": "#e2e2e8",
+                        "on-surface": "#191c20",
+                        "surface": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "primary": "#283a70",
+                        "inverse-surface": "#2e3035",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#ededf3",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-secondary-fixed-variant": "#005045",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#6ff5dc",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c5c6d1",
+                        "inverse-on-surface": "#f0f0f6",
+                        "on-secondary-fixed": "#00201b",
+                        "primary-container": "#405189",
+                        "surface-container-high": "#e7e8ee",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b5c4ff",
+                        "outline": "#757681",
+                        "tertiary-fixed": "#ffdf9b",
+                        "background": "#f9f9ff",
+                        "surface-tint": "#4b5c94",
+                        "secondary-fixed": "#72f8df",
+                        "secondary": "#006b5c",
+                        "on-primary-container": "#b7c6ff",
+                        "on-background": "#191c20",
+                        "tertiary-container": "#6b5000",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d9d9df",
+                        "on-surface-variant": "#45464f",
+                        "on-primary-fixed": "#00164d",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-secondary-container": "#007060",
+                        "surface-variant": "#e2e2e8",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "primary-fixed": "#dce1ff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "header-height": "70px",
+                        "gutter": "1.25rem",
+                        "sidebar-width": "250px",
+                        "container-margin": "1.5rem",
+                        "card-padding": "1rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
+    <!-- SideNavBar -->
+    <aside
+        class="fixed left-0 top-0 h-full w-[250px] bg-primary dark:bg-primary-container z-40 flex flex-col py-header-height">
+        <div class="px-gutter mb-6 flex flex-col">
+            <span class="font-headline-md text-headline-md font-bold text-on-primary">SISET-FCE</span>
+            <span class="font-label-md text-label-md text-on-primary opacity-80 mt-1">Facultad de Ciencias
+                Económicas</span>
+        </div>
+        <nav class="flex-1 overflow-y-auto mt-4">
+            <ul class="flex flex-col gap-1">
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                        href="#"><span class="material-symbols-outlined"
+                            style="font-variation-settings: 'FILL' 1;">dashboard</span><span
+                            class="font-label-md text-label-md">Principal</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">analytics</span><span
+                            class="font-label-md text-label-md">Mi Panel</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">app_registration</span><span
+                            class="font-label-md text-label-md">Registrar Expediente</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">folder_shared</span><span
+                            class="font-label-md text-label-md">Mi Expediente</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">edit_note</span><span
+                            class="font-label-md text-label-md">Observaciones y Subsanaciones</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">school</span><span
+                            class="font-label-md text-label-md">Tesis Final</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">description</span><span
+                            class="font-label-md text-label-md">Documentos y Resoluciones</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">format_list_bulleted</span><span
+                            class="font-label-md text-label-md">Formatos Oficiales</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">groups</span><span
+                            class="font-label-md text-label-md">Asesor y Jurados</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">calendar_month</span><span
+                            class="font-label-md text-label-md">Agenda Académica</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">notifications</span><span
+                            class="font-label-md text-label-md">Notificaciones</span></a></li>
+                <li class=""><a
+                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                        href="#"><span class="material-symbols-outlined">person</span><span
+                            class="font-label-md text-label-md">Perfil</span></a></li>
+            </ul>
+        </nav>
+        <div class="mt-auto px-gutter pb-6 pt-4 border-t border-on-primary-fixed-variant">
+            <a class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors rounded-lg"
+                href="#"><span class="material-symbols-outlined">settings</span><span
+                    class="font-label-md text-label-md">Configuración</span></a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <div class="flex-1 ml-[250px] flex flex-col h-full relative">
+        <!-- TopNavBar -->
+        <header
+            class="fixed top-0 right-0 left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface border-b border-outline-variant">
+            <div class="flex items-center gap-6">
+                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+                <nav class="hidden md:flex gap-4 h-full">
+                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                        href="#">Tesista</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="h-8 w-px bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
+                        U
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-primary">Perfil</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Canvas -->
+        <main class="flex-1 overflow-y-auto pt-[90px] px-container-margin pb-20">
+            <div class="max-w-7xl mx-auto space-y-6">
+                <!-- Welcome & Brief Status -->
+                <div class="flex justify-between items-end mb-8">
+                    <div>
+                        <h1 class="font-headline-lg text-headline-lg text-primary">Panel Principal</h1>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-1">Resumen general de tu proceso
+                            de tesis</p>
+                    </div>
+                </div>
+                <!-- Metrics Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+                    <!-- Status -->
+                    <div
+                        class="col-span-1 xl:col-span-2 bg-surface-container-lowest p-card-padding rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Estado
+                                Actual</span>
+                            <div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center">
+                                <span class="material-symbols-outlined text-tertiary-fixed-dim"
+                                    style="font-variation-settings: 'FILL' 1;">pending_actions</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span
+                                class="inline-block px-3 py-1 rounded-full bg-tertiary-fixed text-tertiary-fixed-dim font-bold font-label-md text-label-md border border-tertiary-fixed-dim mb-2">Observaciones
+                                pendientes</span>
+                            <div class="font-body-md text-body-md text-on-surface">Requiere subsanación por parte del
+                                tesista.</div>
+                        </div>
+                    </div>
+                    <!-- Expediente -->
+                    <div
+                        class="col-span-1 bg-surface-container-lowest p-card-padding rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Expediente</span>
+                            <span class="material-symbols-outlined text-primary">folder_open</span>
+                        </div>
+                        <div class="font-headline-md text-headline-md text-on-surface">EXP-2026-0042</div>
+                    </div>
+                    <!-- Plazo -->
+                    <div
+                        class="col-span-1 bg-surface-container-lowest p-card-padding rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-error-container bg-error-container/10 flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-label-md text-label-md text-error uppercase tracking-wider">Plazo
+                                Restante</span>
+                            <span class="material-symbols-outlined text-error">timer</span>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-headline-lg text-headline-lg text-error">3</span>
+                            <span class="font-body-md text-body-md text-error">días</span>
+                        </div>
+                    </div>
+                    <!-- Observaciones & Notificaciones -->
+                    <div class="col-span-1 flex flex-col gap-4">
+                        <div
+                            class="flex-1 bg-surface-container-lowest px-4 py-3 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant flex items-center justify-between">
+                            <span class="font-label-md text-label-md text-on-surface-variant">Observaciones</span>
+                            <span
+                                class="font-headline-sm text-headline-sm text-tertiary-container bg-tertiary-fixed w-8 h-8 flex items-center justify-center rounded-full">2</span>
+                        </div>
+                        <div
+                            class="flex-1 bg-surface-container-lowest px-4 py-3 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant flex items-center justify-between">
+                            <span class="font-label-md text-label-md text-on-surface-variant">Notificaciones</span>
+                            <span
+                                class="font-headline-sm text-headline-sm text-primary bg-primary-fixed w-8 h-8 flex items-center justify-center rounded-full">4</span>
+                        </div>
+                    </div>
+                    <!-- Fase Final -->
+                    <div
+                        class="col-span-1 xl:col-span-1 bg-surface-variant/50 p-card-padding rounded-xl border border-outline-variant border-dashed flex flex-col items-center justify-center text-center opacity-70">
+                        <span class="material-symbols-outlined text-outline mb-2 text-3xl">lock</span>
+                        <span class="font-label-md text-label-md text-outline font-bold">Fase Tesis Final</span>
+                        <span class="font-label-sm text-label-sm text-outline-variant mt-1">Bloqueada</span>
+                    </div>
+                </div>
+                <!-- Stepper: Seguimiento rápido -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant p-6 mt-8">
+                    <h2 class="font-headline-sm text-headline-sm text-primary mb-6">Seguimiento rápido del trámite</h2>
+                    <div class="relative flex justify-between items-center w-full">
+                        <!-- Connecting Line -->
+                        <div
+                            class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-container-high -z-10 rounded-full">
+                        </div>
+                        <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[65%] h-1 bg-primary -z-10 rounded-full">
+                        </div>
+                        <!-- Steps -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
+                                <span class="material-symbols-outlined text-sm">check</span></div>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Paso
+                                1</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
+                                <span class="material-symbols-outlined text-sm">check</span></div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
+                                <span class="material-symbols-outlined text-sm">check</span></div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
+                                <span class="material-symbols-outlined text-sm">check</span></div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
+                                <span class="material-symbols-outlined text-sm">check</span></div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
+                                <span class="material-symbols-outlined text-sm">check</span></div>
+                        </div>
+                        <!-- Current Step -->
+                        <div class="flex flex-col items-center gap-2 relative">
+                            <div
+                                class="w-10 h-10 rounded-full bg-tertiary-fixed border-2 border-tertiary-fixed-dim text-tertiary flex items-center justify-center font-label-md text-label-md shadow-md shadow-tertiary-fixed/50 z-10">
+                                7</div>
+                            <span
+                                class="font-label-md text-label-md text-tertiary-container font-bold absolute -bottom-6 whitespace-nowrap text-center">Observaciones
+                                pendientes</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center font-label-md text-label-md">
+                                8</div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center font-label-md text-label-md">
+                                9</div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center font-label-md text-label-md">
+                                10</div>
+                            <span class="font-label-sm text-label-sm text-outline hidden md:block">Fin</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom Split Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+                    <!-- Acciones Pendientes -->
+                    <div class="col-span-1 lg:col-span-2 space-y-4">
+                        <h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2"><span
+                                class="material-symbols-outlined">bolt</span> Acciones Pendientes</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Action 1 -->
+                            <a class="group bg-surface-container-lowest p-4 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant hover:border-primary hover:shadow-md transition-all flex items-start gap-4"
+                                href="#">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-tertiary-fixed/30 text-tertiary-container flex items-center justify-center group-hover:bg-tertiary-fixed transition-colors">
+                                    <span class="material-symbols-outlined">edit_square</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="font-label-md text-label-md font-bold text-on-surface group-hover:text-primary transition-colors">
+                                        Subsanar observaciones</h3>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">2 observaciones
+                                        en el marco teórico.</p>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+                            </a>
+                            <!-- Action 2 -->
+                            <a class="group bg-surface-container-lowest p-4 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant hover:border-primary hover:shadow-md transition-all flex items-start gap-4"
+                                href="#">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-primary-fixed/30 text-primary flex items-center justify-center group-hover:bg-primary-fixed transition-colors">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="font-label-md text-label-md font-bold text-on-surface group-hover:text-primary transition-colors">
+                                        Revisar documento</h3>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Borrador V1.2
+                                        disponible.</p>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+                            </a>
+                            <!-- Action 3 -->
+                            <a class="group bg-surface-container-lowest p-4 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant hover:border-primary hover:shadow-md transition-all flex items-start gap-4"
+                                href="#">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center group-hover:bg-primary-fixed group-hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined">manage_accounts</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="font-label-md text-label-md font-bold text-on-surface group-hover:text-primary transition-colors">
+                                        Actualizar datos</h3>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Confirma tu
+                                        correo institucional.</p>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+                            </a>
+                            <!-- Action 4 -->
+                            <a class="group bg-surface-container-lowest p-4 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant hover:border-primary hover:shadow-md transition-all flex items-start gap-4"
+                                href="#">
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center group-hover:bg-primary-fixed group-hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined">download</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h3
+                                        class="font-label-md text-label-md font-bold text-on-surface group-hover:text-primary transition-colors">
+                                        Descargar formato</h3>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Formato de
+                                        declaración jurada.</p>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Últimas Notificaciones -->
+                    <div class="col-span-1 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2"><span
+                                    class="material-symbols-outlined">notifications_active</span> Últimas notificaciones
+                            </h2>
+                            <a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Ver todas</a>
+                        </div>
+                        <div
+                            class="bg-surface-container-lowest rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden">
+                            <ul class="divide-y divide-surface-container-highest">
+                                <!-- Urgente -->
+                                <li class="p-4 hover:bg-surface-bright transition-colors flex gap-3 items-start">
+                                    <div class="w-2 h-2 rounded-full bg-error mt-1.5 flex-shrink-0"></div>
+                                    <div>
+                                        <span
+                                            class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-error-container text-on-error-container mb-1 uppercase tracking-wide">Urgente</span>
+                                        <p class="font-body-md text-body-md text-on-surface leading-tight">El plazo para
+                                            levantar observaciones vence en 3 días.</p>
+                                        <span
+                                            class="font-label-sm text-label-sm text-on-surface-variant mt-1 block">Hace
+                                            2 horas</span>
+                                    </div>
+                                </li>
+                                <!-- Próximo -->
+                                <li class="p-4 hover:bg-surface-bright transition-colors flex gap-3 items-start">
+                                    <div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim mt-1.5 flex-shrink-0"></div>
+                                    <div>
+                                        <span
+                                            class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-container mb-1 uppercase tracking-wide">Próximo</span>
+                                        <p class="font-body-md text-body-md text-on-surface leading-tight">Reunión de
+                                            asesoría programada para el viernes.</p>
+                                        <span
+                                            class="font-label-sm text-label-sm text-on-surface-variant mt-1 block">Ayer</span>
+                                    </div>
+                                </li>
+                                <!-- Informativo -->
+                                <li class="p-4 hover:bg-surface-bright transition-colors flex gap-3 items-start">
+                                    <div class="w-2 h-2 rounded-full bg-primary-fixed-dim mt-1.5 flex-shrink-0"></div>
+                                    <div>
+                                        <span
+                                            class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-primary mb-1 uppercase tracking-wide">Informativo</span>
+                                        <p class="font-body-md text-body-md text-on-surface leading-tight">Nuevo formato
+                                            de citación disponible en biblioteca.</p>
+                                        <span
+                                            class="font-label-sm text-label-sm text-on-surface-variant mt-1 block">Hace
+                                            3 días</span>
+                                    </div>
+                                </li>
+                                <!-- Aprobado -->
+                                <li class="p-4 hover:bg-surface-bright transition-colors flex gap-3 items-start">
+                                    <div class="w-2 h-2 rounded-full bg-secondary mt-1.5 flex-shrink-0"></div>
+                                    <div>
+                                        <span
+                                            class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-container text-on-secondary-container mb-1 uppercase tracking-wide">Aprobado</span>
+                                        <p class="font-body-md text-body-md text-on-surface leading-tight">Plan de
+                                            trabajo inicial aprobado por decanatura.</p>
+                                        <span
+                                            class="font-label-sm text-label-sm text-on-surface-variant mt-1 block">Hace
+                                            1 semana</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="mt-auto bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant flex justify-between items-center p-4 w-full">
+            <div class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-background">
+                © 2024 Facultad de Ciencias Económicas - SISET. Todos los derechos reservados. OS: Web Cloud
+            </div>
+            <div class="flex gap-4 font-label-sm text-label-sm">
+                <a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                    href="#">Términos y Condiciones</a>
+                <a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                    href="#">Soporte Técnico</a>
+                <a class="text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+                    href="#">Privacidad</a>
+            </div>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>

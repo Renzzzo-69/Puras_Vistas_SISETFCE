@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Agenda Académica - SISET-FCE</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <!-- Google Fonts: Inter & Hanken Grotesk -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config from Design System -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#72f8df",
+                        "on-secondary-fixed": "#00201b",
+                        "surface-tint": "#4b5c94",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-primary-fixed-variant": "#33447b",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "on-tertiary-container": "#eac46e",
+                        "outline-variant": "#c5c6d1",
+                        "inverse-on-surface": "#f0f0f6",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#6ff5dc",
+                        "primary-container": "#405189",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "primary-fixed": "#dce1ff",
+                        "on-secondary-container": "#007060",
+                        "surface": "#f9f9ff",
+                        "secondary": "#006b5c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e2e2e8",
+                        "background": "#f9f9ff",
+                        "outline": "#757681",
+                        "tertiary": "#4e3a00",
+                        "surface-container": "#ededf3",
+                        "on-secondary-fixed-variant": "#005045",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c20",
+                        "on-primary-container": "#b7c6ff",
+                        "surface-container-highest": "#e2e2e8",
+                        "on-primary-fixed": "#00164d",
+                        "primary": "#283a70",
+                        "tertiary-fixed": "#ffdf9b",
+                        "surface-container-high": "#e7e8ee",
+                        "inverse-surface": "#2e3035",
+                        "inverse-primary": "#b5c4ff",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#45464f",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#6b5000",
+                        "on-surface": "#191c20",
+                        "surface-dim": "#d9d9df",
+                        "surface-container-low": "#f3f3f9",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-margin": "1.5rem",
+                        "card-padding": "1rem",
+                        "sidebar-width": "250px",
+                        "gutter": "1.25rem",
+                        "header-height": "70px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface-container-low text-on-background font-body-md text-body-md min-h-screen flex">
+    <!-- Shared Component: SideNavBar -->
+    <nav
+        class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Header area implicitly defined by py-header-height, let's place the branding at the top absolute -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-on-primary flex items-center justify-center overflow-hidden">
+                    <img alt="Usuario Tesista" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuClK3t-j2pNvYhOMY1DkhNawf6RBN8HXmrezWir4t5sRy-SLZvk7gY-XzrAXVKNb3iBoBxpM1DCtWdmtWU4Xy1EUAt4DT9vp4rczAWHC9PHaswdlz6wyCIS3UjVoDSolKpvb0StKlhK2PUs1upxOIJ2OWVen3uuC7qLdmJWycxTaFKY1GNDU4gyHdwKcdEQC-9N9GbUEZu2ALcYx6jWrb8oFZCrp0LTK9WEPqUZqaWc0oUeT_gbJ-ElKmO68UzV_67HP-e7mlZS28g">
+                </div>
+                <div>
+                    <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                    <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias
+                        Económicas</p>
+                </div>
+            </div>
+        </div>
+        <!-- Scrollable Tabs -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">analytics</span>
+                <span>Mi Panel</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">app_registration</span>
+                <span>Registrar Expediente</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">folder_shared</span>
+                <span>Mi Expediente</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Observaciones y Subsanaciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">school</span>
+                <span>Tesis Final</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">description</span>
+                <span>Documentos y Resoluciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">format_list_bulleted</span>
+                <span>Formatos Oficiales</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">groups</span>
+                <span>Asesor y Jurados</span>
+            </a>
+            <!-- Active Tab -->
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 opacity-80 transition-all duration-200"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+                <span>Agenda Académica</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">notifications</span>
+                <span>Notificaciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">person</span>
+                <span>Perfil</span>
+            </a>
+        </div>
+        <!-- Footer Tab -->
+        <div class="mt-auto pb-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </nav>
+    <!-- Main Content Wrapper -->
+    <div class="flex-1 ml-[250px] flex flex-col min-h-screen">
+        <!-- Shared Component: TopNavBar -->
+        <header
+            class="fixed top-0 right-0 left-0 md:left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface-container-lowest border-b border-outline-variant">
+            <div class="flex items-center gap-6">
+                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+                <nav class="hidden md:flex gap-4 h-full">
+                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                        href="#">Tesista</a>
+                </nav>
+            </div>
+            <div class="flex-1 max-w-md mx-6">
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+                    <input
+                        class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-md focus:ring-2 focus:ring-primary/20"
+                        placeholder="Buscar..." type="text">
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="h-8 w-px bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
+                        U
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-primary">Perfil</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    </div>
+                </div>
+                <img alt="Avatar de Tesista" class="w-10 h-10 rounded-full border border-outline-variant"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpezrtRvlRk-F02fqlC8Mofi3a90DMetPWRfgFP8rToXHauJu89CHSLf-nknTiL62SpZ428aCVeRnRLrzTASTQRdf4fkd4XNq_1C_n8sAie4ifOVhVshl_-dW-z8iBLFRvrqLAswYhMsDvC5NQeuPGJZZNO68i8daKDrvgJPlXcreUDmtYG6HpaOWOMOFDeysfZjhBCR4aTsWfhLGQmPtFZSK46HdAIZS7VLMQVMf-68r3zPsPAgHA263-5P7eKk1DRw0R-viZCjA">
+            </div>
+        </header>
+        <!-- Canvas Area -->
+        <main class="flex-1 pt-[70px] p-container-margin">
+            <!-- Page Header -->
+            <div class="flex justify-between items-end mb-gutter">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg font-bold text-on-background">Agenda Académica</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-1">Consulta y seguimiento de tus
+                        eventos del proceso de titulación.</p>
+                </div>
+                <div class="flex gap-3">
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md font-medium shadow-sm">
+                        <span class="material-symbols-outlined text-lg">filter_list</span>
+                        Filtrar
+                    </button>
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md font-medium shadow-sm">
+                        <span class="material-symbols-outlined text-lg">calendar_add_on</span>
+                        Sincronizar Calendario
+                    </button>
+                </div>
+            </div>
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-12 gap-gutter">
+                <!-- Left Column: Context / Calendar View -->
+                <div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+                    <!-- Mini Calendar Widget -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)] p-card-padding border border-outline-variant">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Octubre 2024</h3>
+                            <div class="flex gap-1">
+                                <button
+                                    class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container text-on-surface-variant"><span
+                                        class="material-symbols-outlined">chevron_left</span></button>
+                                <button
+                                    class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container text-on-surface-variant"><span
+                                        class="material-symbols-outlined">chevron_right</span></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-center mb-2">
+                            <div class="font-label-sm text-label-sm text-on-surface-variant">L</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant">M</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant">X</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant">J</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant">V</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant">S</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant">D</div>
+                        </div>
+                        <!-- Mock Calendar Grid -->
+                        <div class="grid grid-cols-7 gap-1 text-center font-body-md text-body-md">
+                            <!-- Empty days -->
+                            <div class="p-2 text-outline"></div>
+                            <div class="p-2 text-outline">1</div>
+                            <div class="p-2 text-outline">2</div>
+                            <div class="p-2 text-outline">3</div>
+                            <div class="p-2 text-outline">4</div>
+                            <div class="p-2 text-outline">5</div>
+                            <div class="p-2 text-outline">6</div>
+                            <!-- Week 2 -->
+                            <div class="p-2 text-on-surface">7</div>
+                            <div class="p-2 text-on-surface">8</div>
+                            <div class="p-2 text-on-surface">9</div>
+                            <div class="p-2 text-on-surface">10</div>
+                            <div class="p-2 text-on-surface">11</div>
+                            <div class="p-2 text-on-surface">12</div>
+                            <div class="p-2 text-on-surface">13</div>
+                            <!-- Week 3 -->
+                            <div class="p-2 text-on-surface">14</div>
+                            <div class="p-2 text-on-surface">15</div>
+                            <div class="p-2 text-on-surface">16</div>
+                            <div class="p-2 text-on-surface">17</div>
+                            <div class="p-2 text-on-surface">18</div>
+                            <div class="p-2 text-on-surface">19</div>
+                            <div class="p-2 text-on-surface">20</div>
+                            <!-- Week 4 with events -->
+                            <div class="p-2 text-on-surface">21</div>
+                            <div class="p-2 text-on-surface">22</div>
+                            <div class="p-2 text-on-surface">23</div>
+                            <div class="p-2 bg-primary text-on-primary rounded-full font-medium shadow-sm">24</div>
+                            <div class="p-2 text-on-surface">25</div>
+                            <div class="p-2 text-on-surface">26</div>
+                            <div class="p-2 text-on-surface">27</div>
+                            <!-- Week 5 with events -->
+                            <div class="p-2 relative text-on-surface font-medium">
+                                28
+                                <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-error rounded-full">
+                                </div>
+                            </div>
+                            <div class="p-2 text-on-surface">29</div>
+                            <div class="p-2 text-on-surface">30</div>
+                            <div class="p-2 text-on-surface">31</div>
+                            <div class="p-2 text-outline">1</div>
+                            <div class="p-2 text-outline">2</div>
+                            <div class="p-2 text-outline">3</div>
+                        </div>
+                    </div>
+                    <!-- Summary Widget -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)] p-card-padding border border-outline-variant flex items-center justify-between">
+                        <div>
+                            <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                                Eventos Restantes</p>
+                            <p class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">3</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+                            <span class="material-symbols-outlined text-2xl"
+                                style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Timeline / Event Cards -->
+                <div class="col-span-12 lg:col-span-8">
+                    <div
+                        class="bg-surface-container-lowest rounded-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden h-full">
+                        <!-- Header of Timeline -->
+                        <div class="border-b border-outline-variant p-card-padding bg-surface-bright">
+                            <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Próximos Eventos
+                            </h3>
+                        </div>
+                        <!-- Timeline Content -->
+                        <div class="p-card-padding relative">
+                            <!-- Vertical Line -->
+                            <div
+                                class="absolute left-[2.25rem] top-card-padding bottom-card-padding w-[2px] bg-surface-variant">
+                            </div>
+                            <div class="flex flex-col gap-6">
+                                <!-- Event 1: Reunión de Jurado -->
+                                <div class="relative pl-14">
+                                    <!-- Timeline Node -->
+                                    <div
+                                        class="absolute left-0 top-1 w-10 h-10 rounded-full bg-primary-fixed border-4 border-surface-container-lowest flex items-center justify-center z-10">
+                                        <span class="material-symbols-outlined text-primary text-sm"
+                                            style="font-variation-settings: 'FILL' 1;">groups</span>
+                                    </div>
+                                    <!-- Card Content -->
+                                    <div
+                                        class="border border-outline-variant rounded-lg p-4 hover:bg-surface-bright transition-colors group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div class="flex flex-col">
+                                                <span
+                                                    class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold mb-1">Evaluación</span>
+                                                <h4
+                                                    class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                                                    Reunión de jurado</h4>
+                                            </div>
+                                            <!-- Status Chip -->
+                                            <span
+                                                class="px-2 py-1 rounded bg-primary/10 border border-primary text-primary font-label-sm text-label-sm font-bold">Próximo</span>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                            <div class="flex items-start gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-on-surface-variant text-lg">event</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-label-md text-label-md text-on-surface-variant">Fecha
+                                                        y Hora</span>
+                                                    <span
+                                                        class="font-body-md text-body-md text-on-surface font-medium">Jueves,
+                                                        24 Oct 2024</span>
+                                                    <span class="font-body-md text-body-md text-on-surface">10:00 AM -
+                                                        11:30 AM</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-on-surface-variant text-lg">location_on</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-label-md text-label-md text-on-surface-variant">Modalidad
+                                                        y Lugar</span>
+                                                    <span
+                                                        class="font-body-md text-body-md text-on-surface font-medium">Virtual</span>
+                                                    <a class="font-body-md text-body-md text-primary hover:underline truncate"
+                                                        href="#">Google Meet (Enlace)</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Event 2: Límite de subsanación -->
+                                <div class="relative pl-14">
+                                    <!-- Timeline Node -->
+                                    <div
+                                        class="absolute left-0 top-1 w-10 h-10 rounded-full bg-error-container border-4 border-surface-container-lowest flex items-center justify-center z-10">
+                                        <span class="material-symbols-outlined text-error text-sm"
+                                            style="font-variation-settings: 'FILL' 1;">assignment_late</span>
+                                    </div>
+                                    <!-- Card Content -->
+                                    <div
+                                        class="border border-outline-variant rounded-lg p-4 hover:bg-surface-bright transition-colors group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div class="flex flex-col">
+                                                <span
+                                                    class="font-label-sm text-label-sm text-error uppercase tracking-wider font-semibold mb-1">Trámite</span>
+                                                <h4
+                                                    class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                                                    Límite de subsanación</h4>
+                                            </div>
+                                            <!-- Status Chip -->
+                                            <span
+                                                class="px-2 py-1 rounded bg-error/10 border border-error text-error font-label-sm text-label-sm font-bold">Crítico</span>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                            <div class="flex items-start gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-on-surface-variant text-lg">event</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-label-md text-label-md text-on-surface-variant">Fecha
+                                                        Límite</span>
+                                                    <span
+                                                        class="font-body-md text-body-md text-on-surface font-medium">Lunes,
+                                                        28 Oct 2024</span>
+                                                    <span
+                                                        class="font-body-md text-body-md text-on-surface text-error">11:59
+                                                        PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-on-surface-variant text-lg">upload_file</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-label-md text-label-md text-on-surface-variant">Modalidad</span>
+                                                    <span
+                                                        class="font-body-md text-body-md text-on-surface font-medium">Documental</span>
+                                                    <span class="font-body-md text-body-md text-on-surface">Subida en
+                                                        SISET</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Event 3: Sustentación -->
+                                <div class="relative pl-14">
+                                    <!-- Timeline Node -->
+                                    <div
+                                        class="absolute left-0 top-1 w-10 h-10 rounded-full bg-secondary-fixed-dim border-4 border-surface-container-lowest flex items-center justify-center z-10">
+                                        <span class="material-symbols-outlined text-on-secondary-fixed text-sm"
+                                            style="font-variation-settings: 'FILL' 1;">school</span>
+                                    </div>
+                                    <!-- Card Content -->
+                                    <div
+                                        class="border border-outline-variant rounded-lg p-4 hover:bg-surface-bright transition-colors group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div class="flex flex-col">
+                                                <span
+                                                    class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold mb-1">Hito
+                                                    Final</span>
+                                                <h4
+                                                    class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                                                    Sustentación (Tesis Final)</h4>
+                                            </div>
+                                            <!-- Status Chip -->
+                                            <span
+                                                class="px-2 py-1 rounded bg-secondary/10 border border-secondary text-secondary font-label-sm text-label-sm font-bold">Programado</span>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                            <div class="flex items-start gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-on-surface-variant text-lg">event</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-label-md text-label-md text-on-surface-variant">Fecha
+                                                        y Hora</span>
+                                                    <span
+                                                        class="font-body-md text-body-md text-on-surface font-medium">Viernes,
+                                                        15 Nov 2024</span>
+                                                    <span class="font-body-md text-body-md text-on-surface">09:00 AM -
+                                                        11:00 AM</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-on-surface-variant text-lg">location_city</span>
+                                                <div class="flex flex-col">
+                                                    <span
+                                                        class="font-label-md text-label-md text-on-surface-variant">Modalidad
+                                                        y Lugar</span>
+                                                    <span
+                                                        class="font-body-md text-body-md text-on-surface font-medium">Presencial</span>
+                                                    <span class="font-body-md text-body-md text-on-surface">Auditorio
+                                                        Principal FCE</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Shared Component: Footer -->
+        <footer
+            class="mt-auto full-width bottom-0 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border-t border-outline-variant flex justify-between items-center p-4 w-full">
+            <div>
+                © 2024 Facultad de Ciencias Económicas - SISET. Todos los derechos reservados. OS: Web Cloud
+            </div>
+            <div class="flex gap-4">
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Términos y
+                    Condiciones</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Soporte
+                    Técnico</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Privacidad</a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
