@@ -128,129 +128,77 @@
     </style>
 </head>
 
-<body class="bg-surface-container-low text-on-surface font-body-md min-h-screen flex">
-    <!-- Mobile Sidebar Overlay -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden" onclick="toggleSidebar()"></div>
-
-    <!-- ===== SIDEBAR ===== -->
-    <aside id="sidebar" class="fixed left-0 top-0 h-full w-[250px] bg-primary z-50 flex flex-col -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
-        <!-- Logo -->
-        <div class="h-[70px] flex items-center gap-3 px-5 border-b border-on-primary/10 shrink-0">
-            <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-on-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">school</span>
-            </div>
-            <div class="min-w-0">
-                <h1 class="text-[15px] font-bold text-on-primary leading-tight font-headline-sm">SISET-FCE</h1>
-                <p class="text-[10px] text-on-primary/50 tracking-wider">Sistema de Seguimiento</p>
+<body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
+    <!-- SideNavBar -->
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
             </div>
         </div>
-
         <!-- Navigation -->
-        <nav class="flex-1 overflow-y-auto py-3 sidebar-scroll">
-            <!-- ── Módulo Tesista ── -->
-            <div class="px-3 mb-3">
-                <p class="text-[10px] font-bold text-on-primary/40 uppercase tracking-[0.15em] px-3 mb-2">Módulo Tesista</p>
-                <div class="space-y-0.5">
-                    <a id="nav-tesista-principal" href="./Panel_Principal.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">dashboard</span>
-                        <span class="text-[13px] font-medium">Principal</span>
-                    </a>
-                    <a id="nav-tesista-registrar" href="./Registrar_Expediente.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">app_registration</span>
-                        <span class="text-[13px] font-medium">Registrar Expediente</span>
-                    </a>
-                    <a id="nav-tesista-expediente" href="./Mi_Expediente.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">folder_shared</span>
-                        <span class="text-[13px] font-medium">Mi Expediente</span>
-                    </a>
-                    <a id="nav-tesista-observaciones" href="./Observaciones_Subsanaciones.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">edit_note</span>
-                        <span class="text-[13px] font-medium">Observaciones</span>
-                    </a>
-                    <a id="nav-tesista-tesis" href="./Tesis_Final.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">school</span>
-                        <span class="text-[13px] font-medium">Tesis Final</span>
-                    </a>
-                    <a id="nav-tesista-documentos" href="./Documentos_Resoluciones.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">description</span>
-                        <span class="text-[13px] font-medium">Documentos</span>
-                    </a>
-                    <a id="nav-tesista-formatos" href="./Formatos_Oficiales.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">format_list_bulleted</span>
-                        <span class="text-[13px] font-medium">Formatos Oficiales</span>
-                    </a>
-                    <a id="nav-tesista-asesores" href="./Asesores_Jurados.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">groups</span>
-                        <span class="text-[13px] font-medium">Asesores y Jurados</span>
-                    </a>
-                    <a id="nav-tesista-agenda" href="./Agenda_Academica.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">calendar_month</span>
-                        <span class="text-[13px] font-medium">Agenda Académica</span>
-                    </a>
-                    <a id="nav-tesista-notif-plazos" href="./Notificaciones_Plazos.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">timer</span>
-                        <span class="text-[13px] font-medium">Plazos y Alertas</span>
-                    </a>
-                    <a id="nav-tesista-final" href="./Final_Tesista.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">emoji_events</span>
-                        <span class="text-[13px] font-medium">Finalizar Proceso</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ── Módulo Docente ── -->
-            <div class="px-3 mb-3">
-                <p class="text-[10px] font-bold text-on-primary/40 uppercase tracking-[0.15em] px-3 mb-2">Módulo Docente</p>
-                <div class="space-y-0.5">
-                    <a id="nav-docente-principal" href="../Docente/principal.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">home</span>
-                        <span class="text-[13px] font-medium">Panel Docente</span>
-                    </a>
-                    <!-- Jurado (collapsible) -->
-                    <div>
-                        <button onclick="toggleSubmenu('jurado-menu', 'jurado-chevron')" class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200 group">
-                            <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[20px]">gavel</span>
-                                <span class="text-[13px] font-medium">Jurado</span>
-                            </div>
-                            <span class="material-symbols-outlined text-[16px] submenu-chevron" id="jurado-chevron">expand_more</span>
-                        </button>
-                        <div id="jurado-menu" class="submenu">
-                            <div class="ml-5 pl-3 border-l border-on-primary/15 py-1 space-y-0.5">
-                                <p class="text-[10px] font-semibold text-on-primary/40 uppercase tracking-wider px-3 pt-1 pb-0.5">Tesis</p>
-                                <a id="nav-docente-tesis-revision" href="../Docente/juradotesisrevision.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Tesis en Revisión</a>
-                                <a id="nav-docente-tesis-aprobado" href="../Docente/juradotesisaprobado.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Tesis Aprobadas</a>
-                                <p class="text-[10px] font-semibold text-on-primary/40 uppercase tracking-wider px-3 pt-2 pb-0.5">Proyectos</p>
-                                <a id="nav-docente-proy-revision" href="../Docente/juradoproyectorevision.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Proyectos en Revisión</a>
-                                <a id="nav-docente-proy-aprobado" href="../Docente/juradoproyectoaprobado.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Proyectos Aprobados</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ── General ── -->
-            <div class="px-3">
-                <p class="text-[10px] font-bold text-on-primary/40 uppercase tracking-[0.15em] px-3 mb-2">General</p>
-                <div class="space-y-0.5">
-                    <a id="nav-general-notificaciones" href="./Notificaciones.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">notifications</span>
-                        <span class="text-[13px] font-medium">Notificaciones</span>
-                    </a>
-                    <a id="nav-general-configuracion" href="./Configuracion_Usuario.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
-                        <span class="material-symbols-outlined text-[20px]">settings</span>
-                        <span class="text-[13px] font-medium">Configuración</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Logout -->
-        <div class="px-3 py-3 border-t border-on-primary/10 shrink-0">
-            <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/10 text-on-primary font-semibold text-[13px] hover:bg-white/20 active:scale-[0.98] transition-all duration-150">
-                <span class="material-symbols-outlined text-[20px]">logout</span>
-                Cerrar Sesión
-            </button>
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Panel_Principal.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <span>Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Registrar_Expediente.html">
+                <span class="material-symbols-outlined">app_registration</span>
+                <span>Registrar Expediente</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Mi_Expediente.html">
+                <span class="material-symbols-outlined">folder_shared</span>
+                <span>Mi Expediente</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Observaciones_Subsanaciones.html">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Observaciones y Subsanaciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Tesis_Final.html">
+                <span class="material-symbols-outlined">school</span>
+                <span>Tesis Final</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Documentos_Resoluciones.html">
+                <span class="material-symbols-outlined">description</span>
+                <span>Documentos y Resoluciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Formatos_Oficiales.html">
+                <span class="material-symbols-outlined">format_list_bulleted</span>
+                <span>Formatos Oficiales</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Asesores_Jurados.html">
+                <span class="material-symbols-outlined">groups</span>
+                <span>Asesor y Jurados</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Agenda_Academica.html">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Agenda Académica</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Notificaciones.html">
+                <span class="material-symbols-outlined">notifications</span>
+                <span>Notificaciones</span>
+            </a>
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion_Usuario.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
         </div>
     </aside>
 
@@ -407,34 +355,40 @@
                         <div class="flex flex-col items-center gap-2">
                             <div
                                 class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
-                                <span class="material-symbols-outlined text-sm">check</span></div>
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
                             <span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block">Paso
                                 1</span>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div
                                 class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
-                                <span class="material-symbols-outlined text-sm">check</span></div>
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div
                                 class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
-                                <span class="material-symbols-outlined text-sm">check</span></div>
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div
                                 class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
-                                <span class="material-symbols-outlined text-sm">check</span></div>
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div
                                 class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
-                                <span class="material-symbols-outlined text-sm">check</span></div>
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div
                                 class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">
-                                <span class="material-symbols-outlined text-sm">check</span></div>
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
                         </div>
                         <!-- Current Step -->
                         <div class="flex flex-col items-center gap-2 relative">

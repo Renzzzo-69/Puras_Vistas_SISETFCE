@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SISET-FCE | Mantenimiento de Docentes</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdf9b",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dce1ff",
+                        "inverse-on-surface": "#f0f0f6",
+                        "outline-variant": "#c5c6d1",
+                        "on-surface-variant": "#45464f",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#757681",
+                        "tertiary": "#4e3a00",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2e3035",
+                        "inverse-primary": "#b5c4ff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#00164d",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary": "#283a70",
+                        "surface-dim": "#d9d9df",
+                        "secondary-fixed": "#72f8df",
+                        "tertiary-container": "#6b5000",
+                        "surface-tint": "#4b5c94",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#b7c6ff",
+                        "surface-container": "#ededf3",
+                        "on-secondary-fixed-variant": "#005045",
+                        "surface-container-high": "#e7e8ee",
+                        "primary-container": "#405189",
+                        "on-background": "#191c20",
+                        "on-primary-fixed-variant": "#33447b",
+                        "secondary": "#006b5c",
+                        "on-tertiary-container": "#eac46e",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-bright": "#f9f9ff",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#e2e2e8",
+                        "surface-container-highest": "#e2e2e8",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "secondary-container": "#6ff5dc",
+                        "surface-container-low": "#f3f3f9",
+                        "on-secondary-fixed": "#00201b",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "on-secondary-container": "#007060",
+                        "on-surface": "#191c20"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "header-height": "70px",
+                        "gutter": "1.25rem",
+                        "container-margin": "1.5rem",
+                        "card-padding": "1rem",
+                        "sidebar-width": "250px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f3f3f9;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom Table Scrollbar */
+        .table-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #c5c6d1;
+            border-radius: 10px;
+        }
+
+        /* Modal Animation */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+</head>
+
+<body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Panel_Principal.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Bandeja_Expedientes.html">
+                <span class="material-symbols-outlined">folder_open</span>
+                <span>Bandeja de Expedientes</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Revision_Espacios.html">
+                <span class="material-symbols-outlined">rate_review</span>
+                <span>Espacio de Revisión</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Jurados_Propuestos.html">
+                <span class="material-symbols-outlined">group_add</span>
+                <span>Jurados Propuestos</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Evidencia_Correo.html">
+                <span class="material-symbols-outlined">mail</span>
+                <span>Evidencias de Correo</span>
+            </a>
+            <div>
+                <button onclick="toggleSubmenu()" class="w-full flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">build</span>
+                    <span class="flex-1 text-left">Mantenimiento</span>
+                    <span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="submenuArrow" style="transform: rotate(180deg);">expand_more</span>
+                </button>
+                <div id="submenuPanel" class="ml-6 mt-1 space-y-0.5">
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Lineas.html">
+                        <span class="material-symbols-outlined text-[18px]">account_tree</span>
+                        <span>Líneas de Investigación</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 bg-primary-container/80 text-white font-semibold transition-all mx-2 rounded-lg text-label-md" href="Mantenimiento_Docentes.html">
+                        <span class="material-symbols-outlined text-[18px]">person</span>
+                        <span>Docentes</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Alumnos.html">
+                        <span class="material-symbols-outlined text-[18px]">school</span>
+                        <span>Alumnos</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Documentos_Solicitados.html">
+                        <span class="material-symbols-outlined text-[18px]">description</span>
+                        <span>Documentos Solicitados</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <div class="flex-1 ml-[250px] flex flex-col h-full relative">
+        <!-- TopNavBar -->
+        <header
+            class="fixed top-0 right-0 left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface border-b border-outline-variant">
+            <div class="flex items-center gap-6">
+                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+                <nav class="hidden md:flex gap-4 h-full">
+                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                        href="#">UDI</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="h-8 w-px bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
+                        A
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-primary">Perfil</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <main class="flex-1 overflow-y-auto pt-[90px] px-container-margin pb-20">
+            <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-headline-md font-headline-md text-primary">Mantenimiento de Docentes</h2>
+                    <p class="text-body-md text-on-surface-variant">Gestione la base de datos de profesores y sus
+                        asignaciones de investigación.</p>
+                </div>
+                <button
+                    class="flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-bold hover:shadow-md active:scale-95 transition-all"
+                    onclick="toggleModal('docenteModal')">
+                    <span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                    Nuevo docente
+                </button>
+            </div>
+            <!-- Dashboard Statistics Bento -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div
+                    class="bg-surface p-card-padding rounded-xl shadow-sm border border-outline-variant flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                    </div>
+                    <div>
+                        <p class="text-label-sm text-on-surface-variant">Total Docentes</p>
+                        <p class="text-headline-sm font-bold">142</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface p-card-padding rounded-xl shadow-sm border border-outline-variant flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                        <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                    </div>
+                    <div>
+                        <p class="text-label-sm text-on-surface-variant">Activos</p>
+                        <p class="text-headline-sm font-bold">128</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface p-card-padding rounded-xl shadow-sm border border-outline-variant flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+                        <span class="material-symbols-outlined" data-icon="school">school</span>
+                    </div>
+                    <div>
+                        <p class="text-label-sm text-on-surface-variant">Grado Doctor</p>
+                        <p class="text-headline-sm font-bold">54</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface p-card-padding rounded-xl shadow-sm border border-outline-variant flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center text-error">
+                        <span class="material-symbols-outlined" data-icon="block">block</span>
+                    </div>
+                    <div>
+                        <p class="text-label-sm text-on-surface-variant">Inactivos</p>
+                        <p class="text-headline-sm font-bold">14</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Card -->
+            <div class="bg-surface rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+                <div
+                    class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+                    <h3 class="font-bold text-primary">Lista de Personal Docente</h3>
+                    <div class="flex gap-2">
+                        <button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors text-outline">
+                            <span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                        </button>
+                        <button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors text-outline">
+                            <span class="material-symbols-outlined" data-icon="download">download</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="table-container overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="bg-surface-container-low text-label-md text-on-surface-variant uppercase tracking-wider">
+                                <th class="px-6 py-4 font-semibold">Nombre y Apellidos</th>
+                                <th class="px-6 py-4 font-semibold">DNI</th>
+                                <th class="px-6 py-4 font-semibold">Celular</th>
+                                <th class="px-6 py-4 font-semibold">Línea</th>
+                                <th class="px-6 py-4 font-semibold">Escuela</th>
+                                <th class="px-6 py-4 font-semibold">Grado</th>
+                                <th class="px-6 py-4 font-semibold">Estado</th>
+                                <th class="px-6 py-4 font-semibold text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline-variant">
+                            <!-- Row 1 -->
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
+                                            RC</div>
+                                        <div>
+                                            <p class="text-body-md font-bold">Ricardo</p>
+                                            <p class="text-label-sm text-on-surface-variant">Casas Moreno</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-body-md">45283910</td>
+                                <td class="px-6 py-4 text-body-md">987 654 321</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="text-label-sm bg-primary/10 text-primary px-2 py-1 rounded">Macroeconomía</span>
+                                </td>
+                                <td class="px-6 py-4 text-body-md">Economía</td>
+                                <td class="px-6 py-4 text-body-md">Doctor</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-bold bg-secondary/10 text-secondary border border-secondary">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Activo
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div
+                                        class="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button class="p-1.5 text-primary hover:bg-primary/10 rounded-lg transition-all"
+                                            title="Editar">
+                                            <span class="material-symbols-outlined text-[20px]"
+                                                data-icon="edit">edit</span>
+                                        </button>
+                                        <button class="p-1.5 text-error hover:bg-error/10 rounded-lg transition-all"
+                                            title="Inactivar">
+                                            <span class="material-symbols-outlined text-[20px]"
+                                                data-icon="person_off">person_off</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center font-bold text-xs">
+                                            MA</div>
+                                        <div>
+                                            <p class="text-body-md font-bold">Maria</p>
+                                            <p class="text-label-sm text-on-surface-variant">Alvarez Ruiz</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-body-md">70221145</td>
+                                <td class="px-6 py-4 text-body-md">944 123 887</td>
+                                <td class="px-6 py-4">
+                                    <span class="text-label-sm bg-primary/10 text-primary px-2 py-1 rounded">Finanzas
+                                        Corporativas</span>
+                                </td>
+                                <td class="px-6 py-4 text-body-md">Negocios</td>
+                                <td class="px-6 py-4 text-body-md">Magister</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-bold bg-secondary/10 text-secondary border border-secondary">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Activo
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div
+                                        class="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button class="p-1.5 text-primary hover:bg-primary/10 rounded-lg transition-all"
+                                            title="Editar">
+                                            <span class="material-symbols-outlined text-[20px]"
+                                                data-icon="edit">edit</span>
+                                        </button>
+                                        <button class="p-1.5 text-error hover:bg-error/10 rounded-lg transition-all"
+                                            title="Inactivar">
+                                            <span class="material-symbols-outlined text-[20px]"
+                                                data-icon="person_off">person_off</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 3 (Inactive) -->
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-full bg-outline-variant text-outline flex items-center justify-center font-bold text-xs">
+                                            JS</div>
+                                        <div>
+                                            <p class="text-body-md font-bold text-outline">Jorge</p>
+                                            <p class="text-label-sm text-outline-variant">Salazar Peña</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-body-md text-outline">12883477</td>
+                                <td class="px-6 py-4 text-body-md text-outline">912 000 321</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="text-label-sm bg-outline-variant/10 text-outline px-2 py-1 rounded">Auditoría</span>
+                                </td>
+                                <td class="px-6 py-4 text-body-md text-outline">Contabilidad</td>
+                                <td class="px-6 py-4 text-body-md text-outline">Doctor</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-bold bg-error/10 text-error border border-error/50">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-error"></span> Inactivo
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div
+                                        class="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button class="p-1.5 text-primary hover:bg-primary/10 rounded-lg transition-all"
+                                            title="Editar">
+                                            <span class="material-symbols-outlined text-[20px]"
+                                                data-icon="edit">edit</span>
+                                        </button>
+                                        <button
+                                            class="p-1.5 text-secondary hover:bg-secondary/10 rounded-lg transition-all"
+                                            title="Activar">
+                                            <span class="material-symbols-outlined text-[20px]"
+                                                data-icon="person_check">person_check</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div
+                    class="p-4 bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+                    <p class="text-label-sm text-on-surface-variant">Mostrando 3 de 142 docentes</p>
+                    <div class="flex gap-2">
+                        <button
+                            class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-high text-outline disabled:opacity-50"
+                            disabled="">
+                            <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                        </button>
+                        <button
+                            class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-high text-outline">
+                            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </main>
+    <footer class="w-full py-6 mt-auto bg-surface-container-low border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-gutter max-w-full">
+            <p class="text-label-sm font-label-sm text-on-surface-variant">© 2024 Faculty of Economic Sciences - UDI
+                Research Unit. All Rights Reserved.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                    href="#">Privacy Policy</a>
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                    href="#">Terms of Service</a>
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                    href="#">Contact Support</a>
+            </div>
+        </footer>
+</div>
+    <!-- Modal Form: Nuevo Docente -->
+    <div class="hidden fixed inset-0 z-50 flex items-center justify-center px-4 overflow-y-auto" id="docenteModal">
+        <div class="modal-overlay absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleModal('docenteModal')">
+        </div>
+        <div
+            class="modal-content relative bg-surface w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+            <div class="bg-primary p-6 text-on-primary flex justify-between items-center">
+                <h3 class="text-headline-sm font-bold">Registro de Nuevo Docente</h3>
+                <button class="hover:bg-white/10 p-1 rounded-full transition-colors"
+                    onclick="toggleModal('docenteModal')">
+                    <span class="material-symbols-outlined" data-icon="close">close</span>
+                </button>
+            </div>
+            <form class="p-8 space-y-6" id="docenteForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Nombres -->
+                    <div class="space-y-1">
+                        <label class="text-label-md font-bold text-on-surface-variant">Nombres *</label>
+                        <input
+                            class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            placeholder="Ej. Ricardo" required="" type="text">
+                    </div>
+                    <!-- Apellidos -->
+                    <div class="space-y-1">
+                        <label class="text-label-md font-bold text-on-surface-variant">Apellidos *</label>
+                        <input
+                            class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            placeholder="Ej. Casas Moreno" required="" type="text">
+                    </div>
+                    <!-- DNI con Validación -->
+                    <div class="space-y-1">
+                        <label class="text-label-md font-bold text-on-surface-variant">DNI (8 dígitos) *</label>
+                        <div class="relative">
+                            <input
+                                class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                                id="dniInput" maxlength="8" placeholder="00000000" required="" type="text">
+                            <span
+                                class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-sm hidden"
+                                id="dniStatus"></span>
+                        </div>
+                    </div>
+                    <!-- Celular con Validación -->
+                    <div class="space-y-1">
+                        <label class="text-label-md font-bold text-on-surface-variant">Celular (9 dígitos) *</label>
+                        <div class="relative">
+                            <input
+                                class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                                id="phoneInput" maxlength="9" placeholder="900 000 000" required="" type="text">
+                            <span
+                                class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-sm hidden"
+                                id="phoneStatus"></span>
+                        </div>
+                    </div>
+                    <!-- Escuela -->
+                    <div class="space-y-1">
+                        <label class="text-label-md font-bold text-on-surface-variant">Escuela Académica *</label>
+                        <select
+                            class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            required="">
+                            <option value="">Seleccionar...</option>
+                            <option value="economia">Economía</option>
+                            <option value="contabilidad">Contabilidad</option>
+                            <option value="negocios">Negocios Internacionales</option>
+                        </select>
+                    </div>
+                    <!-- Grado -->
+                    <div class="space-y-1">
+                        <label class="text-label-md font-bold text-on-surface-variant">Grado Académico *</label>
+                        <select
+                            class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                            required="">
+                            <option value="">Seleccionar...</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="magister">Magíster</option>
+                            <option value="licenciado">Licenciado</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Línea de Investigación -->
+                <div class="space-y-1">
+                    <label class="text-label-md font-bold text-on-surface-variant">Línea de Investigación
+                        Principal</label>
+                    <input
+                        class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        placeholder="Ej. Microeconomía aplicada, Gestión Pública..." type="text">
+                </div>
+                <div class="flex justify-end gap-4 pt-4 border-t border-outline-variant">
+                    <button
+                        class="px-6 py-2.5 rounded-xl text-on-surface-variant font-bold hover:bg-surface-container-high transition-all"
+                        onclick="toggleModal('docenteModal')" type="button">
+                        Cancelar
+                    </button>
+                    <button
+                        class="bg-primary-container text-on-primary-container px-8 py-2.5 rounded-xl font-bold shadow-lg hover:brightness-110 active:scale-95 transition-all"
+                        type="submit">
+                        Guardar Docente
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const content = modal.querySelector('.modal-content');
+
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    content.classList.remove('scale-95', 'opacity-0');
+                    content.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } else {
+                content.classList.remove('scale-100', 'opacity-100');
+                content.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Field Validations
+        const dniInput = document.getElementById('dniInput');
+        const phoneInput = document.getElementById('phoneInput');
+
+        dniInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '');
+            const statusIcon = document.getElementById('dniStatus');
+            statusIcon.classList.remove('hidden');
+            if (e.target.value.length === 8) {
+                statusIcon.innerText = 'check_circle';
+                statusIcon.className = 'absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-secondary';
+            } else {
+                statusIcon.innerText = 'error';
+                statusIcon.className = 'absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-error';
+            }
+        });
+
+        phoneInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '');
+            const statusIcon = document.getElementById('phoneStatus');
+            statusIcon.classList.remove('hidden');
+            if (e.target.value.length === 9) {
+                statusIcon.innerText = 'check_circle';
+                statusIcon.className = 'absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-secondary';
+            } else {
+                statusIcon.innerText = 'error';
+                statusIcon.className = 'absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-error';
+            }
+        });
+
+        // Form Submission
+        document.getElementById('docenteForm').onsubmit = (e) => {
+            e.preventDefault();
+            alert('Docente registrado exitosamente.');
+            toggleModal('docenteModal');
+        };
+    </script>
+
+    <script>
+        function toggleSubmenu() {
+            const panel = document.getElementById('submenuPanel');
+            const arrow = document.getElementById('submenuArrow');
+            if (panel) {
+                panel.classList.toggle('hidden');
+                if (arrow) {
+                    arrow.style.transform = panel.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

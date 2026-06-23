@@ -164,92 +164,74 @@
 
 <body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
     <!-- SideNavBar -->
-    <aside aria-label="Sidebar Navigation"
-        class="bg-primary text-on-primary fixed left-0 top-0 h-full w-[250px] flex flex-col h-full z-40 hidden md:flex">
-        <div class="h-header-height flex flex-col justify-center px-6 border-b border-on-primary/10">
-            <h1 class="font-headline-md text-headline-md font-bold text-on-primary truncate">SISET-FCE</h1>
-            <p class="font-label-sm text-label-sm text-on-primary/70 truncate">Facultad de Ciencias Económicas</p>
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
+            </div>
         </div>
-        <nav aria-label="Main Navigation" class="flex-1 overflow-y-auto py-6 space-y-1">
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">dashboard</span>
-                <span class="font-body-md text-body-md font-medium">Principal</span>
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Panel_Principal.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Principal</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">analytics</span>
-                <span class="font-body-md text-body-md font-medium">Mi Panel</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Registrar_Expediente.html">
+                <span class="material-symbols-outlined">app_registration</span>
+                <span>Registrar Expediente</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">app_registration</span>
-                <span class="font-body-md text-body-md font-medium">Registrar Expediente</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Mi_Expediente.html">
+                <span class="material-symbols-outlined">folder_shared</span>
+                <span>Mi Expediente</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">folder_shared</span>
-                <span class="font-body-md text-body-md font-medium">Mi Expediente</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Observaciones_Subsanaciones.html">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Observaciones y Subsanaciones</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">edit_note</span>
-                <span class="font-body-md text-body-md font-medium">Observaciones y Subsanaciones</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Tesis_Final.html">
+                <span class="material-symbols-outlined">school</span>
+                <span>Tesis Final</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">school</span>
-                <span class="font-body-md text-body-md font-medium">Tesis Final</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Documentos_Resoluciones.html">
+                <span class="material-symbols-outlined">description</span>
+                <span>Documentos y Resoluciones</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">description</span>
-                <span class="font-body-md text-body-md font-medium">Documentos y Resoluciones</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Formatos_Oficiales.html">
+                <span class="material-symbols-outlined">format_list_bulleted</span>
+                <span>Formatos Oficiales</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">format_list_bulleted</span>
-                <span class="font-body-md text-body-md font-medium">Formatos Oficiales</span>
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Asesores_Jurados.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+                <span>Asesor y Jurados</span>
             </a>
-            <a aria-current="page"
-                class="bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 flex items-center px-4 py-3 group opacity-80 transition-all duration-200"
-                href="#">
-                <span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">groups</span>
-                <span class="font-body-md text-body-md font-medium">Asesor y Jurados</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Agenda_Academica.html">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Agenda Académica</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">calendar_month</span>
-                <span class="font-body-md text-body-md font-medium">Agenda Académica</span>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Notificaciones.html">
+                <span class="material-symbols-outlined">notifications</span>
+                <span>Notificaciones</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">notifications</span>
-                <span class="font-body-md text-body-md font-medium">Notificaciones</span>
-            </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">person</span>
-                <span class="font-body-md text-body-md font-medium">Perfil</span>
-            </a>
-        </nav>
-        <div class="mt-auto border-t border-on-primary/10 pt-2 pb-4">
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 flex items-center px-4 py-3 rounded-lg group"
-                href="#">
-                <span
-                    class="material-symbols-outlined mr-3 text-on-primary/70 group-hover:text-on-primary transition-colors">settings</span>
-                <span class="font-body-md text-body-md font-medium">Configuración</span>
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion_Usuario.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
             </a>
         </div>
     </aside>

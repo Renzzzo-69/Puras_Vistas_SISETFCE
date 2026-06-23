@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-tab {
+            border-bottom: 2px solid #283a70;
+            color: #283a70;
+            font-weight: 600;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c5c6d1;
+            border-radius: 10px;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdf9b",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dce1ff",
+                        "inverse-on-surface": "#f0f0f6",
+                        "outline-variant": "#c5c6d1",
+                        "on-surface-variant": "#45464f",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#757681",
+                        "tertiary": "#4e3a00",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2e3035",
+                        "inverse-primary": "#b5c4ff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#00164d",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary": "#283a70",
+                        "surface-dim": "#d9d9df",
+                        "secondary-fixed": "#72f8df",
+                        "tertiary-container": "#6b5000",
+                        "surface-tint": "#4b5c94",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#b7c6ff",
+                        "surface-container": "#ededf3",
+                        "on-secondary-fixed-variant": "#005045",
+                        "surface-container-high": "#e7e8ee",
+                        "primary-container": "#405189",
+                        "on-background": "#191c20",
+                        "on-primary-fixed-variant": "#33447b",
+                        "secondary": "#006b5c",
+                        "on-tertiary-container": "#eac46e",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-bright": "#f9f9ff",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#e2e2e8",
+                        "surface-container-highest": "#e2e2e8",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "secondary-container": "#6ff5dc",
+                        "surface-container-low": "#f3f3f9",
+                        "on-secondary-fixed": "#00201b",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "on-secondary-container": "#007060",
+                        "on-surface": "#191c20"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "header-height": "70px",
+                        "gutter": "1.25rem",
+                        "container-margin": "1.5rem",
+                        "sidebar-width": "250px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Panel_Principal.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Bandeja_Expedientes.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+                <span>Bandeja de Expedientes</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Revision_Espacios.html">
+                <span class="material-symbols-outlined">rate_review</span>
+                <span>Espacio de Revisión</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Jurados_Propuestos.html">
+                <span class="material-symbols-outlined">group_add</span>
+                <span>Jurados Propuestos</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Evidencia_Correo.html">
+                <span class="material-symbols-outlined">mail</span>
+                <span>Evidencias de Correo</span>
+            </a>
+            <div>
+                <button onclick="toggleSubmenu()" class="w-full flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg">
+                    <span class="material-symbols-outlined">build</span>
+                    <span class="flex-1 text-left">Mantenimiento</span>
+                    <span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="submenuArrow">expand_more</span>
+                </button>
+                <div id="submenuPanel" class="ml-6 mt-1 space-y-0.5 hidden">
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Lineas.html">
+                        <span class="material-symbols-outlined text-[18px]">account_tree</span>
+                        <span>Líneas de Investigación</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Docentes.html">
+                        <span class="material-symbols-outlined text-[18px]">person</span>
+                        <span>Docentes</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Alumnos.html">
+                        <span class="material-symbols-outlined text-[18px]">school</span>
+                        <span>Alumnos</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Documentos_Solicitados.html">
+                        <span class="material-symbols-outlined text-[18px]">description</span>
+                        <span>Documentos Solicitados</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <div class="flex-1 ml-[250px] flex flex-col h-full relative">
+        <!-- TopNavBar -->
+        <header
+            class="fixed top-0 right-0 left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface border-b border-outline-variant">
+            <div class="flex items-center gap-6">
+                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+                <nav class="hidden md:flex gap-4 h-full">
+                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                        href="#">UDI</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="h-8 w-px bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
+                        A
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-primary">Perfil</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <main class="flex-1 overflow-y-auto pt-[90px] px-container-margin pb-20">
+            <!-- Header Info Card (Bento Style) -->
+            <div class="grid grid-cols-12 gap-6">
+                <!-- Primary Data -->
+                <div
+                    class="col-span-8 bg-surface border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-bold border border-secondary">ESTADO:
+                                EN REVISIÓN</span>
+                            <div class="flex gap-2">
+                                <div class="flex items-center gap-1 text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                    <span class="text-label-md">Recibido: 12 Oct 2024</span>
+                                </div>
+                                <div class="flex items-center gap-1 text-error">
+                                    <span class="material-symbols-outlined text-[18px]">timer</span>
+                                    <span class="text-label-md font-bold">Vence en: 3 días</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-headline-md font-bold text-primary mb-2">Análisis del impacto microeconómico de
+                            la digitalización financiera en las PYMES del sector servicios de Lima Metropolitana,
+                            2020-2023</h3>
+                        <p class="text-body-md text-on-surface-variant max-w-3xl">Este proyecto de tesis aborda las
+                            transformaciones estructurales de los costos operativos y la eficiencia marginal derivados
+                            de la adopción de billeteras digitales y pasarelas de pago automatizadas.</p>
+                    </div>
+                    <div class="mt-6 flex gap-8 border-t border-outline-variant pt-4">
+                        <div>
+                            <p class="text-label-sm text-outline uppercase font-bold">Tesista</p>
+                            <p class="text-body-md font-semibold">Alvarez Mendizabal, Lucía Fernanda</p>
+                            <p class="text-label-md text-on-surface-variant">Código: 74308115</p>
+                        </div>
+                        <div>
+                            <p class="text-label-sm text-outline uppercase font-bold">Asesor</p>
+                            <p class="text-body-md font-semibold">Dr. Ramirez Huamán, Alberto</p>
+                            <p class="text-label-md text-on-surface-variant">Línea de Inv.: Macroeconomía</p>
+                        </div>
+                        <div class="ml-auto flex items-center gap-3">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Semaphore & Quick Action -->
+                <div
+                    class="col-span-4 bg-surface border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col items-center justify-center text-center">
+                    <p class="text-label-md font-bold text-outline uppercase mb-4">Semáforo de Gestión</p>
+                    <div class="relative w-32 h-32 mb-4">
+                        <!-- Simulated circular progress -->
+                        <svg class="w-full h-full transform -rotate-90">
+                            <circle class="text-surface-container-high" cx="64" cy="64" fill="transparent" r="58"
+                                stroke="currentColor" stroke-width="8"></circle>
+                            <circle class="text-secondary" cx="64" cy="64" fill="transparent" r="58"
+                                stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="100" stroke-width="8">
+                            </circle>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-headline-md font-bold text-secondary">72%</span>
+                            <span class="text-label-sm text-outline">Progreso</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 w-full mt-2">
+                        <div class="flex flex-col items-center">
+                            <div class="w-3 h-3 rounded-full bg-secondary mb-1"></div>
+                            <span class="text-[10px] uppercase font-bold">Aprobado</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-3 h-3 rounded-full bg-tertiary mb-1"></div>
+                            <span class="text-[10px] uppercase font-bold">Pendiente</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-3 h-3 rounded-full bg-error mb-1"></div>
+                            <span class="text-[10px] uppercase font-bold">Crítico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabs Navigation -->
+            <div class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+                <div class="flex border-b border-outline-variant px-4 bg-surface-container-lowest">
+                    <button class="px-6 py-4 text-label-md hover:text-primary transition-colors active-tab">Revisión y
+                        observación</button>
+                    <button
+                        class="px-6 py-4 text-label-md hover:text-primary transition-colors border-b-2 text-on-surface-variant border-transparent">Observaciones</button>
+
+                    <button
+                        class="px-6 py-4 text-label-md hover:text-primary transition-colors border-b-2 text-on-surface-variant border-transparent">Subsanaciones</button>
+                    <button
+                        class="px-6 py-4 text-label-md hover:text-primary transition-colors border-b-2 text-on-surface-variant border-transparent">Subsanaciones</button>
+
+                    <button
+                        class="px-6 py-4 text-label-md text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent">Conformidad</button>
+
+                    <button
+                        class="px-6 py-4 text-label-md text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent">Historial</button>
+                </div>
+                <!-- Tab Content: Resumen -->
+                <div class="p-6">
+                    <div class="grid grid-cols-12 gap-6">
+                        <!-- Left Column: Details -->
+                        <div class="col-span-8 space-y-6">
+                            <!-- Dynamic Actions Bar -->
+                            <div class="flex flex-wrap gap-4 p-4 bg-primary-fixed rounded-lg border border-primary/10">
+                                <button
+                                    class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-md flex items-center gap-2 hover:bg-primary/90 transition-all shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">rate_review</span>
+                                    Emitir observación
+                                </button>
+                                <button
+                                    class="bg-secondary text-on-secondary px-4 py-2 rounded-lg text-label-md flex items-center gap-2 hover:bg-secondary/90 transition-all shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                                    Registrar similitud
+                                </button>
+                                <button
+                                    class="bg-surface text-primary border border-primary px-4 py-2 rounded-lg text-label-md flex items-center gap-2 hover:bg-surface-container-high transition-all shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                    Emitir conformidad
+                                </button>
+                            </div>
+                            <!-- Detailed Tables -->
+                            <div class="space-y-4">
+                                <h4 class="text-headline-sm font-bold text-primary">Cuerpo de Jurados Propuestos</h4>
+                                <div class="overflow-hidden border border-outline-variant rounded-xl bg-surface">
+                                    <table class="w-full text-left border-collapse">
+                                        <thead>
+                                            <tr class="bg-surface-container-high border-b border-outline-variant">
+                                                <th class="p-4 text-label-sm font-bold text-outline uppercase">Rol</th>
+                                                <th class="p-4 text-label-sm font-bold text-outline uppercase">Nombre
+                                                    propuesto</th>
+                                                <th class="p-4 text-label-sm font-bold text-outline uppercase">Estado de
+                                                    Revisión</th>
+                                                <th class="p-4 text-label-sm font-bold text-outline uppercase">Acción
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-outline-variant">
+                                            <tr class="hover:bg-surface-container-low transition-colors">
+                                                <td class="p-4">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary-container text-on-primary-container">PRESIDENTE</span>
+                                                </td>
+                                                <td class="p-4 font-semibold">Mag. Castillo Velasco, Jorge</td>
+                                                <td class="p-4">
+                                                    <div class="flex items-center gap-2">
+                                                        <span class="text-label-md text-secondary font-bold"><span
+                                                                style="color: rgb(25, 28, 32); font-size: medium; font-weight: 400;"
+                                                                class="">Por confirmar*</span></span>
+                                                    </div>
+                                                </td>
+                                                <td class="p-4">
+                                                    <span
+                                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">visibility</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="hover:bg-surface-container-low transition-colors">
+                                                <td class="p-4">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded text-[10px] font-bold bg-surface-variant text-on-surface-variant">SECRETARIO</span>
+                                                </td>
+                                                <td class="p-4 font-semibold">Dra. Espinoza Arana, Martha</td>
+                                                <td class="p-4">Por confirmar*</td>
+                                                <td class="p-4">
+                                                    <span
+                                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">visibility</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="hover:bg-surface-container-low transition-colors">
+                                                <td class="p-4">
+                                                    <span
+                                                        class="px-2 py-0.5 rounded text-[10px] font-bold bg-surface-variant text-on-surface-variant">VOCAL</span>
+                                                </td>
+                                                <td class="p-4 font-semibold">Eco. Paredes Santisteban, Luis</td>
+                                                <td class="p-4">Por confirmar*</td>
+                                                <td class="p-4">
+                                                    <span
+                                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">visibility</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right Column: Status Summary & Metrics -->
+                        <div class="col-span-4 space-y-6">
+                            <!-- Similitud Widget -->
+                            <div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h5 class="text-label-md font-bold text-outline uppercase">Reporte de Similitud</h5>
+                                    <span class="material-symbols-outlined text-primary">analytics</span>
+                                </div>
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-headline-lg font-bold text-on-surface">14%</span>
+                                    <span class="text-label-sm text-secondary font-bold flex items-center">
+                                        <span class="material-symbols-outlined text-sm">arrow_downward</span>
+                                        Bajo riesgo
+                                    </span>
+                                </div>
+                                <p class="text-label-sm text-on-surface-variant mt-1">Último escaneo: 14 Oct 2024 via
+                                    Turnitin.</p>
+                                <div class="w-full h-2 bg-surface-container-high rounded-full mt-4 overflow-hidden">
+                                    <div class="w-[14%] h-full bg-secondary"></div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Documents Access -->
+                            <div class="bg-surface border border-outline-variant rounded-xl p-5 shadow-sm">
+                                <h5 class="text-label-md font-bold text-outline uppercase mb-4">Documentos Clave</h5>
+                                <div class="space-y-3">
+                                    <div
+                                        class="flex items-center justify-between p-2 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors border border-transparent hover:border-outline-variant">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined text-error"
+                                                style="font-variation-settings: &quot;FILL&quot; 1;">picture_as_pdf</span>
+                                            <span class="text-label-md font-semibold">Proyecto_Tesis_V3.pdf</span>
+                                        </div>
+                                        <span class="material-symbols-outlined text-outline text-sm">download</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between p-2 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors border border-transparent hover:border-outline-variant">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined text-primary"
+                                                style="font-variation-settings: &quot;FILL&quot; 1;">description</span>
+                                            <span class="text-label-md font-semibold">Turnitin_Report.pdf</span>
+                                        </div>
+                                        <span class="material-symbols-outlined text-outline text-sm">download</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between p-2 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors border border-transparent hover:border-outline-variant">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined text-secondary"
+                                                style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+                                            <span class="text-label-md font-semibold">DNI_Tesista.jpg</span>
+                                        </div>
+                                        <span class="material-symbols-outlined text-outline text-sm">download</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </main>
+    <footer class="w-full py-6 mt-auto bg-surface-container-low border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-gutter max-w-full">
+            <div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-full">
+                <div class="flex items-center gap-4 mb-4 md:mb-0">
+                    <span class="text-label-md font-bold text-primary">SISET-FCE</span>
+                    <span class="text-body-md text-on-surface-variant">© 2024 Faculty of Economic Sciences - UDI
+                        Research Unit. All Rights Reserved.</span>
+                </div>
+                <div class="flex gap-6">
+                    <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors"
+                        href="#">Privacy Policy</a>
+                    <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors"
+                        href="#">Terms of Service</a>
+                    <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors"
+                        href="#">Contact Support</a>
+                </div>
+            </div>
+        </footer>
+</div>
+    <script>
+        // Micro-interactions for tab switching simulation
+        const tabs = document.querySelectorAll('.px-6.py-4');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active-tab', 'text-primary', 'font-semibold'));
+                tabs.forEach(t => t.classList.add('text-on-surface-variant', 'border-transparent'));
+                tab.classList.remove('text-on-surface-variant', 'border-transparent');
+                tab.classList.add('active-tab');
+            });
+        });
+
+        // Hover effect for table rows
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.classList.add('bg-surface-container-low');
+            });
+            row.addEventListener('mouseleave', () => {
+                row.classList.remove('bg-surface-container-low');
+            });
+        });
+    </script>
+
+    <script>
+        function toggleSubmenu() {
+            const panel = document.getElementById('submenuPanel');
+            const arrow = document.getElementById('submenuArrow');
+            if (panel) {
+                panel.classList.toggle('hidden');
+                if (arrow) {
+                    arrow.style.transform = panel.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

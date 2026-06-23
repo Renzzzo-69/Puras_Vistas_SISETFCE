@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Bandeja de Expedientes | SISET-FCE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdf9b",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dce1ff",
+                        "inverse-on-surface": "#f0f0f6",
+                        "outline-variant": "#c5c6d1",
+                        "on-surface-variant": "#45464f",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#757681",
+                        "tertiary": "#4e3a00",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2e3035",
+                        "inverse-primary": "#b5c4ff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#00164d",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary": "#283a70",
+                        "surface-dim": "#d9d9df",
+                        "secondary-fixed": "#72f8df",
+                        "tertiary-container": "#6b5000",
+                        "surface-tint": "#4b5c94",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#b7c6ff",
+                        "surface-container": "#ededf3",
+                        "on-secondary-fixed-variant": "#005045",
+                        "surface-container-high": "#e7e8ee",
+                        "primary-container": "#405189",
+                        "on-background": "#191c20",
+                        "on-primary-fixed-variant": "#33447b",
+                        "secondary": "#006b5c",
+                        "on-tertiary-container": "#eac46e",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-bright": "#f9f9ff",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#e2e2e8",
+                        "surface-container-highest": "#e2e2e8",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "secondary-container": "#6ff5dc",
+                        "surface-container-low": "#f3f3f9",
+                        "on-secondary-fixed": "#00201b",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "on-secondary-container": "#007060",
+                        "on-surface": "#191c20"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "header-height": "70px",
+                        "gutter": "1.25rem",
+                        "container-margin": "1.5rem",
+                        "card-padding": "1rem",
+                        "sidebar-width": "250px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f3f3f9;
+        }
+
+        .sidebar-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-tab {
+            border-bottom: 2px solid #283a70;
+            color: #283a70;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Panel_Principal.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Bandeja_Expedientes.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+                <span>Bandeja de Expedientes</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Revision_Espacios.html">
+                <span class="material-symbols-outlined">rate_review</span>
+                <span>Espacio de Revisión</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Jurados_Propuestos.html">
+                <span class="material-symbols-outlined">group_add</span>
+                <span>Jurados Propuestos</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Evidencia_Correo.html">
+                <span class="material-symbols-outlined">mail</span>
+                <span>Evidencias de Correo</span>
+            </a>
+            <div>
+                <button onclick="toggleSubmenu()" class="w-full flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg">
+                    <span class="material-symbols-outlined">build</span>
+                    <span class="flex-1 text-left">Mantenimiento</span>
+                    <span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="submenuArrow">expand_more</span>
+                </button>
+                <div id="submenuPanel" class="ml-6 mt-1 space-y-0.5 hidden">
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Lineas.html">
+                        <span class="material-symbols-outlined text-[18px]">account_tree</span>
+                        <span>Líneas de Investigación</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Docentes.html">
+                        <span class="material-symbols-outlined text-[18px]">person</span>
+                        <span>Docentes</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Alumnos.html">
+                        <span class="material-symbols-outlined text-[18px]">school</span>
+                        <span>Alumnos</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Documentos_Solicitados.html">
+                        <span class="material-symbols-outlined text-[18px]">description</span>
+                        <span>Documentos Solicitados</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <div class="flex-1 ml-[250px] flex flex-col h-full relative">
+        <!-- TopNavBar -->
+        <header
+            class="fixed top-0 right-0 left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface border-b border-outline-variant">
+            <div class="flex items-center gap-6">
+                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+                <nav class="hidden md:flex gap-4 h-full">
+                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                        href="#">UDI</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="h-8 w-px bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
+                        A
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-primary">Perfil</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <main class="flex-1 overflow-y-auto pt-[90px] px-container-margin pb-20">
+            <!-- Header Section -->
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <nav class="flex gap-2 text-label-sm text-outline mb-2">
+                        <span class="">SISET-FCE</span>
+                        <span class="">/</span>
+                        <span class="text-primary font-bold">Bandeja de Expedientes</span>
+                    </nav>
+                    <h2 class="text-headline-lg font-headline-lg text-primary">Bandeja de Expedientes</h2>
+                    <p class="text-body-md text-on-surface-variant">Gestión y seguimiento de trámites académicos y
+                        administrativos.</p>
+                </div>
+
+            </div>
+            <!-- Tabs Section -->
+            <div class="flex border-b border-outline-variant mb-6 gap-8">
+                <button class="pb-3 px-1 text-label-md transition-all active-tab flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">science</span>
+                    Proyectos de Investigación
+                </button>
+                <button
+                    class="pb-3 px-1 text-label-md transition-all text-on-surface-variant hover:text-primary flex items-center gap-2 border-b-2 border-transparent">
+                    <span class="material-symbols-outlined text-[20px]">school</span>
+                    Tesis / Informe Final
+                </button>
+            </div>
+            <!-- Filters Grid -->
+            <div class="glass-card p-6 rounded-xl border border-outline-variant mb-8 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                    <div class="space-y-1.5">
+                        <label class="text-label-sm font-bold text-outline">Código</label>
+                        <input
+                            class="w-full text-label-md border-outline-variant rounded-lg bg-surface-container-lowest focus:border-primary"
+                            placeholder="EXP-2024..." type="text">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-label-sm font-bold text-outline">Tesista</label>
+                        <input
+                            class="w-full text-label-md border-outline-variant rounded-lg bg-surface-container-lowest focus:border-primary"
+                            placeholder="Nombre completo" type="text">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-label-sm font-bold text-outline">Tipo de Trámite</label>
+                        <select
+                            class="w-full text-label-md border-outline-variant rounded-lg bg-surface-container-lowest focus:border-primary">
+                            <option>Todas</option>
+                            <option>Administración</option>
+                            <option>Economía</option>
+                            <option>Contabilidad</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="bg-primary-container text-white p-2.5 rounded-lg flex items-center justify-center flex-grow transition-colors hover:bg-primary">
+                            <span class="material-symbols-outlined">search</span>
+                        </button>
+                        <button
+                            class="bg-surface-container-high text-on-surface-variant p-2.5 rounded-lg flex items-center justify-center flex-grow transition-colors hover:bg-surface-variant">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Data Table -->
+            <div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-surface-container-low border-b border-outline-variant">
+                            <tr>
+                                <th class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider">
+                                    Código</th>
+                                <th class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider">
+                                    Tesista</th>
+                                <th class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider">
+                                    Título</th>
+                                <th class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider">
+                                    Condición</th>
+                                <th class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider">
+                                    Estado</th>
+                                <th
+                                    class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider text-center">
+                                    Semáforo</th>
+                                <th class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider">Últ.
+                                    Movimiento</th>
+                                <th
+                                    class="px-6 py-4 text-label-sm font-bold text-primary uppercase tracking-wider text-right">
+                                    Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline-variant">
+                            <!-- Row 1 -->
+                            <tr class="hover:bg-surface-container-low transition-colors group"
+                                style="box-shadow: none;">
+                                <td class="px-6 py-4 font-bold text-primary text-label-md">FCE-2024-001</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-body-md font-bold text-on-surface">Mendoza, Carlos</span>
+                                        <span class="text-label-sm text-outline">Economía</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 max-w-xs">
+                                    <p class="text-body-md truncate"
+                                        title="Impacto de la inversión pública en el desarrollo regional">Impacto de la
+                                        inversión pública en el desarrollo regional</p>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-label-sm font-bold">Estudiante</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                        <span class="text-label-md text-on-surface-variant">En revisión</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex justify-center">
+                                        <span class="material-symbols-outlined text-green-500"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">fiber_manual_record</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-label-sm text-outline">12 May 2024</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="p-2 hover:bg-primary-container/10 rounded-full text-primary transition-colors">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr class="hover:bg-surface-container-low transition-colors group"
+                                style="box-shadow: none;">
+                                <td class="px-6 py-4 font-bold text-primary text-label-md">FCE-2024-042</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-body-md font-bold text-on-surface">Pérez, Elena</span>
+                                        <span class="text-label-sm text-outline">Contabilidad</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 max-w-xs">
+                                    <p class="text-body-md truncate"
+                                        title="Sistemas integrados de gestión administrativa">Sistemas integrados de
+                                        gestión administrativa</p>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant text-label-sm font-bold">Bachiller</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+                                        <span class="text-label-md text-on-surface-variant">En subsanación</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex justify-center">
+                                        <span class="material-symbols-outlined text-orange-400"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">fiber_manual_record</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-label-sm text-outline">10 May 2024</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="p-2 hover:bg-primary-container/10 rounded-full text-primary transition-colors">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="hover:bg-surface-container-low transition-colors group"
+                                style="box-shadow: none;">
+                                <td class="px-6 py-4 font-bold text-primary text-label-md">FCE-2024-015</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-body-md font-bold text-on-surface">Vargas, Luis</span>
+                                        <span class="text-label-sm text-outline">Administración</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 max-w-xs">
+                                    <p class="text-body-md truncate" title="Análisis de microfinanzas rurales">Análisis
+                                        de microfinanzas rurales</p>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-label-sm font-bold">Egresado</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                        <span class="text-label-md text-on-surface-variant">Conforme</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex justify-center">
+                                        <span class="material-symbols-outlined text-red-500"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">fiber_manual_record</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-label-sm text-outline">05 May 2024</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="p-2 hover:bg-primary-container/10 rounded-full text-primary transition-colors">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination -->
+                <div
+                    class="px-6 py-4 bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+                    <span class="text-label-sm text-outline">Mostrando 1 a 3 de 120 expedientes</span>
+                    <div class="flex gap-2">
+                        <button
+                            class="p-2 rounded border border-outline-variant hover:bg-surface transition-colors disabled:opacity-50"
+                            disabled="">
+                            <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                        </button>
+                        <button class="w-8 h-8 rounded bg-primary text-white text-label-sm font-bold">1</button>
+                        <button
+                            class="w-8 h-8 rounded hover:bg-surface-container-high text-label-sm transition-colors">2</button>
+                        <button
+                            class="w-8 h-8 rounded hover:bg-surface-container-high text-label-sm transition-colors">3</button>
+                        <button class="p-2 rounded border border-outline-variant hover:bg-surface transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </main>
+    <footer class="w-full py-6 mt-auto bg-surface-container-low border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-gutter max-w-full">
+            <p class="text-label-sm font-label-sm text-on-surface-variant mb-4 md:mb-0">
+                © 2024 Faculty of Economic Sciences - UDI Research Unit. All Rights Reserved.
+            </p>
+            <div class="flex gap-6">
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors"
+                    href="#">Privacy Policy</a>
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors"
+                    href="#">Terms of Service</a>
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors"
+                    href="#">Contact Support</a>
+            </div>
+        </footer>
+</div>
+    <script>
+        // Micro-interaction for table rows hover atmospheric effect
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.boxShadow = 'inset 4px 0 0 0 #283a70';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.boxShadow = 'none';
+            });
+        });
+
+        // Tab switching logic (Visual only)
+        const tabs = document.querySelectorAll('button[class*="pb-3"]');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('active-tab');
+                    t.classList.add('text-on-surface-variant', 'border-transparent');
+                });
+                tab.classList.add('active-tab');
+                tab.classList.remove('text-on-surface-variant', 'border-transparent');
+            });
+        });
+    </script>
+
+    <script>
+        function toggleSubmenu() {
+            const panel = document.getElementById('submenuPanel');
+            const arrow = document.getElementById('submenuArrow');
+            if (panel) {
+                panel.classList.toggle('hidden');
+                if (arrow) {
+                    arrow.style.transform = panel.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
