@@ -113,96 +113,77 @@
 </head>
 
 <body class="bg-surface-container-low text-on-background font-body-md text-body-md min-h-screen flex">
-    <!-- Shared Component: SideNavBar -->
-    <nav
-        class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
-        <!-- Header area implicitly defined by py-header-height, let's place the branding at the top absolute -->
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
         <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-full bg-on-primary flex items-center justify-center overflow-hidden">
-                    <img alt="Usuario Tesista" class="w-full h-full object-cover"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuClK3t-j2pNvYhOMY1DkhNawf6RBN8HXmrezWir4t5sRy-SLZvk7gY-XzrAXVKNb3iBoBxpM1DCtWdmtWU4Xy1EUAt4DT9vp4rczAWHC9PHaswdlz6wyCIS3UjVoDSolKpvb0StKlhK2PUs1upxOIJ2OWVen3uuC7qLdmJWycxTaFKY1GNDU4gyHdwKcdEQC-9N9GbUEZu2ALcYx6jWrb8oFZCrp0LTK9WEPqUZqaWc0oUeT_gbJ-ElKmO68UzV_67HP-e7mlZS28g">
-                </div>
-                <div>
-                    <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
-                    <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias
-                        Económicas</p>
-                </div>
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
             </div>
         </div>
-        <!-- Scrollable Tabs -->
+        <!-- Navigation -->
         <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Panel_Principal.html">
                 <span class="material-symbols-outlined">dashboard</span>
                 <span>Principal</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
-                <span class="material-symbols-outlined">analytics</span>
-                <span>Mi Panel</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Registrar_Expediente.html">
                 <span class="material-symbols-outlined">app_registration</span>
                 <span>Registrar Expediente</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Mi_Expediente.html">
                 <span class="material-symbols-outlined">folder_shared</span>
                 <span>Mi Expediente</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Observaciones_Subsanaciones.html">
                 <span class="material-symbols-outlined">edit_note</span>
                 <span>Observaciones y Subsanaciones</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Tesis_Final.html">
                 <span class="material-symbols-outlined">school</span>
                 <span>Tesis Final</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Documentos_Resoluciones.html">
                 <span class="material-symbols-outlined">description</span>
                 <span>Documentos y Resoluciones</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Formatos_Oficiales.html">
                 <span class="material-symbols-outlined">format_list_bulleted</span>
                 <span>Formatos Oficiales</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Asesores_Jurados.html">
                 <span class="material-symbols-outlined">groups</span>
                 <span>Asesor y Jurados</span>
             </a>
-            <!-- Active Tab -->
-            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 opacity-80 transition-all duration-200"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Agenda_Academica.html">
                 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
                 <span>Agenda Académica</span>
             </a>
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Notificaciones.html">
                 <span class="material-symbols-outlined">notifications</span>
                 <span>Notificaciones</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
-                <span class="material-symbols-outlined">person</span>
-                <span>Perfil</span>
-            </a>
         </div>
-        <!-- Footer Tab -->
-        <div class="mt-auto pb-4">
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
             <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                href="#">
+                href="Configuracion_Usuario.html">
                 <span class="material-symbols-outlined">settings</span>
                 <span>Configuración</span>
             </a>
         </div>
-    </nav>
+    </aside>
     <!-- Main Content Wrapper -->
     <div class="flex-1 ml-[250px] flex flex-col min-h-screen">
         <!-- Shared Component: TopNavBar -->

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SISET-FCE | Panel UDI Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Corporate / Modern specific glass effect for dashboard */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdf9b",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dce1ff",
+                        "inverse-on-surface": "#f0f0f6",
+                        "outline-variant": "#c5c6d1",
+                        "on-surface-variant": "#45464f",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#757681",
+                        "tertiary": "#4e3a00",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2e3035",
+                        "inverse-primary": "#b5c4ff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#00164d",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary": "#283a70",
+                        "surface-dim": "#d9d9df",
+                        "secondary-fixed": "#72f8df",
+                        "tertiary-container": "#6b5000",
+                        "surface-tint": "#4b5c94",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#b7c6ff",
+                        "surface-container": "#ededf3",
+                        "on-secondary-fixed-variant": "#005045",
+                        "surface-container-high": "#e7e8ee",
+                        "primary-container": "#405189",
+                        "on-background": "#191c20",
+                        "on-primary-fixed-variant": "#33447b",
+                        "secondary": "#006b5c",
+                        "on-tertiary-container": "#eac46e",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-bright": "#f9f9ff",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#e2e2e8",
+                        "surface-container-highest": "#e2e2e8",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "secondary-container": "#6ff5dc",
+                        "surface-container-low": "#f3f3f9",
+                        "on-secondary-fixed": "#00201b",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "on-secondary-container": "#007060",
+                        "on-surface": "#191c20"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "header-height": "70px",
+                        "gutter": "1.25rem",
+                        "container-margin": "1.5rem",
+                        "card-padding": "1rem",
+                        "sidebar-width": "250px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Panel_Principal.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <span>Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Bandeja_Expedientes.html">
+                <span class="material-symbols-outlined">folder_open</span>
+                <span>Bandeja de Expedientes</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Revision_Espacios.html">
+                <span class="material-symbols-outlined">rate_review</span>
+                <span>Espacio de Revisión</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Jurados_Propuestos.html">
+                <span class="material-symbols-outlined">group_add</span>
+                <span>Jurados Propuestos</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Evidencia_Correo.html">
+                <span class="material-symbols-outlined">mail</span>
+                <span>Evidencias de Correo</span>
+            </a>
+            <div>
+                <button onclick="toggleSubmenu()" class="w-full flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg">
+                    <span class="material-symbols-outlined">build</span>
+                    <span class="flex-1 text-left">Mantenimiento</span>
+                    <span class="material-symbols-outlined text-[18px] transition-transform duration-200" id="submenuArrow">expand_more</span>
+                </button>
+                <div id="submenuPanel" class="ml-6 mt-1 space-y-0.5 hidden">
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Lineas.html">
+                        <span class="material-symbols-outlined text-[18px]">account_tree</span>
+                        <span>Líneas de Investigación</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Docentes.html">
+                        <span class="material-symbols-outlined text-[18px]">person</span>
+                        <span>Docentes</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Alumnos.html">
+                        <span class="material-symbols-outlined text-[18px]">school</span>
+                        <span>Alumnos</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 text-on-primary/80 hover:bg-primary-container transition-colors mx-2 rounded-lg text-label-md" href="Mantenimiento_Documentos_Solicitados.html">
+                        <span class="material-symbols-outlined text-[18px]">description</span>
+                        <span>Documentos Solicitados</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <div class="flex-1 ml-[250px] flex flex-col h-full relative">
+        <!-- TopNavBar -->
+        <header
+            class="fixed top-0 right-0 left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface border-b border-outline-variant">
+            <div class="flex items-center gap-6">
+                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
+                <nav class="hidden md:flex gap-4 h-full">
+                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
+                        href="#">UDI</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="h-8 w-px bg-outline-variant mx-2"></div>
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <div
+                        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
+                        A
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-primary">Perfil</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    <main class="flex-1 overflow-y-auto pt-[90px] px-container-margin pb-20">
+            <!-- Welcome Header -->
+            <div class="mb-8">
+                <h2 class="text-headline-lg font-headline-lg text-primary">Bienvenido al Panel UDI</h2>
+                <p class="text-body-md text-on-surface-variant">Gestión académica y administrativa de tesis para la
+                    Facultad de Ciencias Económicas.</p>
+            </div>
+            <!-- METRIC GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+                <!-- Metrics Card -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex items-center justify-between border-l-4 border-primary hover:scale-[1.02] transition-transform cursor-default">
+                    <div>
+                        <p class="text-label-md text-on-surface-variant font-bold uppercase tracking-tight mb-1">
+                            Proyectos recibidos</p>
+                        <h3 class="text-headline-lg font-headline-lg text-on-surface">124</h3>
+                        <span class="text-secondary text-label-sm font-bold flex items-center gap-1 mt-2">
+                            <span class="material-symbols-outlined text-[16px]">trending_up</span> +12% vs mes anterior
+                        </span>
+                    </div>
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[32px]">assignment</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex items-center justify-between border-l-4 border-secondary hover:scale-[1.02] transition-transform cursor-default">
+                    <div>
+                        <p class="text-label-md text-on-surface-variant font-bold uppercase tracking-tight mb-1">Tesis
+                            recibidas</p>
+                        <h3 class="text-headline-lg font-headline-lg text-on-surface">86</h3>
+                        <span class="text-secondary text-label-sm font-bold flex items-center gap-1 mt-2">
+                            <span class="material-symbols-outlined text-[16px]">trending_up</span> +5% vs mes anterior
+                        </span>
+                    </div>
+                    <div class="w-14 h-14 bg-secondary/10 text-secondary rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[32px]">school</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex items-center justify-between border-l-4 border-tertiary-fixed-dim hover:scale-[1.02] transition-transform cursor-default">
+                    <div>
+                        <p class="text-label-md text-on-surface-variant font-bold uppercase tracking-tight mb-1">En
+                            revisión</p>
+                        <h3 class="text-headline-lg font-headline-lg text-on-surface">42</h3>
+                        <span class="text-on-surface-variant text-label-sm font-bold flex items-center gap-1 mt-2">
+                            <span class="material-symbols-outlined text-[16px]">sync</span> Proceso activo
+                        </span>
+                    </div>
+                    <div
+                        class="w-14 h-14 bg-tertiary-fixed/30 text-tertiary rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[32px]">visibility</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex items-center justify-between border-l-4 border-error hover:scale-[1.02] transition-transform cursor-default">
+                    <div>
+                        <p class="text-label-md text-on-surface-variant font-bold uppercase tracking-tight mb-1">
+                            Observados</p>
+                        <h3 class="text-headline-lg font-headline-lg text-on-surface">15</h3>
+                        <span class="text-error text-label-sm font-bold flex items-center gap-1 mt-2">
+                            <span class="material-symbols-outlined text-[16px]">warning</span> Requiere atención
+                        </span>
+                    </div>
+                    <div class="w-14 h-14 bg-error-container text-error rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[32px]">report</span>
+                    </div>
+                </div>
+                <!-- Second Row (Minor Metrics) -->
+
+            </div>
+            <!-- MAIN CONTENT AREA: TWO COLUMNS -->
+            <div class="grid grid-cols-12 gap-8">
+                <!-- COLUMN LEFT: Pendientes de Hoy -->
+                <div class="col-span-12 lg:col-span-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-headline-sm font-headline-sm text-on-surface flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">calendar_today</span> Pendientes de hoy
+                        </h4>
+                        <button class="text-primary text-label-md font-bold hover:underline">Ver todos</button>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- Task Item -->
+                        <div
+                            class="bg-white p-5 rounded-xl shadow-sm border border-outline-variant flex items-center justify-between group hover:border-primary transition-colors">
+                            <div class="flex gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">
+                                    PRO</div>
+                                <div>
+                                    <h5 class="text-body-lg font-bold text-on-surface">EXP-2026-0042: Revisión de
+                                        conformidad - Proyecto</h5>
+                                    <p class="text-body-md text-on-surface-variant">Tesista: Carlos Alberto Mendez -
+                                        Economía Internacional</p>
+                                    <div class="flex items-center gap-4 mt-2">
+                                        <span class="flex items-center gap-1 text-label-sm text-on-surface-variant">
+                                            <span class="material-symbols-outlined text-[16px]">schedule</span> Hace 2
+                                            horas
+                                        </span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-primary/10 text-primary border border-primary/20 uppercase">Alta
+                                            Prioridad</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="bg-primary text-on-primary px-4 py-2 rounded-xl text-label-md font-bold opacity-0 group-hover:opacity-100 transition-opacity active:scale-95">Gestionar</button>
+                        </div>
+                        <!-- Task Item -->
+                        <div
+                            class="bg-white p-5 rounded-xl shadow-sm border border-outline-variant flex items-center justify-between group hover:border-primary transition-colors">
+                            <div class="flex gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">
+                                    TES
+                                </div>
+                                <div>
+                                    <h5 class="text-body-lg font-bold text-on-surface">EXP-2026-0038: Revisión de
+                                        conformidad - Tesis</h5>
+                                    <p class="text-body-md text-on-surface-variant">Tesista: Lucía Fernandez - Gestión
+                                        Pública</p>
+                                    <div class="flex items-center gap-4 mt-2">
+                                        <span class="flex items-center gap-1 text-label-sm text-on-surface-variant">
+                                            <span class="material-symbols-outlined text-[16px]">schedule</span> Hace 4
+                                            horas
+                                        </span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-secondary/10 text-secondary border border-secondary/20 uppercase">Regular</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="bg-primary text-on-primary px-4 py-2 rounded-xl text-label-md font-bold opacity-0 group-hover:opacity-100 transition-opacity active:scale-95">Gestionar</button>
+                        </div>
+                        <!-- Task Item -->
+                        <div
+                            class="bg-white p-5 rounded-xl shadow-sm border border-outline-variant flex items-center justify-between group hover:border-primary transition-colors">
+                            <div class="flex gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary font-bold">
+                                    JUR
+                                </div>
+                                <div>
+                                    <h5 class="text-body-lg font-bold text-on-surface">EXP-2025-1192: Designación de
+                                        Jurado</h5>
+                                    <p class="text-body-md text-on-surface-variant">Docente Sugerido: Dr. Ricardo Palma
+                                    </p>
+                                    <div class="flex items-center gap-4 mt-2">
+                                        <span class="flex items-center gap-1 text-label-sm text-on-surface-variant">
+                                            <span class="material-symbols-outlined text-[16px]">schedule</span> Hace 1
+                                            día
+                                        </span>
+                                        <span
+                                            class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-error-container text-error border border-error/20 uppercase">Vencido</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="bg-primary text-on-primary px-4 py-2 rounded-xl text-label-md font-bold opacity-0 group-hover:opacity-100 transition-opacity active:scale-95">Gestionar</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLUMN RIGHT: Actividad Reciente -->
+                <div class="col-span-12 lg:col-span-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-outline-variant h-full">
+                        <h4 class="text-headline-sm font-headline-sm text-on-surface mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-secondary">history</span> Actividad reciente
+                        </h4>
+                        <div
+                            class="relative space-y-8 before:content-[''] before:absolute before:left-3 before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+                            <!-- Timeline Item -->
+                            <div class="relative pl-10">
+                                <div
+                                    class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center z-10">
+                                    <span class="material-symbols-outlined text-[14px]">done</span>
+                                </div>
+                                <p class="text-label-md font-bold text-on-surface">Expediente Aprobado</p>
+                                <p class="text-body-md text-on-surface-variant">EXP-2026-0021 ha pasado a estado
+                                    'Conforme'.</p>
+                                <span class="text-[11px] text-on-surface-variant/70 block mt-1">10:45 AM - Hoy</span>
+                            </div>
+                            <!-- Timeline Item -->
+                            <div class="relative pl-10">
+                                <div
+                                    class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center z-10">
+                                    <span class="material-symbols-outlined text-[14px]">mail</span>
+                                </div>
+                                <p class="text-label-md font-bold text-on-surface">Notificación enviada</p>
+                                <p class="text-body-md text-on-surface-variant">Se notificó a Carlos Mendez sobre
+                                    observaciones.</p>
+                                <span class="text-[11px] text-on-surface-variant/70 block mt-1">09:12 AM - Hoy</span>
+                            </div>
+                            <!-- Timeline Item -->
+                            <div class="relative pl-10">
+                                <div
+                                    class="absolute left-0 top-1 w-6 h-6 rounded-full bg-tertiary-container text-white flex items-center justify-center z-10">
+                                    <span class="material-symbols-outlined text-[14px]">description</span>
+                                </div>
+                                <p class="text-label-md font-bold text-on-surface">Nuevo proyecto de investigación&nbsp;
+                                </p>
+                                <p class="text-body-md text-on-surface-variant">Llegó el expediente Nº 0452-2026.
+                                    Proyecto de Investigación</p>
+                                <span class="text-[11px] text-on-surface-variant/70 block mt-1">Ayer</span>
+                            </div>
+                            <!-- Timeline Item -->
+                            <div class="relative pl-10">
+                                <div
+                                    class="absolute left-0 top-1 w-6 h-6 rounded-full bg-error text-white flex items-center justify-center z-10">
+                                    <span class="material-symbols-outlined text-[14px]">priority_high</span>
+                                </div>
+                                <p class="text-label-md font-bold text-on-surface">Alerta de Plazo</p>
+                                <p class="text-body-md text-on-surface-variant">El expediente EXP-2025-1192 ha excedido
+                                    los 15 días para la subsanación de errores.</p>
+                                <span class="text-[11px] text-on-surface-variant/70 block mt-1">Ayer</span>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full mt-10 py-3 rounded-xl border border-outline text-label-md font-bold text-on-surface hover:bg-surface-container-high transition-colors">Ver
+                            bitácora completa</button>
+                    </div>
+                </div>
+            </div>
+            </main>
+    <footer class="w-full py-6 mt-auto bg-surface-container-low border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-gutter max-w-full">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <span class="text-label-md font-bold text-primary">SISET-FCE</span>
+                <span class="text-on-surface-variant">|</span>
+                <p class="text-label-sm font-label-sm text-on-surface-variant">© 2024 Faculty of Economic Sciences - UDI
+                    Research Unit. All Rights Reserved.</p>
+            </div>
+            <div class="flex gap-6">
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                    href="#">Privacy Policy</a>
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                    href="#">Terms of Service</a>
+                <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                    href="#">Contact Support</a>
+            </div>
+        </footer>
+</div>
+    <script>
+        // Simple micro-interaction for search bar focus
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.01]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.01]');
+        });
+
+        // Dashboard dynamic clock (not requested but adds 'Modern' feel)
+        function updateTime() {
+            const now = new Date();
+            // This could be used to update a dynamic header if needed
+        }
+        setInterval(updateTime, 1000);
+    </script>
+    
+
+    <script>
+        function toggleSubmenu() {
+            const panel = document.getElementById('submenuPanel');
+            const arrow = document.getElementById('submenuArrow');
+            if (panel) {
+                panel.classList.toggle('hidden');
+                if (arrow) {
+                    arrow.style.transform = panel.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

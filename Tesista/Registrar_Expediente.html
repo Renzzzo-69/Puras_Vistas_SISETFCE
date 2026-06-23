@@ -117,78 +117,77 @@
 
 <body class="bg-surface-container-low text-on-surface font-body-md text-body-md antialiased min-h-screen">
     <!-- SideNavBar -->
-    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary flex flex-col h-full z-40">
-        <div class="h-header-height flex flex-col justify-center px-6 border-b border-primary-container/30">
-            <h1 class="font-headline-md text-headline-md font-bold text-on-primary">SISET-FCE</h1>
-            <p class="font-label-sm text-label-sm text-primary-fixed-dim">Facultad de Ciencias Económicas</p>
+    <!-- SIDEBAR -->
+    <aside
+        class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias
+                    Económicas</p>
+            </div>
         </div>
-        <div class="flex-1 overflow-y-auto py-4 flex flex-col gap-1">
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Panel_Principal.html">
                 <span class="material-symbols-outlined">dashboard</span>
-                <span class="font-label-md text-label-md">Principal</span>
+                <span>Principal</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
-                <span class="material-symbols-outlined">analytics</span>
-                <span class="font-label-md text-label-md">Mi Panel</span>
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Registrar_Expediente.html">
+                <span class="material-symbols-outlined"
+                    style="font-variation-settings: 'FILL' 1;">app_registration</span>
+                <span>Registrar Expediente</span>
             </a>
-            <a class="bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 flex items-center gap-3 px-4 py-2.5"
-                href="#">
-                <span class="material-symbols-outlined icon-fill">app_registration</span>
-                <span class="font-label-md text-label-md">Registrar Expediente</span>
-            </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Mi_Expediente.html">
                 <span class="material-symbols-outlined">folder_shared</span>
-                <span class="font-label-md text-label-md">Mi Expediente</span>
+                <span>Mi Expediente</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Observaciones_Subsanaciones.html">
                 <span class="material-symbols-outlined">edit_note</span>
-                <span class="font-label-md text-label-md">Observaciones y Subsanaciones</span>
+                <span>Observaciones y Subsanaciones</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Tesis_Final.html">
                 <span class="material-symbols-outlined">school</span>
-                <span class="font-label-md text-label-md">Tesis Final</span>
+                <span>Tesis Final</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Documentos_Resoluciones.html">
                 <span class="material-symbols-outlined">description</span>
-                <span class="font-label-md text-label-md">Documentos y Resoluciones</span>
+                <span>Documentos y Resoluciones</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Formatos_Oficiales.html">
                 <span class="material-symbols-outlined">format_list_bulleted</span>
-                <span class="font-label-md text-label-md">Formatos Oficiales</span>
+                <span>Formatos Oficiales</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Asesores_Jurados.html">
                 <span class="material-symbols-outlined">groups</span>
-                <span class="font-label-md text-label-md">Asesor y Jurados</span>
+                <span>Asesor y Jurados</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Agenda_Academica.html">
                 <span class="material-symbols-outlined">calendar_month</span>
-                <span class="font-label-md text-label-md">Agenda Académica</span>
+                <span>Agenda Académica</span>
             </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Notificaciones.html">
                 <span class="material-symbols-outlined">notifications</span>
-                <span class="font-label-md text-label-md">Notificaciones</span>
-            </a>
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
-                <span class="material-symbols-outlined">person</span>
-                <span class="font-label-md text-label-md">Perfil</span>
+                <span>Notificaciones</span>
             </a>
         </div>
-        <div class="mt-auto py-4 border-t border-primary-container/30">
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg flex items-center gap-3 px-4 py-2.5"
-                href="#">
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion_Usuario.html">
                 <span class="material-symbols-outlined">settings</span>
-                <span class="font-label-md text-label-md">Configuración</span>
+                <span>Configuración</span>
             </a>
         </div>
     </aside>
@@ -251,7 +250,7 @@
                             <select
                                 class="w-full bg-surface border border-outline-variant rounded-lg px-3 py-2 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
                                 <option>Aprobación de Proyecto de Tesis</option>
-                                <option>Designación de Asesor</option>
+                                <option>Aprobación de Informe de Tesis</option>
                             </select>
                         </div>
                         <div class="md:col-span-2">
@@ -321,7 +320,8 @@
                             <div class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-outline mt-0.5">description</span>
                                 <div>
-                                    <p class="font-label-md text-label-md text-on-surface">Solicitud Dirigida al Decano
+                                    <p class="font-label-md text-label-md text-on-surface">Solicitud de Inscripción de
+                                        Proyecto
                                     </p>
                                     <span
                                         class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-error-container text-on-error-container mt-1">
@@ -378,25 +378,7 @@
                                 <span class="material-symbols-outlined">upload</span>
                             </button>
                         </div>
-                        <!-- Doc Item 4 -->
-                        <div
-                            class="flex items-center justify-between p-3 border border-outline-variant rounded-lg hover:bg-surface transition-colors">
-                            <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-outline mt-0.5">description</span>
-                                <div>
-                                    <p class="font-label-md text-label-md text-on-surface">Constancia de Egresado</p>
-                                    <span
-                                        class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-error-container text-on-error-container mt-1">
-                                        Pendiente
-                                    </span>
-                                </div>
-                            </div>
-                            <button
-                                class="text-primary hover:bg-primary/10 p-2 rounded-full transition-colors flex items-center justify-center"
-                                type="button">
-                                <span class="material-symbols-outlined">upload</span>
-                            </button>
-                        </div>
+
                     </div>
                 </div>
                 <!-- Section C -->
