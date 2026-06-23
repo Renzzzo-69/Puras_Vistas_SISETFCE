@@ -132,122 +132,77 @@
 </head>
 
 <body class="bg-background text-on-background m-0 p-0 overflow-x-hidden flex h-screen">
-    <!-- SideNavBar -->
-    <nav
-        class="bg-primary dark:bg-primary-container fixed left-0 top-0 h-full w-[250px] z-50 flex flex-col py-header-height">
-        <!-- Brand Header -->
-        <div class="px-6 pb-6 border-b border-primary-container/30 mb-4 flex flex-col gap-2 mt-[-50px]">
-            <div
-                class="w-12 h-12 rounded-full bg-surface-container-lowest overflow-hidden flex items-center justify-center mb-2">
-                <span class="material-symbols-outlined text-primary text-2xl"
-                    style="font-variation-settings: 'FILL' 1;">account_circle</span>
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary text-on-primary font-body-md text-body-md flex flex-col py-header-height z-40">
+        <!-- Branding -->
+        <div class="absolute top-0 left-0 w-full h-[70px] flex items-center px-6">
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">SISET-FCE</h1>
+                <p class="font-label-sm text-label-sm text-on-primary opacity-80 leading-tight">Facultad de Ciencias Económicas</p>
             </div>
-            <h1 class="font-headline-md text-headline-md font-bold text-on-primary">SISET-FCE</h1>
-            <p class="font-label-md text-label-md text-on-primary/80">Facultad de Ciencias Económicas</p>
         </div>
-        <!-- Navigation Links -->
-        <ul class="flex-1 overflow-y-auto px-2 flex flex-col gap-1">
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
-                    <span class="font-body-md text-body-md">Principal</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
-                    <span class="font-body-md text-body-md">Mi Panel</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined"
-                        style="font-variation-settings: 'FILL' 0;">app_registration</span>
-                    <span class="font-body-md text-body-md">Registrar Expediente</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined"
-                        style="font-variation-settings: 'FILL' 0;">folder_shared</span>
-                    <span class="font-body-md text-body-md">Mi Expediente</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">edit_note</span>
-                    <span class="font-body-md text-body-md">Observaciones y Subsanaciones</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">school</span>
-                    <span class="font-body-md text-body-md">Tesis Final</span>
-                </a>
-            </li>
-            <!-- ACTIVE TAB -->
-            <li class="">
-                <a class="bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 p-3 flex items-center gap-3 opacity-80 transition-all duration-200 shadow-soft"
-                    href="#">
-                    <span class="material-symbols-outlined"
-                        style="font-variation-settings: 'FILL' 1;">description</span>
-                    <span class="font-body-md text-body-md font-semibold">Documentos y Resoluciones</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined"
-                        style="font-variation-settings: 'FILL' 0;">format_list_bulleted</span>
-                    <span class="font-body-md text-body-md">Formatos Oficiales</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">groups</span>
-                    <span class="font-body-md text-body-md">Asesor y Jurados</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined"
-                        style="font-variation-settings: 'FILL' 0;">calendar_month</span>
-                    <span class="font-body-md text-body-md">Agenda Académica</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined"
-                        style="font-variation-settings: 'FILL' 0;">notifications</span>
-                    <span class="font-body-md text-body-md">Notificaciones</span>
-                </a>
-            </li>
-            <li class="">
-                <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
-                    <span class="font-body-md text-body-md">Perfil</span>
-                </a>
-            </li>
-        </ul>
-        <!-- Footer Tab -->
-        <div class="px-2 mt-auto pt-4 border-t border-primary-container/30">
-            <a class="text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg p-3 flex items-center gap-3 hover:opacity-80 duration-200"
-                href="#">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
-                <span class="font-body-md text-body-md">Configuración</span>
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto pt-6 pb-4 flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Panel_Principal.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Principal</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Registrar_Expediente.html">
+                <span class="material-symbols-outlined">app_registration</span>
+                <span>Registrar Expediente</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Mi_Expediente.html">
+                <span class="material-symbols-outlined">folder_shared</span>
+                <span>Mi Expediente</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Observaciones_Subsanaciones.html">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Observaciones y Subsanaciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Tesis_Final.html">
+                <span class="material-symbols-outlined">school</span>
+                <span>Tesis Final</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
+                href="Documentos_Resoluciones.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+                <span>Documentos y Resoluciones</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Formatos_Oficiales.html">
+                <span class="material-symbols-outlined">format_list_bulleted</span>
+                <span>Formatos Oficiales</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Asesores_Jurados.html">
+                <span class="material-symbols-outlined">groups</span>
+                <span>Asesor y Jurados</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Agenda_Academica.html">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Agenda Académica</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Notificaciones.html">
+                <span class="material-symbols-outlined">notifications</span>
+                <span>Notificaciones</span>
             </a>
         </div>
-    </nav>
+        <!-- Footer -->
+        <div class="mt-auto pb-4 border-t border-on-primary/10 pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
+                href="Configuracion_Usuario.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </aside>
     <!-- Main Container -->
     <div class="ml-[250px] flex-1 flex flex-col min-h-screen relative">
         <!-- TopNavBar -->
