@@ -4,13 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Dashboard Principal - SISET-FCE</title>
+    <title>Panel Principal - SISET-FCE</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -21,53 +18,53 @@
             theme: {
                 extend: {
                     "colors": {
-                        "on-primary-fixed-variant": "#33447b",
-                        "tertiary": "#4e3a00",
-                        "primary-fixed-dim": "#b5c4ff",
-                        "surface-bright": "#f9f9ff",
-                        "on-tertiary-container": "#eac46e",
-                        "surface-container-low": "#f3f3f9",
-                        "surface-container-highest": "#e2e2e8",
-                        "on-surface": "#191c20",
-                        "surface": "#f9f9ff",
-                        "on-error-container": "#93000a",
-                        "primary": "#283a70",
-                        "inverse-surface": "#2e3035",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container": "#ededf3",
-                        "on-tertiary-fixed": "#251a00",
-                        "on-secondary-fixed-variant": "#005045",
-                        "error-container": "#ffdad6",
-                        "secondary-container": "#6ff5dc",
-                        "on-primary": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "outline-variant": "#c5c6d1",
-                        "inverse-on-surface": "#f0f0f6",
-                        "on-secondary-fixed": "#00201b",
-                        "primary-container": "#405189",
-                        "surface-container-high": "#e7e8ee",
-                        "on-tertiary": "#ffffff",
-                        "inverse-primary": "#b5c4ff",
-                        "outline": "#757681",
-                        "tertiary-fixed": "#ffdf9b",
-                        "background": "#f9f9ff",
-                        "surface-tint": "#4b5c94",
-                        "secondary-fixed": "#72f8df",
-                        "secondary": "#006b5c",
-                        "on-primary-container": "#b7c6ff",
-                        "on-background": "#191c20",
-                        "tertiary-container": "#6b5000",
-                        "error": "#ba1a1a",
-                        "surface-dim": "#d9d9df",
-                        "on-surface-variant": "#45464f",
-                        "on-primary-fixed": "#00164d",
-                        "tertiary-fixed-dim": "#e8c26d",
-                        "on-secondary-container": "#007060",
-                        "surface-variant": "#e2e2e8",
-                        "on-tertiary-fixed-variant": "#5a4300",
-                        "secondary-fixed-dim": "#52dcc3",
                         "primary-fixed": "#dce1ff",
-                        "on-error": "#ffffff"
+                        "on-secondary-container": "#007060",
+                        "secondary-fixed-dim": "#52dcc3",
+                        "primary-container": "#405189",
+                        "primary": "#283a70",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d9d9df",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#eac46e",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c20",
+                        "on-secondary-fixed-variant": "#005045",
+                        "on-tertiary-fixed-variant": "#5a4300",
+                        "inverse-on-surface": "#f0f0f6",
+                        "inverse-surface": "#2e3035",
+                        "on-secondary-fixed": "#00201b",
+                        "secondary-container": "#6ff5dc",
+                        "tertiary-container": "#6b5000",
+                        "surface-container-highest": "#e2e2e8",
+                        "tertiary-fixed-dim": "#e8c26d",
+                        "tertiary": "#4e3a00",
+                        "outline-variant": "#c5c6d1",
+                        "on-primary-fixed-variant": "#33447b",
+                        "surface-container-low": "#f3f3f9",
+                        "secondary-fixed": "#72f8df",
+                        "outline": "#757681",
+                        "on-surface": "#191c20",
+                        "on-primary-container": "#b7c6ff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#4b5c94",
+                        "surface": "#f9f9ff",
+                        "surface-container-high": "#e7e8ee",
+                        "on-primary-fixed": "#00164d",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "background": "#f9f9ff",
+                        "secondary": "#006b5c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#45464f",
+                        "tertiary-fixed": "#ffdf9b",
+                        "surface-container": "#ededf3",
+                        "inverse-primary": "#b5c4ff",
+                        "surface-bright": "#f9f9ff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e8",
+                        "on-tertiary": "#ffffff"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.125rem",
@@ -76,140 +73,248 @@
                         "full": "0.75rem"
                     },
                     "spacing": {
-                        "header-height": "70px",
-                        "gutter": "1.25rem",
                         "sidebar-width": "250px",
-                        "container-margin": "1.5rem",
-                        "card-padding": "1rem"
+                        "gutter": "1.25rem",
+                        "header-height": "70px",
+                        "card-padding": "1rem",
+                        "container-margin": "1.5rem"
                     },
                     "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
                         "label-md": ["Inter"],
                         "label-sm": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
                         "body-lg": ["Inter"],
                         "headline-md": ["Hanken Grotesk"],
-                        "body-md": ["Inter"],
-                        "headline-sm": ["Hanken Grotesk"],
-                        "headline-lg": ["Hanken Grotesk"]
+                        "body-md": ["Inter"]
                     },
                     "fontSize": {
-                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
-                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
-                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
-                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
-                        "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
                     }
                 }
             }
         }
     </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Sidebar scroll */
+        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+        /* Submenu animation */
+        .submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .submenu.open { max-height: 500px; transition: max-height 0.4s ease-in; }
+        .submenu-chevron { transition: transform 0.3s ease; }
+        .submenu-chevron.rotated { transform: rotate(180deg); }
+        /* Active nav link */
+        .nav-link.active { background: rgba(255,255,255,0.12); color: #ffffff !important; }
+        .nav-link.active .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .nav-sublink.active { background: rgba(255,255,255,0.1); color: #ffffff !important; font-weight: 600; }
+        /* Sidebar overlay */
+        #sidebar-overlay { opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+        #sidebar-overlay.visible { opacity: 1; pointer-events: auto; }
+        /* Header dropdown */
+        .user-dropdown { transform: translateY(-8px); opacity: 0; pointer-events: none; transition: all 0.2s ease; }
+        .user-dropdown.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    </style>
 </head>
 
-<body class="bg-surface-container-low text-on-surface font-body-md h-screen overflow-hidden flex">
-    <!-- SideNavBar -->
-    <aside
-        class="fixed left-0 top-0 h-full w-[250px] bg-primary dark:bg-primary-container z-40 flex flex-col py-header-height">
-        <div class="px-gutter mb-6 flex flex-col">
-            <span class="font-headline-md text-headline-md font-bold text-on-primary">SISET-FCE</span>
-            <span class="font-label-md text-label-md text-on-primary opacity-80 mt-1">Facultad de Ciencias
-                Económicas</span>
+<body class="bg-surface-container-low text-on-surface font-body-md min-h-screen flex">
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden" onclick="toggleSidebar()"></div>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside id="sidebar" class="fixed left-0 top-0 h-full w-[250px] bg-primary z-50 flex flex-col -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+        <!-- Logo -->
+        <div class="h-[70px] flex items-center gap-3 px-5 border-b border-on-primary/10 shrink-0">
+            <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-on-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">school</span>
+            </div>
+            <div class="min-w-0">
+                <h1 class="text-[15px] font-bold text-on-primary leading-tight font-headline-sm">SISET-FCE</h1>
+                <p class="text-[10px] text-on-primary/50 tracking-wider">Sistema de Seguimiento</p>
+            </div>
         </div>
-        <nav class="flex-1 overflow-y-auto mt-4">
-            <ul class="flex flex-col gap-1">
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 bg-on-primary-fixed-variant text-primary-fixed-dim rounded-lg mx-2 transition-all duration-200"
-                        href="#"><span class="material-symbols-outlined"
-                            style="font-variation-settings: 'FILL' 1;">dashboard</span><span
-                            class="font-label-md text-label-md">Principal</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">analytics</span><span
-                            class="font-label-md text-label-md">Mi Panel</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">app_registration</span><span
-                            class="font-label-md text-label-md">Registrar Expediente</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">folder_shared</span><span
-                            class="font-label-md text-label-md">Mi Expediente</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">edit_note</span><span
-                            class="font-label-md text-label-md">Observaciones y Subsanaciones</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">school</span><span
-                            class="font-label-md text-label-md">Tesis Final</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">description</span><span
-                            class="font-label-md text-label-md">Documentos y Resoluciones</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">format_list_bulleted</span><span
-                            class="font-label-md text-label-md">Formatos Oficiales</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">groups</span><span
-                            class="font-label-md text-label-md">Asesor y Jurados</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">calendar_month</span><span
-                            class="font-label-md text-label-md">Agenda Académica</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">notifications</span><span
-                            class="font-label-md text-label-md">Notificaciones</span></a></li>
-                <li class=""><a
-                        class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors mx-2 rounded-lg"
-                        href="#"><span class="material-symbols-outlined">person</span><span
-                            class="font-label-md text-label-md">Perfil</span></a></li>
-            </ul>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto py-3 sidebar-scroll">
+            <!-- ── Módulo Tesista ── -->
+            <div class="px-3 mb-3">
+                <p class="text-[10px] font-bold text-on-primary/40 uppercase tracking-[0.15em] px-3 mb-2">Módulo Tesista</p>
+                <div class="space-y-0.5">
+                    <a id="nav-tesista-principal" href="./Panel_Principal.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                        <span class="text-[13px] font-medium">Principal</span>
+                    </a>
+                    <a id="nav-tesista-registrar" href="./Registrar_Expediente.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">app_registration</span>
+                        <span class="text-[13px] font-medium">Registrar Expediente</span>
+                    </a>
+                    <a id="nav-tesista-expediente" href="./Mi_Expediente.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">folder_shared</span>
+                        <span class="text-[13px] font-medium">Mi Expediente</span>
+                    </a>
+                    <a id="nav-tesista-observaciones" href="./Observaciones_Subsanaciones.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                        <span class="text-[13px] font-medium">Observaciones</span>
+                    </a>
+                    <a id="nav-tesista-tesis" href="./Tesis_Final.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">school</span>
+                        <span class="text-[13px] font-medium">Tesis Final</span>
+                    </a>
+                    <a id="nav-tesista-documentos" href="./Documentos_Resoluciones.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">description</span>
+                        <span class="text-[13px] font-medium">Documentos</span>
+                    </a>
+                    <a id="nav-tesista-formatos" href="./Formatos_Oficiales.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">format_list_bulleted</span>
+                        <span class="text-[13px] font-medium">Formatos Oficiales</span>
+                    </a>
+                    <a id="nav-tesista-asesores" href="./Asesores_Jurados.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">groups</span>
+                        <span class="text-[13px] font-medium">Asesores y Jurados</span>
+                    </a>
+                    <a id="nav-tesista-agenda" href="./Agenda_Academica.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+                        <span class="text-[13px] font-medium">Agenda Académica</span>
+                    </a>
+                    <a id="nav-tesista-notif-plazos" href="./Notificaciones_Plazos.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">timer</span>
+                        <span class="text-[13px] font-medium">Plazos y Alertas</span>
+                    </a>
+                    <a id="nav-tesista-final" href="./Final_Tesista.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">emoji_events</span>
+                        <span class="text-[13px] font-medium">Finalizar Proceso</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ── Módulo Docente ── -->
+            <div class="px-3 mb-3">
+                <p class="text-[10px] font-bold text-on-primary/40 uppercase tracking-[0.15em] px-3 mb-2">Módulo Docente</p>
+                <div class="space-y-0.5">
+                    <a id="nav-docente-principal" href="../Docente/principal.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">home</span>
+                        <span class="text-[13px] font-medium">Panel Docente</span>
+                    </a>
+                    <!-- Jurado (collapsible) -->
+                    <div>
+                        <button onclick="toggleSubmenu('jurado-menu', 'jurado-chevron')" class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200 group">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[20px]">gavel</span>
+                                <span class="text-[13px] font-medium">Jurado</span>
+                            </div>
+                            <span class="material-symbols-outlined text-[16px] submenu-chevron" id="jurado-chevron">expand_more</span>
+                        </button>
+                        <div id="jurado-menu" class="submenu">
+                            <div class="ml-5 pl-3 border-l border-on-primary/15 py-1 space-y-0.5">
+                                <p class="text-[10px] font-semibold text-on-primary/40 uppercase tracking-wider px-3 pt-1 pb-0.5">Tesis</p>
+                                <a id="nav-docente-tesis-revision" href="../Docente/juradotesisrevision.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Tesis en Revisión</a>
+                                <a id="nav-docente-tesis-aprobado" href="../Docente/juradotesisaprobado.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Tesis Aprobadas</a>
+                                <p class="text-[10px] font-semibold text-on-primary/40 uppercase tracking-wider px-3 pt-2 pb-0.5">Proyectos</p>
+                                <a id="nav-docente-proy-revision" href="../Docente/juradoproyectorevision.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Proyectos en Revisión</a>
+                                <a id="nav-docente-proy-aprobado" href="../Docente/juradoproyectoaprobado.html" class="nav-sublink block px-3 py-1.5 rounded-md text-[12px] text-on-primary/60 hover:text-on-primary hover:bg-white/8 transition-all duration-200">Proyectos Aprobados</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── General ── -->
+            <div class="px-3">
+                <p class="text-[10px] font-bold text-on-primary/40 uppercase tracking-[0.15em] px-3 mb-2">General</p>
+                <div class="space-y-0.5">
+                    <a id="nav-general-notificaciones" href="./Notificaciones.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">notifications</span>
+                        <span class="text-[13px] font-medium">Notificaciones</span>
+                    </a>
+                    <a id="nav-general-configuracion" href="./Configuracion_Usuario.html" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary/70 hover:bg-white/10 hover:text-on-primary transition-all duration-200">
+                        <span class="material-symbols-outlined text-[20px]">settings</span>
+                        <span class="text-[13px] font-medium">Configuración</span>
+                    </a>
+                </div>
+            </div>
         </nav>
-        <div class="mt-auto px-gutter pb-6 pt-4 border-t border-on-primary-fixed-variant">
-            <a class="flex items-center gap-3 px-4 py-2 text-on-primary hover:bg-primary-container transition-colors rounded-lg"
-                href="#"><span class="material-symbols-outlined">settings</span><span
-                    class="font-label-md text-label-md">Configuración</span></a>
+
+        <!-- Logout -->
+        <div class="px-3 py-3 border-t border-on-primary/10 shrink-0">
+            <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/10 text-on-primary font-semibold text-[13px] hover:bg-white/20 active:scale-[0.98] transition-all duration-150">
+                <span class="material-symbols-outlined text-[20px]">logout</span>
+                Cerrar Sesión
+            </button>
         </div>
     </aside>
-    <!-- Main Content Area -->
-    <div class="flex-1 ml-[250px] flex flex-col h-full relative">
-        <!-- TopNavBar -->
-        <header
-            class="fixed top-0 right-0 left-[250px] flex justify-between items-center px-gutter z-30 h-header-height bg-surface border-b border-outline-variant">
-            <div class="flex items-center gap-6">
-                <span class="font-headline-sm text-headline-sm font-bold text-primary">SISET-FCE</span>
-                <nav class="hidden md:flex gap-4 h-full">
-                    <a class="text-primary font-bold border-b-2 border-primary h-full flex items-center pb-0 pt-0.5"
-                        href="#">Tesista</a>
-                </nav>
-            </div>
+
+    <!-- ===== MAIN CONTENT WRAPPER ===== -->
+    <main class="flex-1 lg:ml-[250px] min-h-screen flex flex-col">
+        <!-- ===== TOP HEADER ===== -->
+        <header class="sticky top-0 z-30 flex justify-between items-center h-[70px] px-5 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
             <div class="flex items-center gap-4">
-                <div class="flex items-center gap-2 text-on-surface-variant">
-                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
-                        <span class="material-symbols-outlined">notifications</span>
+                <!-- Mobile hamburger -->
+                <button onclick="toggleSidebar()" class="lg:hidden p-2 -ml-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <!-- Page title -->
+                <h2 class="font-headline-sm text-headline-sm text-primary font-bold">Panel Principal</h2>
+            </div>
+            <div class="flex items-center gap-3">
+                <!-- Module tabs -->
+                <nav class="hidden md:flex items-center bg-surface-container rounded-lg p-0.5 mr-3">
+                    <a href="./Panel_Principal.html" class="module-tab px-3 py-1.5 rounded-md text-[12px] font-semibold transition-all duration-200 bg-primary text-on-primary">Tesista</a>
+                    <a href="../Docente/principal.html" class="module-tab px-3 py-1.5 rounded-md text-[12px] font-semibold transition-all duration-200 text-on-surface-variant hover:text-on-surface">Docente</a>
+                </nav>
+                <!-- Notification bell -->
+                <button class="relative p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+                    <span class="material-symbols-outlined text-[22px]">notifications</span>
+                    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+                </button>
+                <!-- Help -->
+                <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+                    <span class="material-symbols-outlined text-[22px]">help_outline</span>
+                </button>
+                <!-- Divider -->
+                <div class="h-8 w-px bg-outline-variant mx-1"></div>
+                <!-- User profile -->
+                <div class="relative">
+                    <button onclick="toggleUserMenu()" class="flex items-center gap-2.5 hover:bg-surface-container rounded-lg px-2 py-1.5 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-[13px]">U</div>
+                        <div class="hidden sm:block text-left">
+                            <p class="text-[12px] font-semibold text-on-surface leading-tight">Usuario</p>
+                            <p class="text-[10px] text-on-surface-variant leading-tight">Tesista</p>
+                        </div>
+                        <span class="material-symbols-outlined text-on-surface-variant text-[18px] hidden sm:block">expand_more</span>
                     </button>
-                    <button class="hover:scale-105 transition-transform p-2 rounded-full hover:bg-surface-variant">
-                        <span class="material-symbols-outlined">help_outline</span>
-                    </button>
-                </div>
-                <div class="h-8 w-px bg-outline-variant mx-2"></div>
-                <div class="flex items-center gap-3 cursor-pointer">
-                    <div
-                        class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-label-md">
-                        U
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-label-md text-label-md text-primary">Perfil</span>
-                        <span class="font-label-sm text-label-sm text-on-surface-variant">Cerrar Sesión</span>
+                    <!-- Dropdown -->
+                    <div id="user-dropdown" class="user-dropdown absolute right-0 top-full mt-1 w-48 bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant py-1 z-50">
+                        <a href="./Configuracion_Usuario.html" class="flex items-center gap-2 px-4 py-2.5 text-[13px] text-on-surface hover:bg-surface-container transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">person</span>
+                            Mi Perfil
+                        </a>
+                        <a href="./Configuracion_Usuario.html" class="flex items-center gap-2 px-4 py-2.5 text-[13px] text-on-surface hover:bg-surface-container transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">settings</span>
+                            Configuración
+                        </a>
+                        <div class="border-t border-outline-variant my-1"></div>
+                        <button onclick="handleLogout()" class="w-full flex items-center gap-2 px-4 py-2.5 text-[13px] text-error hover:bg-error-container/30 transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">logout</span>
+                            Cerrar Sesión
+                        </button>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Canvas -->
-        <main class="flex-1 overflow-y-auto pt-[90px] px-container-margin pb-20">
+
+        <!-- PAGE CONTENT -->
+        <div class="flex-1 overflow-y-auto px-container-margin pb-20 pt-6">
             <div class="max-w-7xl mx-auto space-y-6">
                 <!-- Welcome & Brief Status -->
                 <div class="flex justify-between items-end mb-8">
@@ -502,7 +607,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
         <!-- Footer -->
         <footer
             class="mt-auto bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant flex justify-between items-center p-4 w-full">
@@ -518,8 +623,86 @@
                     href="#">Privacidad</a>
             </div>
         </footer>
-    </div>
+    </main>
 
+    <script>
+        // === Sidebar Toggle (Mobile) ===
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.remove('visible');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            } else {
+                overlay.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    sidebar.classList.remove('-translate-x-full');
+                    overlay.classList.add('visible');
+                });
+            }
+        }
+
+        // === Submenu Toggle ===
+        function toggleSubmenu(menuId, chevronId) {
+            const menu = document.getElementById(menuId);
+            const chevron = document.getElementById(chevronId);
+            menu.classList.toggle('open');
+            chevron.classList.toggle('rotated');
+        }
+
+        // === User Dropdown ===
+        function toggleUserMenu() {
+            document.getElementById('user-dropdown').classList.toggle('open');
+        }
+
+        // Close dropdown on outside click
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('user-dropdown');
+            if (dropdown && !e.target.closest('.relative')) {
+                dropdown.classList.remove('open');
+            }
+        });
+
+        // === Mark Active Page ===
+        function setActivePage(activeId) {
+            const el = document.getElementById(activeId);
+            if (el) {
+                el.classList.add('active');
+                // If it's a sub-link inside a submenu, open that submenu
+                const submenu = el.closest('.submenu');
+                if (submenu) {
+                    submenu.classList.add('open');
+                    const chevronId = submenu.id.replace('-menu', '-chevron');
+                    const chevron = document.getElementById(chevronId);
+                    if (chevron) chevron.classList.add('rotated');
+                }
+            }
+        }
+
+        // === Logout ===
+        function handleLogout() {
+            if (confirm('¿Estás seguro de que deseas cerrar sesión?')) {
+                alert('Sesión cerrada. Redirigiendo al login...');
+                // window.location.href = '/login.html';
+            }
+        }
+
+        // Close sidebar on window resize to desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebar-overlay');
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('visible');
+                overlay.classList.add('hidden');
+            }
+        });
+
+        // Initialize: set active page
+        setActivePage('nav-tesista-principal');
+    </script>
 
 </body>
 
