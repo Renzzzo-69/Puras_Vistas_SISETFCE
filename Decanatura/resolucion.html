@@ -1,0 +1,363 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mira - Gestión de Resoluciones</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "on-secondary": "#ffffff",
+                            "tertiary": "#3d2100",
+                            "outline-variant": "#c5c6d1",
+                            "primary-container": "#283a70",
+                            "inverse-primary": "#b5c4ff",
+                            "on-primary-fixed": "#00174d",
+                            "on-secondary-container": "#006f61",
+                            "secondary": "#006b5c",
+                            "primary": "#0f2359",
+                            "on-error-container": "#93000a",
+                            "inverse-surface": "#2e3035",
+                            "on-surface-variant": "#45464f",
+                            "tertiary-container": "#5b3400",
+                            "on-primary-fixed-variant": "#32447b",
+                            "tertiary-fixed": "#ffdcbd",
+                            "error": "#ba1a1a",
+                            "surface-variant": "#e2e2e8",
+                            "surface-dim": "#d9d9df",
+                            "on-primary-container": "#94a6e3",
+                            "tertiary-fixed-dim": "#f7bb7c",
+                            "on-secondary-fixed-variant": "#005045",
+                            "surface-container-high": "#e7e8ee",
+                            "on-tertiary": "#ffffff",
+                            "on-tertiary-fixed": "#2c1600",
+                            "background": "#f9f9ff",
+                            "outline": "#757681",
+                            "inverse-on-surface": "#f0f0f6",
+                            "surface-container-lowest": "#ffffff",
+                            "on-tertiary-fixed-variant": "#663d08",
+                            "on-secondary-fixed": "#00201b",
+                            "secondary-fixed-dim": "#80d6c4",
+                            "primary-fixed": "#dbe1ff",
+                            "on-primary": "#ffffff",
+                            "secondary-container": "#99f0dd",
+                            "surface-tint": "#4b5c94",
+                            "on-surface": "#191c20",
+                            "surface-container-low": "#f3f3f9",
+                            "error-container": "#ffdad6",
+                            "surface-container": "#ededf3",
+                            "on-tertiary-container": "#d69d61",
+                            "surface-container-highest": "#e2e2e8",
+                            "surface": "#f9f9ff",
+                            "on-background": "#191c20",
+                            "on-error": "#ffffff",
+                            "surface-bright": "#f9f9ff",
+                            "secondary-fixed": "#9cf3e0",
+                            "primary-fixed-dim": "#b5c4ff"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                        },
+                        "spacing": {
+                            "sidebar-width": "250px",
+                            "container-max-width": "896px",
+                            "card-padding": "1.5rem",
+                            "gutter": "1.25rem",
+                            "header-height": "70px"
+                        },
+                        "fontFamily": {
+                            "label-sm": ["Inter"],
+                            "label-md": ["Inter"],
+                            "body-md": ["Inter"],
+                            "headline-sm": ["Hanken Grotesk"],
+                            "headline-md": ["Hanken Grotesk"],
+                            "headline-lg": ["Hanken Grotesk"],
+                            "nav-caps": ["Inter"],
+                            "body-lg": ["Inter"]
+                        },
+                        "fontSize": {
+                            "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                            "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                            "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+                            "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                            "nav-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                        }
+                    },
+                },
+            }
+        </script>
+    <style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            body {
+                background-color: #f3f3f9;
+            }
+        </style>
+    </head>
+    <body class="font-body-md text-on-surface overflow-x-hidden">
+    <!-- SideNavBar -->
+    <aside class="fixed left-0 top-0 h-full w-sidebar-width border-r border-outline-variant/30 flex flex-col p-4 z-50" style="background-color: #283a70;">
+    <div class="mb-8 px-2">
+    <h1 class="font-headline-lg text-headline-lg font-bold text-white">SISET-FCE</h1>
+    <p class="font-label-md text-label-md uppercase tracking-widest opacity-70 text-white/60">Sistema de seguimiento de tesis</p>
+    </div>
+    <nav class="flex-grow space-y-1">
+    <a class="flex items-center gap-3 px-4 py-3 transition-colors rounded-xl font-body-md text-white/80 hover:bg-white/10" href="principaldecanatura.html">
+    <span class="material-symbols-outlined">dashboard</span>
+    <span class="font-label-md text-label-md">Principal</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 transition-colors rounded-xl font-body-md text-white/80 hover:bg-white/10" href="formatosoficiales.html">
+    <span class="material-symbols-outlined">description</span>
+    <span class="font-label-md text-label-md">Formatos Oficiales</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 transition-colors rounded-xl font-body-md text-white/80 hover:bg-white/10" href="asignacioonjurado.html">
+    <span class="material-symbols-outlined">group_add</span>
+    <span class="font-label-md text-label-md">Asignación de Jurados</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold font-body-md shadow-sm bg-white/20 text-white" href="resolucion.html">
+    <span class="material-symbols-outlined">gavel</span>
+    <span class="font-label-md text-label-md">Resoluciones</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-3 transition-colors rounded-xl font-body-md text-white/80 hover:bg-white/10" href="../Docente/perfil.html">
+    <span class="material-symbols-outlined">settings</span>
+    <span class="font-label-md text-label-md">Configuración</span>
+    </a>
+    </nav>
+    <div class="pt-4 border-t border-outline-variant/30 mt-auto">
+    <button class="flex items-center gap-3 px-4 py-3 w-full transition-colors rounded-xl font-body-md active:scale-95 duration-200 text-white/80 hover:bg-white/10">
+    <span class="material-symbols-outlined">logout</span>
+    <span class="font-label-md text-label-md">Cerrar Sesión</span>
+    </button>
+    </div>
+    </aside>
+    <!-- TopNavBar -->
+    <header class="fixed top-0 right-0 w-[calc(100%-250px)] h-header-height bg-surface border-b border-outline-variant/30 flex justify-between items-center px-gutter z-40">
+    <div class="flex items-center gap-4">
+    <h2 class="font-headline-sm text-headline-sm text-primary">Decanatura</h2>
+    </div>
+    <div class="flex items-center gap-6">
+    <button class="text-on-surface-variant hover:text-primary transition-opacity duration-150">
+    <span class="material-symbols-outlined">notifications</span>
+    </button>
+    <button class="text-on-surface-variant hover:text-primary transition-opacity duration-150">
+    <span class="material-symbols-outlined">help</span>
+    </button>
+    <div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
+    <div class="text-right hidden lg:block">
+    <p class="font-label-md text-label-md text-on-surface font-bold">Ing. Mg. Segundo Roger Ramírez Shupingahua</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Decano de Facultad</p>
+    </div>
+    <img alt="Ing. Mg. Segundo Roger Ramírez Shupingahua" class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="A professional headshot of a mature male academic administrator in a light-mode corporate setting. He wears a dark navy suit and has a confident, welcoming expression. The lighting is soft and directional, highlighting his features against a clean, out-of-focus academic background. The image has a crisp, high-resolution aesthetic suitable for a high-end university portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZjgNJovrqJ7N5vdpChRLtqST77_CWOZ_rbwJ2sf-fevykGLxexXF_LPhG9HY7pfx_JD4APcPYLE8pFu3I7TUHkvNdNDSLnC20HEY5ugXdh5OCAUFetUdMGxJ06SPEM-e-zeaA7eEoadjYlZTONTqtp7wva6EK5HKjRJ401QFSijMbKQu2wrVJANpG0q5M-8MU_EWdruOJL7GTF6KqigUsdzugopjyQdis0naNdEJilEZAzsieqT9_bX_wk694NMl416nmcHrPL-G-">
+    </div>
+    </div>
+    </header>
+    <!-- Main Content -->
+    <main class="ml-sidebar-width mt-header-height p-gutter min-h-screen">
+    <div class="max-w-container-max-width mx-auto">
+    <!-- Summary Cards Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <!-- Card 1 -->
+    <div class="bg-surface-container-lowest p-card-padding rounded-xl border border-outline-variant/30 shadow-sm transition-all hover:shadow-md">
+    <div class="flex items-center justify-between mb-2">
+    <span class="text-primary-container p-2 bg-primary-fixed rounded-lg">
+    <span class="material-symbols-outlined">description</span>
+    </span>
+    <span class="font-label-sm text-label-sm text-secondary">+12% este año</span>
+    </div>
+    <p class="font-label-md text-label-md text-on-surface-variant">Total Resoluciones</p>
+    <h3 class="font-headline-md text-headline-md text-primary mt-1">1,248</h3>
+    </div>
+    <!-- Card 2 -->
+    <div class="bg-surface-container-lowest p-card-padding rounded-xl border border-outline-variant/30 shadow-sm transition-all hover:shadow-md">
+    <div class="flex items-center justify-between mb-2">
+    <span class="text-on-secondary-container p-2 bg-secondary-container rounded-lg">
+    <span class="material-symbols-outlined">published_with_changes</span>
+    </span>
+    <span class="font-label-sm text-label-sm text-on-secondary-container">Meta: 45</span>
+    </div>
+    <p class="font-label-md text-label-md text-on-surface-variant">Emitidas este mes</p>
+    <h3 class="font-headline-md text-headline-md text-primary mt-1">32</h3>
+    </div>
+    <!-- Card 3 -->
+    
+    </div>
+    <!-- Search and Action Bar -->
+    <div class="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
+    <div class="relative w-full md:w-1/2 group">
+    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+    <input class="w-full pl-12 pr-4 py-3 bg-white border border-outline-variant/30 rounded-full focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all font-body-md" placeholder="Buscar por número o título..." type="text">
+    </div>
+    <div class="flex gap-3 w-full md:w-auto">
+    <select class="px-4 py-3 bg-white border border-outline-variant/30 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none font-label-md text-on-surface-variant min-w-[180px]">
+    <option value="">Tipo de Resolución</option>
+    <option value="1">Aprobación de Proyecto</option>
+    <option value="2">Designación de Jurado</option>
+    <option value="3">Sustentación</option>
+    <option value="4">Ratificación de Docente</option>
+    </select>
+    <a href="subirreolucion.html" 
+   class="flex items-center justify-center gap-2 px-6 py-3 bg-primary-container text-white rounded-xl font-bold font-label-md shadow-sm active:scale-95 transition-all hover:opacity-90 text-center">
+    <span class="material-symbols-outlined">upload_file</span>
+    <span>Subir Resolución</span>
+</a>
+    </div>
+    </div>
+    <!-- Data Table Container -->
+    <div class="bg-white rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
+    <div class="px-gutter py-4 border-b border-outline-variant/30 bg-surface-container-low/50 flex justify-between items-center">
+    <h4 class="font-headline-sm text-headline-sm text-primary">Bandeja de Resoluciones</h4>
+    <span class="font-label-sm text-label-sm text-on-surface-variant">Mostrando 10 de 1,248</span>
+    </div>
+    <div class="overflow-x-auto">
+    <table class="w-full text-left border-collapse">
+    <thead>
+    <tr class="bg-surface-container-low/30" style="transform: translateX(0px); transition: 0.2s ease-in-out;">
+    <th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant/30">Título / Número</th>
+    <th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant/30">Fecha Emisión</th>
+    <th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant/30">Tipo</th>
+    <th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant border-b border-outline-variant/30 text-center">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="divide-y divide-outline-variant/20">
+    <!-- Row 1 -->
+    <tr class="hover:bg-surface-container-low transition-colors" style="transform: translateX(0px); transition: 0.2s ease-in-out;">
+    <td class="px-6 py-4">
+    <p class="font-label-md text-label-md font-bold text-primary">RES-DEC-2024-045</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">Aprobación de Proyecto de Tesis: "Sistemas Distribuidos"</p>
+    </td>
+    <td class="px-6 py-4 font-body-md text-on-surface-variant">12 Oct, 2024</td>
+    <td class="px-6 py-4">
+    <span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm">Aprobación</span>
+    </td>
+    <td class="px-6 py-4">
+    <div class="flex items-center justify-center gap-2">
+    <button class="p-2 text-primary hover:bg-primary-fixed rounded-lg transition-colors" title="Visualizar">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" title="Editar">
+    <span class="material-symbols-outlined text-[20px]">edit</span>
+    </button>
+    <button class="p-2 text-error hover:bg-error-container rounded-lg transition-colors" title="Eliminar">
+    <span class="material-symbols-outlined text-[20px]">delete</span>
+    </button>
+    </div>
+    </td>
+    </tr>
+    <!-- Row 2 -->
+    <tr class="hover:bg-surface-container-low transition-colors" style="transform: translateX(0px); transition: 0.2s ease-in-out;">
+    <td class="px-6 py-4">
+    <p class="font-label-md text-label-md font-bold text-primary">RES-DEC-2024-044</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">Designación de Jurados de Sustentación</p>
+    </td>
+    <td class="px-6 py-4 font-body-md text-on-surface-variant">10 Oct, 2024</td>
+    <td class="px-6 py-4">
+    <span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full font-label-sm text-label-sm">Jurado</span>
+    </td>
+    <td class="px-6 py-4">
+    <div class="flex items-center justify-center gap-2">
+    <button class="p-2 text-primary hover:bg-primary-fixed rounded-lg transition-colors" title="Visualizar">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" title="Editar">
+    <span class="material-symbols-outlined text-[20px]">edit</span>
+    </button>
+    <button class="p-2 text-error hover:bg-error-container rounded-lg transition-colors" title="Eliminar">
+    <span class="material-symbols-outlined text-[20px]">delete</span>
+    </button>
+    </div>
+    </td>
+    </tr>
+    <!-- Row 3 -->
+    <tr class="hover:bg-surface-container-low transition-colors">
+    <td class="px-6 py-4">
+    <p class="font-label-md text-label-md font-bold text-primary">RES-DEC-2024-043</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">Autorización de Sustentación Presencial</p>
+    </td>
+    <td class="px-6 py-4 font-body-md text-on-surface-variant">08 Oct, 2024</td>
+    <td class="px-6 py-4">
+    <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-full font-label-sm text-label-sm">Sustentación</span>
+    </td>
+    <td class="px-6 py-4">
+    <div class="flex items-center justify-center gap-2">
+    <button class="p-2 text-primary hover:bg-primary-fixed rounded-lg transition-colors" title="Visualizar">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" title="Editar">
+    <span class="material-symbols-outlined text-[20px]">edit</span>
+    </button>
+    <button class="p-2 text-error hover:bg-error-container rounded-lg transition-colors" title="Eliminar">
+    <span class="material-symbols-outlined text-[20px]">delete</span>
+    </button>
+    </div>
+    </td>
+    </tr>
+    <!-- Row 4 -->
+    <tr class="hover:bg-surface-container-low transition-colors" style="transform: translateX(0px); transition: 0.2s ease-in-out;">
+    <td class="px-6 py-4">
+    <p class="font-label-md text-label-md font-bold text-primary">RES-DEC-2024-042</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">Ratificación de Plana Docente Semestre 2024-II</p>
+    </td>
+    <td class="px-6 py-4 font-body-md text-on-surface-variant">05 Oct, 2024</td>
+    <td class="px-6 py-4">
+    <span class="px-3 py-1 bg-surface-variant text-on-surface-variant rounded-full font-label-sm text-label-sm">Institucional</span>
+    </td>
+    <td class="px-6 py-4">
+    <div class="flex items-center justify-center gap-2">
+    <button class="p-2 text-primary hover:bg-primary-fixed rounded-lg transition-colors" title="Visualizar">
+    <span class="material-symbols-outlined text-[20px]">visibility</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" title="Editar">
+    <span class="material-symbols-outlined text-[20px]">edit</span>
+    </button>
+    <button class="p-2 text-error hover:bg-error-container rounded-lg transition-colors" title="Eliminar">
+    <span class="material-symbols-outlined text-[20px]">delete</span>
+    </button>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="p-4 bg-surface-container-low/20 border-t border-outline-variant/30 flex justify-between items-center">
+    <button class="px-4 py-2 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high rounded-lg transition-all">Anterior</button>
+    <div class="flex gap-1">
+    <button class="w-8 h-8 flex items-center justify-center bg-primary-container text-white rounded-lg font-bold text-label-md">1</button>
+    <button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-lg text-label-md">2</button>
+    <button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-lg text-label-md">3</button>
+    <span class="w-8 h-8 flex items-center justify-center text-on-surface-variant">...</span>
+    <button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high rounded-lg text-label-md">125</button>
+    </div>
+    <button class="px-4 py-2 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high rounded-lg transition-all">Siguiente</button>
+    </div>
+    </div>
+    </div>
+    </main>
+    <!-- Simple Hover Micro-interaction -->
+    <script>
+            document.querySelectorAll('tr').forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    row.style.transform = 'translateX(4px)';
+                    row.style.transition = 'all 0.2s ease-in-out';
+                });
+                row.addEventListener('mouseleave', () => {
+                    row.style.transform = 'translateX(0)';
+                });
+            });
+        </script>
+    
+    
+    </body></html>

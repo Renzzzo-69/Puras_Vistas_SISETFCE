@@ -114,56 +114,51 @@
     </head>
     <body class="bg-background font-body-md text-on-background min-h-screen">
     <!-- SideNavBar (Authority: JSON) -->
-    <aside class="fixed left-0 top-0 h-screen w-sidebar-width bg-sidebar-bg flex flex-col p-gutter border-r border-outline-variant/20 z-50">
-        <div class="flex items-center gap-3 mb-10">
-        <img alt="Mira Logo" class="w-10 h-10 object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvsUsFA4onb_wKPIR11nV6iZH2vRQ3wbVclzK1hQh3wuTYaUGDAt5nTEflbRvyhb5QNIrziMu7lNwm4sIvRw4qKrpCuoNX1O9sWwA3Q3fvU5-JnVAEByp7-BXCv7OgfwAK-FdrT_qj3uh4SqKjE44JmY7EqzWv118GTEJWpJV109PL7U_eQtIjU5WswR5NFIUEwc2Urf9L9san9ZbfK0ZmPoZp-lWMziO9vzDw4KCZjJR4zFCF37ly5Q3KftmxVGmXgd28lCzOUIzQ">
-        <div class="flex flex-col">
-        <span class="font-headline-lg text-headline-lg font-bold text-on-primary">SISET-FCE</span>
-        <span class="font-label-md text-label-md text-on-primary-container">Sistema de de seguiiento de Tesis</span>
-        </div>
-        </div>
-        <nav class="flex-grow space-y-1">
-        <div class="font-nav-caps text-nav-caps text-on-primary-container mb-2 uppercase">Menú Principal</div>
-        <a class="bg-primary-container text-on-primary-fixed rounded-xl flex items-center gap-3 px-4 py-3 transition-colors active:scale-95 duration-200" href="principaldecanatura.html">
-        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-        <span class="font-label-md text-label-md">Principal</span>
-        </a>
-        <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="formatosoficiales.html">
-        <span class="material-symbols-outlined" data-icon="description">description</span>
-        <span class="font-label-md text-label-md">Formatos Oficiales</span>
-        </a>
-        <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="asignacioonjurado.html">
-        <span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
-        <span class="font-label-md text-label-md">Asignación de Jurados</span>
-        </a>
-        <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="resolucion.html">
-        <span class="material-symbols-outlined" data-icon="gavel">gavel</span>
-        <span class="font-label-md text-label-md">Resoluciones</span>
-        </a>
-        <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="../Docente/perfil.html">
-        <span class="material-symbols-outlined" data-icon="settings">settings</span>
-        <span class="font-label-md text-label-md">Configuración</span>
-        </a>
-        </nav>
-        <div class="mt-auto pt-6 space-y-1">
-        <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="#">
-        
-        <span class="font-label-md text-label-md"><br></span>
-        </a>
-        <button class="w-full mt-4 bg-secondary-container text-on-secondary-container font-label-md text-label-md py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
-        <span class="material-symbols-outlined" data-icon="logout">logout</span>
-                        Cerrar Sesión
-                    </button>
-        </div>
-        </aside>
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-sidebar-bg flex flex-col py-gutter px-4 z-50">
+    <div class="mb-10 px-2 flex items-center gap-3">
+    <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+    <span class="material-symbols-outlined text-white text-2xl">school</span>
+    </div>
+    <div>
+    <h1 class="text-headline-md font-headline-lg text-surface-bright uppercase tracking-wider">MIRA</h1>
+    <p class="text-[10px] text-on-primary-container font-medium tracking-widest uppercase">Academic Tracking</p>
+    </div>
+    </div>
+    <nav class="flex-1 space-y-1">
+    <!-- Active Tab: Formatos Oficiales -->
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">dashboard</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Principal</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 bg-active-highlight text-on-primary font-bold rounded-lg transition-all active:scale-95 duration-200 ease-in-out" href="#">
+    <span class="material-symbols-outlined filled-icon" style="font-variation-settings: &quot;FILL&quot; 1;">description</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Formatos Oficiales</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">group_add</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Asignación de Jurados</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">gavel</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Resoluciones</span>
+    </a>
+    <a class="flex items-center gap-3 px-3 py-2.5 text-on-primary-container hover:bg-primary-container/50 transition-colors rounded-lg group" href="#">
+    <span class="material-symbols-outlined group-hover:text-white transition-colors">settings</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Configuración</span>
+    </a>
+    </nav>
+    <div class="mt-auto border-t border-white/10 pt-4">
+    <a class="flex items-center gap-3 px-3 py-2.5 text-secondary-container hover:bg-active-highlight/50 text-white transition-all rounded-lg" href="#">
+    <span class="material-symbols-outlined">logout</span>
+    <span class="font-nav-caps text-nav-caps uppercase">Cerrar Sesión</span>
+    </a>
+    </div>
+    </aside>
     <!-- Main Shell -->
     <div class="ml-[250px] flex flex-col min-h-screen">
     <!-- TopNavBar (Authority: JSON) -->
     <header class="sticky top-0 z-40 bg-surface border-b border-outline-variant/30 flex justify-between items-center w-full px-gutter h-[70px]">
     <div class="flex items-center gap-6">
-    
-    
-    
     </div><div class="flex items-center gap-3">
     <div class="text-right">
     <p class="font-headline-sm text-label-md font-bold text-primary">Decanatura</p>
@@ -207,7 +202,6 @@
     <p class="text-headline-md font-bold text-primary">38</p>
     </div>
     </div>
-    
     <div class="bg-surface border border-outline-variant/30 rounded-xl p-4 flex items-center gap-4 hover:shadow-sm transition-shadow">
     <div class="w-12 h-12 rounded-lg bg-error-container/50 flex items-center justify-center text-error">
     <span class="material-symbols-outlined">history</span>
@@ -219,20 +213,7 @@
     </div>
     </div>
     <!-- Table Card Container -->
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
-        <div class="relative w-full md:w-80">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-            <input class="pl-10 pr-4 py-2 bg-surface-container rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 text-body-md w-full transition-all" placeholder="Buscar formatos..." type="text">
-        </div>
-        
-        <a href="agregarformato.html" 
-           class="flex items-center justify-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-bold text-body-md hover:brightness-110 active:scale-95 transition-all shadow-sm text-center">
-            <span class="material-symbols-outlined">add</span>
-            <span>Agregar Formato</span>
-        </a>
-    </div>
-    
-    <div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6"><div class="relative w-full md:w-80"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span><input class="pl-10 pr-4 py-2 bg-surface-container rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 text-body-md w-full transition-all" placeholder="Buscar formatos..." type="text"></div><button class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-bold text-body-md hover:brightness-110 active:scale-95 transition-all shadow-sm"><span class="material-symbols-outlined">add</span><span class="">Agregar Formato</span></button></div><div class="bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
     <div class="px-6 py-4 bg-surface-container/50 border-b border-outline-variant/30 flex justify-between items-center">
     <h3 class="font-headline-sm text-headline-sm text-primary">Listado de Documentos Oficiales</h3>
     <div class="flex items-center gap-2">
@@ -315,10 +296,6 @@
     </tr>
     <!-- Row 3 -->
     <tr class="hover:bg-surface-container-low transition-colors group">
-    
-    
-    
-    
     </tr>
     <!-- Row 4 -->
     <tr class="hover:bg-surface-container-low transition-colors group">
@@ -394,6 +371,45 @@
                 }
             });
         </script>
-    
+    <div class="fixed inset-0 z-[60] flex items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm"></div>
+    <!-- Modal Container -->
+    <div class="relative bg-surface-container-lowest w-full max-w-md rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+    <!-- Modal Header -->
+    <div class="px-6 py-4 border-b border-outline-variant/20">
+    <h3 class="text-headline-sm text-primary font-bold">Agregar Formato Oficial</h3>
+    </div>
+    <!-- Modal Body -->
+    <div class="p-6 space-y-4">
+    <div class="space-y-1.5">
+    <label class="text-label-sm font-bold text-on-surface-variant uppercase tracking-tight">Nombre del Formato</label>
+    <input class="w-full px-4 py-2.5 bg-surface-container rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 text-body-md transition-all" placeholder="Ej. Acta de Sustentación" type="text">
+    </div>
+    <div class="space-y-1.5">
+    <label class="text-label-sm font-bold text-on-surface-variant uppercase tracking-tight">Tipo de Formato</label>
+    <div class="relative">
+    <select class="w-full px-4 py-2.5 bg-surface-container rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 text-body-md appearance-none transition-all">
+    <option value="word">Word (.docx)</option>
+    <option value="pdf">PDF (.pdf)</option>
+    </select>
+    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+    </div>
+    </div><div class="space-y-1.5"><label class="text-label-sm font-bold text-on-surface-variant uppercase tracking-tight">Subir Archivo</label><div class="relative group cursor-pointer border-2 border-dashed border-outline-variant/30 rounded-xl p-6 bg-surface-container/30 hover:bg-surface-container/50 hover:border-primary/30 transition-all flex flex-col items-center justify-center gap-2"><input type="file" class="absolute inset-0 opacity-0 cursor-pointer" accept=".docx,.pdf"><span class="material-symbols-outlined text-primary text-headline-lg">cloud_upload</span><div class="text-center"><p class="text-body-md font-medium text-on-surface">Arrastra y suelta tu archivo aquí o haz clic para explorar</p><p class="text-label-sm text-on-surface-variant mt-1">Formatos soportados: .docx, .pdf</p></div></div></div>
+    </div>
+    <!-- Modal Footer -->
+    <div class="px-6 py-4 bg-surface-container/30 flex justify-end gap-3">
+        <a href="formatosoficiales.html" 
+        class="px-5 py-2 text-primary font-bold text-body-md rounded-lg border border-primary/20 hover:bg-primary/5 transition-all text-center">
+        Cancelar
+     </a>
+     
+     <a href="formatosoficiales.html" 
+        class="px-5 py-2 bg-primary text-white font-bold text-body-md rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-sm text-center">
+        Agregar Formato
+     </a>    
+    </div>
+    </div>
+    </div>
     
     </body></html>

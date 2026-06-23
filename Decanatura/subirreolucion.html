@@ -1,0 +1,346 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mira - Subir Resolución</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                display: inline-block;
+                line-height: 1;
+            }
+            .file-drop-area.dragover {
+                border-color: #283a70;
+                background-color: #f3f3f9;
+            }
+        </style>
+    <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary-fixed": "#dbe1ff",
+                            "outline-variant": "#c5c6d1",
+                            "on-tertiary": "#ffffff",
+                            "surface-container-high": "#e7e8ee",
+                            "on-primary-fixed": "#00174d",
+                            "on-secondary-fixed-variant": "#005045",
+                            "surface-container": "#ededf3",
+                            "primary-container": "#283a70",
+                            "inverse-on-surface": "#f0f0f6",
+                            "surface-dim": "#d9d9df",
+                            "secondary-fixed-dim": "#80d6c4",
+                            "on-primary-container": "#94a6e3",
+                            "error": "#ba1a1a",
+                            "surface-variant": "#e2e2e8",
+                            "surface": "#f9f9ff",
+                            "inverse-primary": "#b5c4ff",
+                            "surface-container-highest": "#e2e2e8",
+                            "on-error": "#ffffff",
+                            "secondary-container": "#99f0dd",
+                            "tertiary": "#3d2100",
+                            "secondary-fixed": "#9cf3e0",
+                            "surface-container-lowest": "#ffffff",
+                            "on-tertiary-container": "#d69d61",
+                            "on-primary-fixed-variant": "#32447b",
+                            "surface-container-low": "#f3f3f9",
+                            "secondary": "#006b5c",
+                            "on-secondary-container": "#006f61",
+                            "on-surface": "#191c20",
+                            "on-tertiary-fixed": "#2c1600",
+                            "tertiary-fixed": "#ffdcbd",
+                            "inverse-surface": "#2e3035",
+                            "surface-tint": "#4b5c94",
+                            "on-error-container": "#93000a",
+                            "on-surface-variant": "#45464f",
+                            "tertiary-fixed-dim": "#f7bb7c",
+                            "on-tertiary-fixed-variant": "#663d08",
+                            "on-secondary": "#ffffff",
+                            "background": "#f9f9ff",
+                            "tertiary-container": "#5b3400",
+                            "on-secondary-fixed": "#00201b",
+                            "on-background": "#191c20",
+                            "error-container": "#ffdad6",
+                            "primary": "#0f2359",
+                            "surface-bright": "#f9f9ff",
+                            "primary-fixed-dim": "#b5c4ff",
+                            "outline": "#757681",
+                            "on-primary": "#ffffff"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                        },
+                        "spacing": {
+                            "container-max-width": "896px",
+                            "card-padding": "1.5rem",
+                            "header-height": "70px",
+                            "sidebar-width": "250px",
+                            "gutter": "1.25rem"
+                        },
+                        "fontFamily": {
+                            "label-sm": ["Inter"],
+                            "headline-sm": ["Hanken Grotesk"],
+                            "headline-md": ["Hanken Grotesk"],
+                            "body-lg": ["Inter"],
+                            "headline-lg": ["Hanken Grotesk"],
+                            "nav-caps": ["Inter"],
+                            "label-md": ["Inter"],
+                            "body-md": ["Inter"]
+                        },
+                        "fontSize": {
+                            "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                            "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                            "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+                            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                            "nav-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body class="bg-surface-container-low font-body-md text-on-surface">
+    <!-- Persistent SideNavBar -->
+    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary flex flex-col py-6 shadow-sm z-50">
+    <div class="px-6 mb-10">
+    <h1 class="font-headline-lg text-headline-lg font-bold text-surface">SISET-FCE</h1>
+    <p class="font-nav-caps text-nav-caps tracking-widest uppercase text-primary-fixed opacity-70">Sistema de seguimiento de tesis</p>
+    </div>
+    <nav class="flex-1 space-y-1">
+    <!-- Active: Resolution Management (Semantic Mapping) -->
+    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="principaldecanatura.html">
+    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Principal</span>
+    </a>
+    <a class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-xl px-4 py-3 mx-2 active:scale-95 transition-transform" href="formatosoficiales.html">
+    <span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Formatos Oficiales</span>
+    </a>
+    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="asignacioonjurado.html">
+    <span class="material-symbols-outlined" data-icon="groups">groups</span>
+    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Asignación de Jurados</span>
+    </a>
+    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="resolucion.html">
+    <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Resoluciones</span>
+    </a>
+    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="../Docente/perfil.html">
+    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Configuración</span>
+    </a>
+    </nav>
+    <div class="mt-auto border-t border-primary-fixed/10 pt-4">
+    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors" href="#">
+    <span class="material-symbols-outlined" data-icon="help">help</span>
+    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Centro de Ayuda</span>
+    </a>
+    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors" href="#">
+    <span class="material-symbols-outlined" data-icon="logout">logout</span>
+    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Cerrar Sesión</span>
+    </a>
+    </div>
+    </aside>
+    <!-- Persistent TopNavBar -->
+    <header class="fixed top-0 right-0 w-[calc(100%-250px)] h-[70px] bg-surface flex justify-between items-center px-8 border-b border-outline-variant/30 z-40">
+    <div class="flex items-center gap-4">
+    <div class="flex flex-col">
+    <span class="font-headline-sm text-headline-sm text-primary">Decanatura</span>
+    <span class="font-label-md text-label-md text-on-surface-variant">Bienvenido Ing. Mg. Segundo Roger Ramírez Shupingahua</span>
+    </div>
+    </div>
+    <div class="flex items-center gap-6">
+    <div class="relative group">
+    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-outline-variant/30 focus-within:ring-2 focus-within:ring-primary/20 bg-surface-container-low transition-all">
+    <span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+    <input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar expedientes..." type="text">
+    </div>
+    </div>
+    <div class="flex gap-2">
+    <button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+    <span class="material-symbols-outlined" data-icon="apps">apps</span>
+    </button>
+    </div>
+    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed">
+    <img alt="User Faculty Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged academic professional with a kind but authoritative expression. He is wearing a formal dark suit and glasses. The background is a blurred academic library setting with soft, warm lighting. The aesthetic is clean, professional, and reflects the institutional corporate style of a high-end university administrator." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeswqfFM0yBSo0B6Z4YzjgEnnmbQj1sstV1ZRONfIusZzjJWbnpwYHpLeFPZbzGIzt_uON_cEWBlP_98tioOHnSqwrtE5asBXYKmcMR0hZDK3BKeQD6ALYidT9QkDuot_retFUQBwW__HvLK5uectT9yqXkOtFuUJFu9hC0cO-Nn2oyOOT2Zdh21CvuH1BcImvHm-ivR38B91N6PEwOIq_TkOmGUWTjmlry6b4Y6e0gZuqNdCMKvuGTz05kJW79XVbMH9zeYDEmn1V">
+    </div>
+    </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="ml-[250px] pt-[70px] min-h-screen">
+    <div class="max-w-4xl mx-auto py-10 px-gutter">
+    <!-- Page Header -->
+    <div class="flex items-center gap-4 mb-8">
+    <button class="p-2 rounded-full hover:bg-surface-container transition-colors group">
+    <span class="material-symbols-outlined text-primary group-active:scale-90 transition-transform" data-icon="arrow_back">arrow_back</span>
+    </button>
+    <h2 class="font-headline-lg text-headline-lg text-primary">Subir Resolución</h2>
+    </div>
+    <!-- Main Form Card -->
+    <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
+    <!-- Card Header -->
+    <div class="bg-surface-container-low px-card-padding py-4 border-b border-outline-variant/30">
+    <h3 class="font-headline-sm text-headline-sm text-primary">Detalles del Documento</h3>
+    </div>
+    <!-- Form Content -->
+    <div class="p-card-padding space-y-8">
+    <!-- Upload Type Selection -->
+    <div class="space-y-3">
+    <label class="font-label-md text-label-md text-outline uppercase tracking-wider">Tipo de Carga</label>
+    <div class="flex gap-6">
+    <label class="flex items-center gap-3 cursor-pointer group">
+    <div class="relative flex items-center justify-center">
+    <input checked="" class="peer appearance-none w-5 h-5 border-2 border-outline rounded-full checked:border-primary transition-all" name="upload_type" type="radio">
+    <div class="absolute w-2.5 h-2.5 bg-primary rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+    </div>
+    <span class="font-body-md text-on-surface">Carga Única</span>
+    </label>
+    <label class="flex items-center gap-3 cursor-pointer group">
+    <div class="relative flex items-center justify-center">
+    <input class="peer appearance-none w-5 h-5 border-2 border-outline rounded-full checked:border-primary transition-all" name="upload_type" type="radio">
+    <div class="absolute w-2.5 h-2.5 bg-primary rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+    </div>
+    <span class="font-body-md text-on-surface">Carga Masiva</span>
+    </label>
+    </div>
+    </div>
+    <!-- Name Input -->
+    <div class="space-y-2">
+    <label class="font-label-md text-label-md text-outline uppercase tracking-wider" for="res_name">Tipo de resolución</label>
+    <select class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none" id="res_name">
+        <option value="" disabled="" selected="">Selecciona el tipo de resolución</option>
+        <option value="resolucion_decanato">Resolución de Decanato</option>
+        <option value="resolucion_consejo_facultad">Resolución de Consejo de Facultad</option>
+        <option value="resolucion_directoral">Resolución Directoral</option>
+    </select>
+    </div><div class="space-y-2">
+        <label class="font-label-md text-label-md text-outline uppercase tracking-wider" for="recipient">Destinatario</label>
+        <select class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none" id="recipient">
+            <option value="" disabled="" selected="">Selecciona el destinatario</option>
+            <option value="estudiante">Estudiante</option>
+            <option value="docente">Docente</option>
+            <option value="administrativo">Personal Administrativo</option>
+            <option value="externo">Externo</option>
+        </select>
+    </div>
+    <!-- File Upload Area -->
+    <div class="space-y-2">
+    <label class="font-label-md text-label-md text-outline uppercase tracking-wider">Seleccionar Archivo</label>
+    <div class="file-drop-area border-2 border-dashed border-outline-variant/60 rounded-xl p-10 flex flex-col items-center justify-center gap-4 transition-all hover:bg-surface-container/50 cursor-pointer" id="drop-area">
+    <div class="w-16 h-16 rounded-full bg-secondary-container/30 flex items-center justify-center">
+    <span class="material-symbols-outlined text-secondary text-4xl" data-icon="cloud_upload">cloud_upload</span>
+    </div>
+    <div class="text-center">
+    <p class="font-headline-sm text-on-surface">Arrastra y suelta tu archivo aquí</p>
+    <p class="font-body-md text-on-surface-variant">o haz clic para explorar tus carpetas</p>
+    </div>
+    <p class="font-label-sm text-label-sm text-outline">Formatos permitidos: PDF, DOCX (Máx. 25MB)</p>
+    <input class="hidden" id="file-input" type="file">
+    </div>
+    <div class="hidden flex items-center gap-3 p-3 bg-secondary-container/20 rounded-lg border border-secondary/20" id="file-info">
+    <span class="material-symbols-outlined text-secondary" data-icon="description">description</span>
+    <span class="text-body-md font-medium text-on-secondary-container flex-1 truncate" id="file-name-text"></span>
+    <button class="text-error hover:bg-error-container/20 p-1 rounded transition-colors" id="remove-file">
+    <span class="material-symbols-outlined" data-icon="close">close</span>
+    </button>
+    </div>
+    </div>
+    </div>
+    <!-- Action Footer -->
+    <div class="bg-surface-container-low px-card-padding py-6 border-t border-outline-variant/30 flex justify-end gap-4">
+    <button class="px-8 py-3 rounded-xl font-headline-sm text-secondary border border-secondary hover:bg-secondary-container/10 transition-all active:scale-95">
+                            Cancelar
+                        </button>
+    <button class="px-10 py-3 rounded-xl font-headline-sm text-white bg-primary-container hover:brightness-110 shadow-sm transition-all active:scale-95">
+                            Aceptar
+                        </button>
+    </div>
+    </div>
+    <!-- Informational Bento Hint -->
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+    
+    
+    </div>
+    </div>
+    </main>
+    <script>
+            const dropArea = document.getElementById('drop-area');
+            const fileInput = document.getElementById('file-input');
+            const fileInfo = document.getElementById('file-info');
+            const fileNameText = document.getElementById('file-name-text');
+            const removeFile = document.getElementById('remove-file');
+    
+            dropArea.addEventListener('click', () => fileInput.click());
+    
+            dropArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropArea.classList.add('dragover');
+            });
+    
+            dropArea.addEventListener('dragleave', () => {
+                dropArea.classList.remove('dragover');
+            });
+    
+            dropArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropArea.classList.remove('dragover');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFile(files[0]);
+                }
+            });
+    
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFile(e.target.files[0]);
+                }
+            });
+    
+            function handleFile(file) {
+                fileNameText.textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                dropArea.classList.add('hidden');
+                fileInfo.classList.remove('hidden');
+            }
+    
+            removeFile.addEventListener('click', (e) => {
+                e.stopPropagation();
+                fileInput.value = '';
+                fileInfo.classList.add('hidden');
+                dropArea.classList.remove('hidden');
+            });
+    
+            // Simple button interaction
+            document.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if(this.textContent.trim() === 'Aceptar') {
+                        const name = document.getElementById('res_name').value;
+                        if(!name) {
+                            alert('Por favor ingrese el nombre de la resolución.');
+                        } else {
+                            // Success micro-interaction simulation
+                            this.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span>';
+                            setTimeout(() => {
+                                this.innerHTML = 'Subido con éxito';
+                                this.classList.remove('bg-primary-container');
+                                this.classList.add('bg-secondary');
+                            }, 1500);
+                        }
+                    }
+                });
+            });
+        </script>
+    
+    
+    </body></html>
