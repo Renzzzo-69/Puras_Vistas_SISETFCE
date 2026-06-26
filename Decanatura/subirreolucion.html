@@ -3,9 +3,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Mira - Subir Resolución</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Hanken+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <style>
             .material-symbols-outlined {
                 font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -109,94 +109,81 @@
             }
         </script>
     </head>
-    <body class="bg-surface-container-low font-body-md text-on-surface">
-    <!-- Persistent SideNavBar -->
-    <aside class="fixed left-0 top-0 h-full w-[250px] bg-primary flex flex-col py-6 shadow-sm z-50">
-    <div class="px-6 mb-10">
-    <h1 class="font-headline-lg text-headline-lg font-bold text-surface">SISET-FCE</h1>
-    <p class="font-nav-caps text-nav-caps tracking-widest uppercase text-primary-fixed opacity-70">Sistema de seguimiento de tesis</p>
+    <body class="bg-surface-container-low font-body-md text-on-surface antialiased">
+    
+    <aside class="fixed left-0 top-0 h-screen w-sidebar-width bg-[#283a70] flex flex-col p-gutter border-r border-outline-variant/10 z-50">
+    <div class="flex items-center gap-3 mb-10">
+    <img alt="Mira Logo" class="w-10 h-10 object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvsUsFA4onb_wKPIR11nV6iZH2vRQ3wbVclzK1hQh3wuTYaUGDAt5nTEflbRvyhb5QNIrziMu7lNwm4sIvRw4qKrpCuoNX1O9sWwA3Q3fvU5-JnVAEByp7-BXCv7OgfwAK-FdrT_qj3uh4SqKjE44JmY7EqzWv118GTEJWpJV109PL7U_eQtIjU5WswR5NFIUEwc2Urf9L9san9ZbfK0ZmPoZp-lWMziO9vzDw4KCZjJR4zFCF37ly5Q3KftmxVGmXgd28lCzOUIzQ">
+    <div class="flex flex-col">
+    <span class="font-headline-lg text-headline-lg font-bold text-white">SISET-FCE</span>
+    <span class="font-label-md text-label-md text-[#94a6e3]">Sistema de seguimiento de Tesis</span>
     </div>
-    <nav class="flex-1 space-y-1">
-    <!-- Active: Resolution Management (Semantic Mapping) -->
-    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="principaldecanatura.html">
+    </div>
+    <nav class="flex-grow space-y-1">
+    <div class="font-nav-caps text-nav-caps text-[#94a6e3]/70 mb-2 uppercase tracking-wider pl-2">Menú Principal</div>
+    
+    <a class="text-white/70 hover:text-white hover:bg-white/10 flex items-center gap-3 px-4 py-3 transition-all rounded-xl" href="principaldecanatura.html">
     <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Principal</span>
+    <span class="font-label-md text-label-md">Principal</span>
     </a>
-    <a class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-xl px-4 py-3 mx-2 active:scale-95 transition-transform" href="formatosoficiales.html">
-    <span class="material-symbols-outlined" data-icon="gavel">gavel</span>
-    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Formatos Oficiales</span>
+    
+    <a class="text-white/70 hover:text-white hover:bg-white/10 flex items-center gap-3 px-4 py-3 transition-all rounded-xl" href="asignacioonjurado.html">
+    <span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+    <span class="font-label-md text-label-md">Asignación de Jurados</span>
     </a>
-    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="asignacioonjurado.html">
-    <span class="material-symbols-outlined" data-icon="groups">groups</span>
-    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Asignación de Jurados</span>
+    
+    <a class="bg-white/15 text-white flex items-center gap-3 px-4 py-3 transition-all rounded-xl font-bold" href="resolucion.html">
+    <span class="material-symbols-outlined" data-icon="gavel" style="font-variation-settings: 'FILL' 1;">gavel</span>
+    <span class="font-label-md text-label-md">Resoluciones</span>
     </a>
-    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="resolucion.html">
-    <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
-    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Resoluciones</span>
-    </a>
-    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors duration-200" href="../Docente/perfil.html">
+    
+    <a class="text-white/70 hover:text-white hover:bg-white/10 flex items-center gap-3 px-4 py-3 transition-all rounded-xl" href="../Docente/perfil.html">
     <span class="material-symbols-outlined" data-icon="settings">settings</span>
-    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Configuración</span>
+    <span class="font-label-md text-label-md">Configuración</span>
     </a>
     </nav>
-    <div class="mt-auto border-t border-primary-fixed/10 pt-4">
-    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors" href="#">
-    <span class="material-symbols-outlined" data-icon="help">help</span>
-    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Centro de Ayuda</span>
-    </a>
-    <a class="flex items-center gap-3 text-primary-fixed opacity-70 hover:opacity-100 px-4 py-3 mx-2 hover:bg-primary-fixed-dim/10 transition-colors" href="#">
+    <div class="mt-auto pt-6 space-y-1">
+    <button class="w-full mt-4 bg-[#9cefdc] text-[#0b6f60] font-label-md text-label-md py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all font-bold">
     <span class="material-symbols-outlined" data-icon="logout">logout</span>
-    <span class="font-nav-caps text-nav-caps uppercase tracking-widest">Cerrar Sesión</span>
-    </a>
+                    Cerrar Sesión
+                </button>
     </div>
     </aside>
-    <!-- Persistent TopNavBar -->
-    <header class="fixed top-0 right-0 w-[calc(100%-250px)] h-[70px] bg-surface flex justify-between items-center px-8 border-b border-outline-variant/30 z-40">
-    <div class="flex items-center gap-4">
+
+    <header class="fixed top-0 right-0 w-[calc(100%-250px)] h-header-height bg-surface border-b border-outline-variant/30 flex justify-between items-center px-gutter z-40">
     <div class="flex flex-col">
-    <span class="font-headline-sm text-headline-sm text-primary">Decanatura</span>
-    <span class="font-label-md text-label-md text-on-surface-variant">Bienvenido Ing. Mg. Segundo Roger Ramírez Shupingahua</span>
-    </div>
+    <h1 class="font-headline-sm text-headline-sm font-bold text-primary">Decanatura</h1>
     </div>
     <div class="flex items-center gap-6">
-    <div class="relative group">
-    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-outline-variant/30 focus-within:ring-2 focus-within:ring-primary/20 bg-surface-container-low transition-all">
-    <span class="material-symbols-outlined text-outline" data-icon="search">search</span>
-    <input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar expedientes..." type="text">
+    <div class="text-right hidden md:block">
+    <div class="font-headline-sm text-headline-sm text-primary">Bienvenido Ing. Mg. Segundo Roger Ramírez Shupingahua</div>
+    <div class="flex items-center justify-end gap-3 text-on-surface-variant font-label-sm text-label-sm">
+    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">mail</span> sramirez@mira.edu.pe</span>
+    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">call</span> +51 987 654 321</span>
     </div>
     </div>
-    <div class="flex gap-2">
-    <button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-    <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+    <div class="flex items-center gap-3 border-l border-outline-variant/30 pl-6">
+    <button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+    <span class="material-symbols-outlined">notifications</span>
     </button>
-    <button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-    <span class="material-symbols-outlined" data-icon="apps">apps</span>
-    </button>
-    </div>
-    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed">
-    <img alt="User Faculty Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged academic professional with a kind but authoritative expression. He is wearing a formal dark suit and glasses. The background is a blurred academic library setting with soft, warm lighting. The aesthetic is clean, professional, and reflects the institutional corporate style of a high-end university administrator." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeswqfFM0yBSo0B6Z4YzjgEnnmbQj1sstV1ZRONfIusZzjJWbnpwYHpLeFPZbzGIzt_uON_cEWBlP_98tioOHnSqwrtE5asBXYKmcMR0hZDK3BKeQD6ALYidT9QkDuot_retFUQBwW__HvLK5uectT9yqXkOtFuUJFu9hC0cO-Nn2oyOOT2Zdh21CvuH1BcImvHm-ivR38B91N6PEwOIq_TkOmGUWTjmlry6b4Y6e0gZuqNdCMKvuGTz05kJW79XVbMH9zeYDEmn1V">
+    <img class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional portrait of a senior academic dean in a formal suit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu7Z1xhOLlzMP7kSZ6xw6QFF9CyhYu1Vs4LYIlEBCp-Rjd7gpfC9CeACrmXkORZh64GkVamqEGBShPhnxibcJIT-fLGzQ0WJILY5AYT4hvkNYgmDdWrKXbfuELIPgCkg33LhG10sLxUmUZ_iekYJgbjC1PX-VV-NfcffxYnWbCl89Ad58CSzCi-B7TjNrm0bsTehhI06-fDlEf3fNHIIqR0AlnEzKVafVQrnp2KV9SBscyVRWJcSktjy7ZPv6L0p-J16e67E9w6-Yl">
     </div>
     </div>
     </header>
-    <!-- Main Content Canvas -->
-    <main class="ml-[250px] pt-[70px] min-h-screen">
+
+    <main class="ml-sidebar-width pt-[calc(70px+2rem)] min-h-screen">
     <div class="max-w-4xl mx-auto py-10 px-gutter">
-    <!-- Page Header -->
     <div class="flex items-center gap-4 mb-8">
-    <button class="p-2 rounded-full hover:bg-surface-container transition-colors group">
+    <button onclick="window.history.back()" class="p-2 rounded-full hover:bg-surface-container transition-colors group">
     <span class="material-symbols-outlined text-primary group-active:scale-90 transition-transform" data-icon="arrow_back">arrow_back</span>
     </button>
     <h2 class="font-headline-lg text-headline-lg text-primary">Subir Resolución</h2>
     </div>
-    <!-- Main Form Card -->
     <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
-    <!-- Card Header -->
     <div class="bg-surface-container-low px-card-padding py-4 border-b border-outline-variant/30">
     <h3 class="font-headline-sm text-headline-sm text-primary">Detalles del Documento</h3>
     </div>
-    <!-- Form Content -->
     <div class="p-card-padding space-y-8">
-    <!-- Upload Type Selection -->
     <div class="space-y-3">
     <label class="font-label-md text-label-md text-outline uppercase tracking-wider">Tipo de Carga</label>
     <div class="flex gap-6">
@@ -216,7 +203,6 @@
     </label>
     </div>
     </div>
-    <!-- Name Input -->
     <div class="space-y-2">
     <label class="font-label-md text-label-md text-outline uppercase tracking-wider" for="res_name">Tipo de resolución</label>
     <select class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none" id="res_name">
@@ -235,7 +221,6 @@
             <option value="externo">Externo</option>
         </select>
     </div>
-    <!-- File Upload Area -->
     <div class="space-y-2">
     <label class="font-label-md text-label-md text-outline uppercase tracking-wider">Seleccionar Archivo</label>
     <div class="file-drop-area border-2 border-dashed border-outline-variant/60 rounded-xl p-10 flex flex-col items-center justify-center gap-4 transition-all hover:bg-surface-container/50 cursor-pointer" id="drop-area">
@@ -258,7 +243,6 @@
     </div>
     </div>
     </div>
-    <!-- Action Footer -->
     <div class="bg-surface-container-low px-card-padding py-6 border-t border-outline-variant/30 flex justify-end gap-4">
     <button class="px-8 py-3 rounded-xl font-headline-sm text-secondary border border-secondary hover:bg-secondary-container/10 transition-all active:scale-95">
                             Cancelar
@@ -268,7 +252,6 @@
                         </button>
     </div>
     </div>
-    <!-- Informational Bento Hint -->
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
     
     
@@ -340,7 +323,31 @@
                     }
                 });
             });
+
+            // Search Bar Focus Effect (Glassmorphism Blur adaptado)
+            const topBar = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    topBar.classList.add('shadow-sm');
+                    topBar.style.backgroundColor = 'rgba(249, 249, 255, 0.95)';
+                    topBar.style.backdropFilter = 'blur(8px)';
+                } else {
+                    topBar.classList.remove('shadow-sm');
+                    topBar.style.backgroundColor = '#f9f9ff';
+                    topBar.style.backdropFilter = 'none';
+                }
+            });
+
+            // Hover effect for side nav items scaling
+            const navItems = document.querySelectorAll('aside nav a');
+            navItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateX(4px)';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateX(0)';
+                });
+                item.style.transition = 'all 0.2s ease-in-out';
+            });
         </script>
-    
-    
-    </body></html>
+</body></html>

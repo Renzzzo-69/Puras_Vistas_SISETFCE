@@ -3,9 +3,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Mira - Decanatura</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <script id="tailwind-config">
           tailwind.config = {
             darkMode: "class",
@@ -117,50 +117,46 @@
         </style>
     </head>
     <body class="font-body-md text-on-background antialiased">
-    <!-- SideNavBar (Shared Component) -->
-    <aside class="fixed left-0 top-0 h-screen w-sidebar-width bg-sidebar-bg flex flex-col p-gutter border-r border-outline-variant/20 z-50">
+    
+    <aside class="fixed left-0 top-0 h-screen w-sidebar-width bg-[#283a70] flex flex-col p-gutter border-r border-outline-variant/10 z-50">
     <div class="flex items-center gap-3 mb-10">
     <img alt="Mira Logo" class="w-10 h-10 object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvsUsFA4onb_wKPIR11nV6iZH2vRQ3wbVclzK1hQh3wuTYaUGDAt5nTEflbRvyhb5QNIrziMu7lNwm4sIvRw4qKrpCuoNX1O9sWwA3Q3fvU5-JnVAEByp7-BXCv7OgfwAK-FdrT_qj3uh4SqKjE44JmY7EqzWv118GTEJWpJV109PL7U_eQtIjU5WswR5NFIUEwc2Urf9L9san9ZbfK0ZmPoZp-lWMziO9vzDw4KCZjJR4zFCF37ly5Q3KftmxVGmXgd28lCzOUIzQ">
     <div class="flex flex-col">
-    <span class="font-headline-lg text-headline-lg font-bold text-on-primary">SISET-FCE</span>
-    <span class="font-label-md text-label-md text-on-primary-container">Sistema de de seguiiento de Tesis</span>
+    <span class="font-headline-lg text-headline-lg font-bold text-white">SISET-FCE</span>
+    <span class="font-label-md text-label-md text-[#94a6e3]">Sistema de seguimiento de Tesis</span>
     </div>
     </div>
     <nav class="flex-grow space-y-1">
-    <div class="font-nav-caps text-nav-caps text-on-primary-container mb-2 uppercase">Menú Principal</div>
-    <a class="bg-primary-container text-on-primary-fixed rounded-xl flex items-center gap-3 px-4 py-3 transition-colors active:scale-95 duration-200" href="principaldecanatura.html">
-    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+    <div class="font-nav-caps text-nav-caps text-[#94a6e3]/70 mb-2 uppercase tracking-wider pl-2">Menú Principal</div>
+    
+    <a class="bg-white/15 text-white flex items-center gap-3 px-4 py-3 transition-all rounded-xl font-bold" href="principaldecanatura.html">
+    <span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
     <span class="font-label-md text-label-md">Principal</span>
     </a>
-    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="formatosoficiales.html">
-    <span class="material-symbols-outlined" data-icon="description">description</span>
-    <span class="font-label-md text-label-md">Formatos Oficiales</span>
-    </a>
-    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="asignacioonjurado.html">
+    
+    <a class="text-white/70 hover:text-white hover:bg-white/10 flex items-center gap-3 px-4 py-3 transition-all rounded-xl" href="asignacioonjurado.html">
     <span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
     <span class="font-label-md text-label-md">Asignación de Jurados</span>
     </a>
-    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="resolucion.html">
+    
+    <a class="text-white/70 hover:text-white hover:bg-white/10 flex items-center gap-3 px-4 py-3 transition-all rounded-xl" href="resolucion.html">
     <span class="material-symbols-outlined" data-icon="gavel">gavel</span>
     <span class="font-label-md text-label-md">Resoluciones</span>
     </a>
-    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="../Docente/perfil.html">
+    
+    <a class="text-white/70 hover:text-white hover:bg-white/10 flex items-center gap-3 px-4 py-3 transition-all rounded-xl" href="../Docente/perfil.html">
     <span class="material-symbols-outlined" data-icon="settings">settings</span>
     <span class="font-label-md text-label-md">Configuración</span>
     </a>
     </nav>
     <div class="mt-auto pt-6 space-y-1">
-    <a class="text-primary-fixed/70 hover:text-primary-fixed hover:bg-primary-container/50 flex items-center gap-3 px-4 py-3 transition-colors rounded-xl" href="#">
-    
-    <span class="font-label-md text-label-md"><br></span>
-    </a>
-    <button class="w-full mt-4 bg-secondary-container text-on-secondary-container font-label-md text-label-md py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+    <button class="w-full mt-4 bg-[#9cefdc] text-[#0b6f60] font-label-md text-label-md py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all font-bold">
     <span class="material-symbols-outlined" data-icon="logout">logout</span>
                     Cerrar Sesión
                 </button>
     </div>
     </aside>
-    <!-- TopAppBar (Shared Component) -->
+
     <header class="fixed top-0 right-0 w-[calc(100%-250px)] h-header-height bg-surface border-b border-outline-variant/30 flex justify-between items-center px-gutter z-40">
     <div class="flex flex-col">
     <h1 class="font-headline-sm text-headline-sm font-bold text-primary">Decanatura</h1>
@@ -181,16 +177,13 @@
     </div>
     </div>
     </header>
-    <!-- Main Content Area -->
+
     <main class="pt-[calc(70px+2rem)] ml-sidebar-width min-h-screen pb-12 px-gutter">
     <div class="max-w-container-max-width mx-auto">
-    <!-- Welcome Section -->
     <section class="mb-10">
     
     </section>
-    <!-- Bento Dashboard Grid -->
     <div class="grid grid-cols-12 gap-5">
-    <!-- Metric Card: Expedientes -->
     <div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow" style="transition: 0.3s; transform: translateY(0px);">
     <div class="flex justify-between items-start mb-4">
     <div class="p-2 bg-secondary-container/30 rounded-lg text-secondary">
@@ -205,7 +198,6 @@
     </div>
     <div class="font-label-sm text-on-surface-variant mt-2">75% Procesados satisfactoriamente</div>
     </div>
-    <!-- Metric Card: Jurados -->
     <div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow" style="transition: 0.3s; transform: translateY(0px);">
     <div class="flex justify-between items-start mb-4">
     <div class="p-2 bg-primary-container/10 rounded-lg text-primary">
@@ -221,7 +213,6 @@
     <div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed-dim flex items-center justify-center text-[10px] font-bold text-primary">+81</div>
     </div>
     </div>
-    <!-- Metric Card: Resoluciones -->
     <div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm hover:shadow-md transition-shadow" style="transition: 0.3s; transform: translateY(0px);">
     <div class="flex justify-between items-start mb-4">
     <div class="p-2 bg-error-container/30 rounded-lg text-status-error">
@@ -232,26 +223,20 @@
     <div class="font-label-md text-on-surface-variant uppercase tracking-wider">Resoluciones Pendientes</div>
     <div class="font-headline-lg text-headline-lg text-status-error mt-1">16</div>
     <button class="mt-4 w-full border border-status-error text-status-error font-label-md py-2 rounded-xl hover:bg-status-error/5 transition-colors">
-                            Revisar Ahora
-                        </button>
+                                Revisar Ahora
+                            </button>
     </div>
-    <!-- Main Activity Chart Placeholder -->
     
-    <!-- Quick Actions / Sidebar in Content -->
     <div class="col-span-12 md:col-span-4 space-y-5">
     <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-card-padding shadow-sm">
-    
     <div class="space-y-3">
-    
-    
     </div>
     </div>
-    
     </div>
-    <!-- Recent Transactions / List -->
+    
     <div class="col-span-12 bg-surface-container-lowest border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
     <div class="px-card-padding py-4 border-b border-outline-variant/30 bg-surface-container-low flex justify-between items-center">
-    <h3 class="font-headline-sm text-headline-sm text-primary">Actividad Reciente</h3>
+    <h3 class="font-headline-sm text-headline-sm text-primary">Bandeja de Entrada</h3>
     <button class="text-primary font-label-md hover:underline">Ver todo</button>
     </div>
     <div class="overflow-x-auto">
@@ -263,7 +248,7 @@
     <th class="px-6 py-3">Tipo de Trámite</th>
     <th class="px-6 py-3">Fecha</th>
     <th class="px-6 py-3">Estado</th>
-    <th class="px-6 py-3"></th>
+    <th class="px-6 py-3 text-right">Acciones</th>
     </tr>
     </thead>
     <tbody class="divide-y divide-outline-variant/20">
@@ -273,10 +258,16 @@
     <td class="px-6 py-4 text-on-surface-variant">Grado de Bachiller</td>
     <td class="px-6 py-4 text-on-surface-variant">hace 2 horas</td>
     <td class="px-6 py-4">
-    <span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-full text-[10px] font-bold">PROCESADO</span>
+    <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase">Derivado</span>
     </td>
     <td class="px-6 py-4 text-right">
+    <div class="flex items-center justify-end gap-2">
+    <button class="opacity-50 cursor-not-allowed flex items-center gap-1 bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-lg text-label-md font-bold transition-all" disabled="">
+    <span class="material-symbols-outlined text-[16px]">output</span>
+    <span>Derivado</span>
+    </button>
     <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+    </div>
     </td>
     </tr>
     <tr class="hover:bg-surface-container transition-colors">
@@ -285,10 +276,16 @@
     <td class="px-6 py-4 text-on-surface-variant">Título Profesional</td>
     <td class="px-6 py-4 text-on-surface-variant">hace 5 horas</td>
     <td class="px-6 py-4">
-    <span class="bg-primary-fixed-dim text-primary px-2 py-1 rounded-full text-[10px] font-bold uppercase">En Revisión</span>
+    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border border-amber-200">Por derivar</span>
     </td>
     <td class="px-6 py-4 text-right">
+    <div class="flex items-center justify-end gap-2">
+    <button class="flex items-center gap-1 bg-primary text-white hover:brightness-110 active:scale-95 px-3 py-1.5 rounded-lg text-label-md font-bold transition-all shadow-sm">
+    <span class="material-symbols-outlined text-[16px]">output</span>
+    <span>Derivar UDI</span>
+    </button>
     <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+    </div>
     </td>
     </tr>
     <tr class="hover:bg-surface-container transition-colors">
@@ -297,10 +294,16 @@
     <td class="px-6 py-4 text-on-surface-variant">Cambio de Facultad</td>
     <td class="px-6 py-4 text-on-surface-variant">Ayer</td>
     <td class="px-6 py-4">
-    <span class="bg-error-container text-on-error-container px-2 py-1 rounded-full text-[10px] font-bold uppercase">Observado</span>
+    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border border-amber-200">Por derivar</span>
     </td>
     <td class="px-6 py-4 text-right">
+    <div class="flex items-center justify-end gap-2">
+    <button class="flex items-center gap-1 bg-primary text-white hover:brightness-110 active:scale-95 px-3 py-1.5 rounded-lg text-label-md font-bold transition-all shadow-sm">
+    <span class="material-symbols-outlined text-[16px]">output</span>
+    <span>Derivar UDI</span>
+    </button>
     <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+    </div>
     </td>
     </tr>
     </tbody>
@@ -310,10 +313,11 @@
     </div>
     </div>
     </main>
-    <!-- Floating Action Button (FAB) - Suppressed as per instructions for Dean Dashboard context if not specifically requested, but adding for 'New Resolution' since it's a common Dean task -->
+    
     <button class="fixed bottom-10 right-10 w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
     <span class="material-symbols-outlined text-[30px]" data-weight="fill">add</span>
     </button>
+    
     <script>
             // Micro-interactions and subtle effects
             document.querySelectorAll('.hover\\:shadow-md').forEach(card => {
@@ -326,7 +330,7 @@
                 card.style.transition = 'all 0.3s ease';
             });
     
-            // Search Bar Focus Effect (though hidden in config, keeping logic if enabled)
+            // Search Bar Focus Effect (Glassmorphism Blur)
             const topBar = document.querySelector('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
@@ -339,7 +343,17 @@
                     topBar.style.backdropFilter = 'none';
                 }
             });
+
+            // Hover effect for side nav items scaling
+            const navItems = document.querySelectorAll('aside nav a');
+            navItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateX(4px)';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateX(0)';
+                });
+                item.style.transition = 'all 0.2s ease-in-out';
+            });
         </script>
-    
-    
-    </body></html>
+</body></html>
